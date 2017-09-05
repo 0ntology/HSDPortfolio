@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Poiret;
+  src: url('./constants/Poiret_One/PoiretOne-Regular.ttf');
+}
+
+[data-reactroot] {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+input:focus {
+  outline:0;
+}
+button:focus {
+  outline:0;
+}
