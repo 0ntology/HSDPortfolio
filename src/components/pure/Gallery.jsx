@@ -1,18 +1,49 @@
 import React from 'react';
 
+import { LeftArrow, RightArrow } from '../../media/media.js';
+
+import GalleryButton from './GalleryButton.jsx';
 import Project from './Project.jsx';
 
-const Gallery = ({sources}) => {
-  const projects = sources.map(Project);
-
-  return (
-    <div style={styles.base}>
-      { projects }
-    </div>
-  );
+const Directions = {
+  forward: 1,
+  backward: -1
 };
 
-export default Gallery;
+export default class Gallery extends React.Component {
+  state = {
+    selected: 0
+  };
+
+  handleClick = (increment) => {
+    const {sources} = this.props;
+    const {selected} = this.state;
+    const newSelection = ( selected + increment ) % sources.length;
+
+    this.setState({
+      selected: (newSelection >= 0) ? newSelection : sources.length - 1
+    });
+  };
+
+  render() {
+    const {sources} = this.props;
+    const {selected} = this.state;
+
+    return (
+      <div style={styles.base}>
+        <GalleryButton
+          source ={LeftArrow}
+          handleClick={() => this.handleClick(Directions.backward)}
+        />
+        <Project {...sources[selected]} />
+        <GalleryButton
+          source ={RightArrow}
+          handleClick={() => this.handleClick(Directions.forward)}
+        />
+      </div>
+    );
+  }
+}
 
 const styles = {
   base: {

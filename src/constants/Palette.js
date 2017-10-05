@@ -9,7 +9,10 @@ const Palette = {
   loungeNavy: '#141C2A',
   lamplight: '#FEC95B',
   cream: '#EDE8D1',
-  black: 'black'
+  black: 'black',
+  white: 'white',
+  gray: 'rgba(77, 91, 102, 0.62)',
+
 };
 
 export default Palette;

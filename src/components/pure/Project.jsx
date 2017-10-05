@@ -25,7 +25,7 @@ const styles = {
     width: '100%',
 
     display: 'flex',
-    alignItems: 'center',
+    //alignItems: 'center',
     justifyContent: 'center'
   },
   image: {

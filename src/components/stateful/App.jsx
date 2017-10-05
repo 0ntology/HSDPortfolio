@@ -1,6 +1,6 @@
 import React, { Component } from  'react';
+import Typekit from 'react-typekit';
 
-import Media from                 '../../media/media.js';
 import Blueprint from             '../../constants/Blueprint.js';
 import Palette from               '../../constants/Palette.js';
 import Configurations from         '../../constants/Configurations.js';
@@ -8,8 +8,8 @@ import Configurations from         '../../constants/Configurations.js';
 import Header from    '../pure/Header.jsx';
 import Logo from      '../pure/Logo.jsx';
 import NavBar from    '../pure/NavBar.jsx';
-import NavButton from '../pure/NavButton.jsx';
-import Gallery from   '../pure/Gallery.jsx';
+import NavButtons from '../pure/NavButtons.jsx';
+import Primary from '../pure/Primary.jsx';
 
 class App extends Component {
 
@@ -37,50 +37,26 @@ class App extends Component {
     });
   };
 
-  /**
-   * Generates the primary content depending on 'page'.
-   *
-   */
-  _generatePrimary = () => {
-    const { page } = this.state;
-    const { Pages } = Configurations;
-
-    switch (page) {
-      case Pages.PORTFOLIO: return <Gallery sources={Media}/>;
-      case Pages.ABOUT:
-      case Pages.PROBONO:
-      case Pages.CONTACT:
-      case Pages.PRESS:
-      default: return <div> NOT IMPLEMENTED </div>;
-    }
-  };
-
-  /**
-   * Generate navigation buttons
-   *
-   */
-  _generateNavButtons = () => {
-    const { Navigation } = Configurations;
-
-    return Navigation.map((destinationData) => <NavButton {...destinationData} handleNavigation={this._handleNavigation} />);
-  };
-
   render() {
-    const primary = this._generatePrimary();
-    const navButtons = this._generateNavButtons();
+    const {page} = this.state;
+    const {Navigation, Pages} = Configurations;
 
     return (
       <div style={styles.base}>
-
+        <Typekit kitId="xrq4ttt" />
         <Header>
           <Logo />
           <NavBar>
-            { navButtons }
+            <NavButtons
+              config={Navigation}
+              handleClick={this.handleNavigation}
+            />
           </NavBar>
         </Header>
-
-        { primary }
-
+        <Primary
+          config={Pages}
+          current={page}
+        />
       </div>
     );
   };
@@ -93,8 +69,10 @@ export default App;
 const styles = {
   base: {
     ...Blueprint.grid(8,8),
-    backgroundColor: Palette.beamLight,
-    gridGap: '5px',
-    overflow: 'auto'
+    backgroundColor: Palette.white,
+    gridGap: '0px',
+    overflow: 'auto',
+    fontFamily: 'Josefin Sans',
+    fontWeight: '400'
   }
 };

@@ -7,15 +7,15 @@ const Pages = {
 };
 
 const Navigation = [
-  {label: 'ABOUT', link: 'About'},
-  {label: 'PRO BONO', link: 'ProBono'},
-  {label: 'PORTFOLIO', link: 'Portfolio'},
-  {label: 'PRESS', 'link': 'Press'}
+  {label: 'about', link: 'About'},
+  {label: 'pro bono', link: 'ProBono'},
+  {label: 'portfolio', link: 'Portfolio'},
+  {label: 'press', 'link': 'Press'}
 ];
 
 const Configurations = {
-  Navigation,
-  Pages
+  Navigation: Navigation,
+  Pages: Pages
 };
 
 export default Configurations;
