@@ -2,11 +2,11 @@ import React from 'react';
 
 import Blueprint from '../../constants/Blueprint.js';
 
-const Project = ({title, src}) => {
+const Project = ({injectedStyles, src, title}) => {
   return (
     <div
       key={title}
-      style={styles.base}
+      style={{...styles.base, ...injectedStyles}}
     >
       <img
         src={src}

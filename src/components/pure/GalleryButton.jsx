@@ -1,8 +1,11 @@
 import React from 'react';
 
-const GalleryButton = ({source, handleClick}) => {
+const GalleryButton = ({injectedStyles, source, handleClick}) => {
   return (
-    <div style={styles.base} onClick={handleClick}>
+    <div
+      style={{...styles.base, ...injectedStyles}}
+      onClick={handleClick}
+    >
       <img src={source} alt="+"  />
     </div>
   );
@@ -14,6 +17,7 @@ const styles = {
   base: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    cursor: 'pointer'
   }
 };

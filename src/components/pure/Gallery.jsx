@@ -21,6 +21,7 @@ export default class Gallery extends React.Component {
     const newSelection = ( selected + increment ) % sources.length;
 
     this.setState({
+      // handle looping through projects
       selected: (newSelection >= 0) ? newSelection : sources.length - 1
     });
   };
@@ -31,13 +32,18 @@ export default class Gallery extends React.Component {
 
     return (
       <div style={styles.base}>
+        <Project
+          injectedStyles={styles.project}
+          {...sources[selected]}
+        />
         <GalleryButton
-          source ={LeftArrow}
+          injectedStyles={styles.leftButton}
+          source={LeftArrow}
           handleClick={() => this.handleClick(Directions.backward)}
         />
-        <Project {...sources[selected]} />
         <GalleryButton
-          source ={RightArrow}
+          injectedStyles={styles.rightButton}
+          source={RightArrow}
           handleClick={() => this.handleClick(Directions.forward)}
         />
       </div>
@@ -50,7 +56,20 @@ const styles = {
     gridRow: '2 / 9',
     gridColumn: '1 / 9',
 
-    height: '100%',
-    width: '100%',
+    display: 'grid',
+    gridTemplateRows: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(5, 1fr)'
+  },
+  project: {
+    gridRow: '1 / 4',
+    gridColumn: '1 / 6'
+  },
+  leftButton: {
+    gridRow: '2',
+    gridColumn: '1'
+  },
+  rightButton: {
+    gridRow: '2',
+    gridColumn: '5'
   }
 };
