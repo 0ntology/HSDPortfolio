@@ -3,8 +3,6 @@ import React from 'react';
 import Blueprint from '../../constants/Blueprint.js';
 import Palette from '../../constants/Palette.js';
 
-//import Title from '../../media/assets/iconography/schnaper_logo.gif';
-
 const Logo = () => {
   return (
     <div style={styles.base}>
@@ -30,8 +28,7 @@ const styles = {
   },
   text: {
     fontSize: '5vmin',
+    cursor: 'pointer',
     color: Palette.black,
-  //  textShadow: `-3px 2px 1px ${Palette.gray}, -2px 3px 5px ${Palette.gray}`,
-
   }
 };

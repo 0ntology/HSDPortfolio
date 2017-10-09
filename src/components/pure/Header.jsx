@@ -20,7 +20,6 @@ const styles = {
 
     padding: '12px',
     color: Palette.black,
-    //borderBottom: `3px double ${Palette.black}`,
     boxShadow: '0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23)',
     zIndex: '100',
     ...Blueprint.grid(8,1)

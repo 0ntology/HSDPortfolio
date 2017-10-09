@@ -25,10 +25,10 @@ const styles = {
     width: '100%',
 
     display: 'flex',
-    //alignItems: 'center',
     justifyContent: 'center'
   },
   image: {
-    ...Blueprint.image
+    maxWidth: '100%',
+    maxHeight: '100%'
   }
 };

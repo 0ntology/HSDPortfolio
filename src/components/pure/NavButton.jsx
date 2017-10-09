@@ -14,6 +14,7 @@ export default NavButton;
 
 const styles = {
   label: {
+    cursor: 'pointer',
     fontSize: '2vmin',
     fontWeight: '300'
   }

@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@font-face {
+  font-family: 'Deco';
+  src: url('./constants/fonts/NaiveDecoSansDouble.otf') format('opentype');
+};
+
+@font-face {
+  font-family: 'Deco Triple';
+  src: url('./constants/fonts/NaiveDecoSansTriple.otf') format('opentype');
+};
 
 [data-reactroot] {
   position: absolute;
@@ -10,7 +18,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Playfair Display';
+  font-family: 'Deco';
 }
 
 input:focus {

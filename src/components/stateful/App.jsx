@@ -1,5 +1,4 @@
 import React, { Component } from  'react';
-import Typekit from 'react-typekit';
 
 import Blueprint from             '../../constants/Blueprint.js';
 import Palette from               '../../constants/Palette.js';
@@ -43,7 +42,6 @@ class App extends Component {
 
     return (
       <div style={styles.base}>
-        <Typekit kitId="xrq4ttt" />
         <Header>
           <Logo />
           <NavBar>
@@ -68,11 +66,17 @@ export default App;
 
 const styles = {
   base: {
-    ...Blueprint.grid(8,8),
+    height: '100%',
+    width: '100%',
+    display: 'grid',
+    gridTemplateRows: '75px repeat(7, 1fr)',
+    gridTemplateColumns: 'repeat(8, 1fr)',
+    boxSizing: 'border-box',
+
     backgroundColor: Palette.white,
     gridGap: '0px',
     overflow: 'auto',
-    fontFamily: 'Josefin Sans',
+    fontFamily: 'Deco',
     fontWeight: '400'
   }
 };
