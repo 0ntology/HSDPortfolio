@@ -1,16 +1,15 @@
-const Pages = {
+export const Pages = {
   ABOUT: 'About',
   PORTFOLIO: 'Portfolio',
   PRESS: 'Press',
-  PROBONO: 'ProBono',
   CONTACT: 'Contact'
 };
 
 const Navigation = [
-  {label: 'about', destination: 'About'},
-  {label: 'pro bono', destination: 'ProBono'},
-  {label: 'portfolio', destination: 'Portfolio'},
-  {label: 'press', destination: 'Press'}
+  {label: 'portfolio', destination: Pages.PORTFOLIO},
+  {label: 'press', destination: Pages.PRESS},
+  {label: 'about', destination: Pages.ABOUT},
+  {label: 'contact', destination: Pages.CONTACT},
 ];
 
 const Configurations = {
