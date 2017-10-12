@@ -12,7 +12,6 @@ const Palette = {
   black: 'black',
   white: 'white',
   gray: 'rgba(77, 91, 102, 0.62)',
-
 };
 
 export default Palette;

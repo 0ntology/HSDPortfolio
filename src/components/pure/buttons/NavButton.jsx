@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NavButton = ({label, link, handleNavigation}) => {
+const NavButton = ({label, destination, handleNavigation}) => {
   return (
-    <div onClick={(e) => handleNavigation(link)}>
+    <div onClick={() => handleNavigation(destination)}>
       <div style={styles.label}>
         { label }
       </div>

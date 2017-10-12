@@ -11,17 +11,15 @@ import Logo from 'components/pure/graphics/Logo.jsx';
 
 class App extends Component {
   state = {
-    /** page:
-    * The currently selected page.
-    * @type{string}
-    */
+    /**
+     * @type {string} - key of the current page
+     */
     page: Configurations.Pages.PORTFOLIO
   };
 
   /**
-  * Handle the clicking of a navigation button.
-  *
-  */
+   * Handle the clicking of a navigation button.
+   */
   _handleNavigation = (toPage) => {
     this.setState({
       page: toPage
@@ -59,14 +57,14 @@ export default App;
 const styles = {
   base: {
     height: '100%',
+    boxSizing: 'border-box',
     width: '100%',
+
     display: 'grid',
     gridTemplateRows: '75px repeat(7, 1fr)',
     gridTemplateColumns: 'repeat(8, 1fr)',
-    boxSizing: 'border-box',
-
-    backgroundColor: Palette.white,
     gridGap: '0px',
+    backgroundColor: Palette.white,
     overflow: 'auto',
     fontFamily: 'Deco',
     fontWeight: '400'

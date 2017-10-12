@@ -7,10 +7,10 @@ const Pages = {
 };
 
 const Navigation = [
-  {label: 'about', link: 'About'},
-  {label: 'pro bono', link: 'ProBono'},
-  {label: 'portfolio', link: 'Portfolio'},
-  {label: 'press', 'link': 'Press'}
+  {label: 'about', destination: 'About'},
+  {label: 'pro bono', destination: 'ProBono'},
+  {label: 'portfolio', destination: 'Portfolio'},
+  {label: 'press', destination: 'Press'}
 ];
 
 const Configurations = {
