@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { LeftArrow, RightArrow } from '../../media/media.js';
+import GalleryButton from 'components/pure/buttons/GalleryButton.jsx';
+import Project from 'components/pure/graphics/Project.jsx';
 
-import GalleryButton from './GalleryButton.jsx';
-import Project from './Project.jsx';
+import LeftArrowIcon from 'components/pure/graphics/LeftArrowIcon.jsx';
+import RightArrowIcon from 'components/pure/graphics/RightArrowIcon.jsx';
 
 const Directions = {
   forward: 1,
@@ -38,14 +39,16 @@ export default class Gallery extends React.Component {
         />
         <GalleryButton
           injectedStyles={styles.leftButton}
-          source={LeftArrow}
           handleClick={() => this.handleClick(Directions.backward)}
-        />
+        >
+          <LeftArrowIcon {...styles.arrow} />
+        </GalleryButton>
         <GalleryButton
           injectedStyles={styles.rightButton}
-          source={RightArrow}
           handleClick={() => this.handleClick(Directions.forward)}
-        />
+        >
+          <RightArrowIcon {...styles.arrow} />
+        </GalleryButton>
       </div>
     );
   }
@@ -66,10 +69,17 @@ const styles = {
   },
   leftButton: {
     gridRow: '2',
-    gridColumn: '1'
+    gridColumn: '1',
+    justifyContent: 'flex-start'
   },
   rightButton: {
     gridRow: '2',
-    gridColumn: '5'
+    gridColumn: '5',
+    justifyContent: 'flex-end'
+  },
+  arrow: {
+    stroke: 'rgba(255, 255, 255, 0.67)',
+    width: '50%',
+    height: '50%'
   }
 };

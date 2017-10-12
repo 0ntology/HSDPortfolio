@@ -1,12 +1,12 @@
 import React from 'react';
 
-const GalleryButton = ({injectedStyles, source, handleClick}) => {
+const GalleryButton = ({children, handleClick, injectedStyles}) => {
   return (
     <div
       style={{...styles.base, ...injectedStyles}}
       onClick={handleClick}
     >
-      <img src={source} alt="+"  />
+      {children}
     </div>
   );
 };

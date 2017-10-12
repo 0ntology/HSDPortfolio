@@ -7,7 +7,7 @@ const NavButtons = ({config, handleClick}) => {
   return config.map((item) => <NavButton
                                 key={item.label}
                                 {...item}
-                                handleClick={handleClick}
+                                handleNavigation={handleClick}
                               />);
 
 };

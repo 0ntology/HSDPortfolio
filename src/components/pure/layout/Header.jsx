@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Palette from '../../constants/Palette.js';
-import Blueprint from '../../constants/Blueprint.js';
+import Palette from 'constants/Palette.js';
+import Blueprint from 'constants/Blueprint.js';
 
 const Header = ({ children }) => {
   return (

@@ -1,38 +1,30 @@
 import React, { Component } from  'react';
 
-import Blueprint from             '../../constants/Blueprint.js';
-import Palette from               '../../constants/Palette.js';
-import Configurations from         '../../constants/Configurations.js';
+import Palette from 'constants/Palette.js';
+import Configurations from 'constants/Configurations.js';
 
-import Header from    '../pure/Header.jsx';
-import Logo from      '../pure/Logo.jsx';
-import NavBar from    '../pure/NavBar.jsx';
-import NavButtons from '../pure/NavButtons.jsx';
-import Primary from '../pure/Primary.jsx';
+import Header from 'components/pure/layout/Header.jsx';
+import NavBar from 'components/pure/layout/NavBar.jsx';
+import Router from 'components/pure/pages/Router.jsx';
+import NavButtons from 'components/pure/buttons/NavButtons.jsx';
+import Logo from 'components/pure/graphics/Logo.jsx';
 
 class App extends Component {
-
   state = {
+    /** page:
+    * The currently selected page.
+    * @type{string}
+    */
     page: Configurations.Pages.PORTFOLIO
-  };
-
-  /**
-   * Construct the component.
-   *
-   */
-  constructor(props) {
-    super(props);
-
-    this._handleNavigation = this._handleNavigation.bind(this);
   };
 
   /**
   * Handle the clicking of a navigation button.
   *
   */
-  _handleNavigation = (link) => {
+  _handleNavigation = (toPage) => {
     this.setState({
-      page: link
+      page: toPage
     });
   };
 
@@ -47,11 +39,11 @@ class App extends Component {
           <NavBar>
             <NavButtons
               config={Navigation}
-              handleClick={this.handleNavigation}
+              handleClick={this._handleNavigation}
             />
           </NavBar>
         </Header>
-        <Primary
+        <Router
           config={Pages}
           current={page}
         />
