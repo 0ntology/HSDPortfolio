@@ -2,18 +2,18 @@ import React from 'react';
 
 import Dimensioned from 'components/meta/Dimensioned.jsx';
 
-const Project = ({injectedStyles, src, title}) => {
+const Project = ({injectedStyles, src, title, x}) => {
   return (
     <div
       key={title}
-      style={{...styles.base, ...injectedStyles}}
+      style={{...styles.base}}
     >
-      <ProjectImg src={src} />
+      <ProjectImg src={src} x={x} />
     </div>
   );
 };
 
-const FullImg = ({dimensions, src}) => <div style={styles.image(dimensions, src)} />;
+const FullImg = ({dimensions, src, x}) => <div style={styles.image(dimensions, src, x)} />;
 
 const ProjectImg = Dimensioned(FullImg);
 
@@ -27,11 +27,12 @@ const styles = {
     display: 'flex',
     justifyContent: 'center'
   },
-  image: (dimensions, src) => {
+  image: (dimensions, src, x) => {
     return {
       background: `url("${src}")`,
       backgroundSize: 'cover',
-      width: '100%',
+      left: `${dimensions.width * x}`,
+      width: '100vw',
       height: `${dimensions.height - 75}px`
     };
   }
