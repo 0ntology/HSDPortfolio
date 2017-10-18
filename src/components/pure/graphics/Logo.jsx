@@ -17,11 +17,12 @@ export default Logo;
 
 const styles = {
   base: {
-    gridColumn: '1 / 4',
+    height: '50%',
+    width: '50%',
 
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'flex-start'
   },
   image: {
     ...Blueprint.image

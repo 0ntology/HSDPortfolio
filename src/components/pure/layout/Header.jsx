@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Palette from 'constants/Palette.js';
-import Blueprint from 'constants/Blueprint.js';
 
 const Header = ({ children }) => {
   return (
@@ -15,13 +14,20 @@ export default Header;
 
 const styles = {
   base: {
-    gridRow: '1',
-    gridColumn: '1 / 9',
+    position: 'fixed',
+    zIndex: 1,
+    backgroundColor: 'white',
+    height: '100px',
+    width: '100vw',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
 
     padding: '12px',
+    boxSizing: 'border-box',
     color: Palette.black,
-    boxShadow: '0 2px 5px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23)',
-    zIndex: '100',
-    ...Blueprint.grid(8,1)
+    boxShadow: '0 2px 10px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23)',
   }
 };

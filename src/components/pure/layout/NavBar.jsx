@@ -12,17 +12,16 @@ export default NavBar;
 
 const styles = {
   base: {
-    gridColumn: '5 / 9',
-
     height: '100%',
-    width: '100%',
+    width: '50%',
 
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
 
-    padding: '10px',
+    padding: '8px',
+    marginRight: '32px',
     boxSizing: 'border-box'
   }
 }

@@ -56,16 +56,18 @@ export default App;
 
 const styles = {
   base: {
-    height: '100%',
+    height: '100vh',
+    width: '100vw',
     boxSizing: 'border-box',
-    width: '100%',
+    overflow: 'hidden',
 
+    /**TODO: upon browser support!
     display: 'grid',
     gridTemplateRows: '75px repeat(7, 1fr)',
     gridTemplateColumns: 'repeat(8, 1fr)',
-    gridGap: '0px',
+    gridGap: '0px',**/
+
     backgroundColor: Palette.white,
-    overflow: 'auto',
     fontFamily: 'Deco',
     fontWeight: '400'
   }

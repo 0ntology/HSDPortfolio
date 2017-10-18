@@ -1,8 +1,6 @@
 
-import ImageOne from './assets/02GorfineLivingRoom.jpg';
-
-import LeftArrowIcon from './assets/iconography/left_arrow.svg';
-import RightArrowIcon from './assets/iconography/right_arrow.svg';
+import leftArrowIcon from './assets/iconography/left_arrow.svg';
+import rightArrowIcon from './assets/iconography/right_arrow.svg';
 
 const Media = [
   {title: 'Image One', src: 'https://photos-6.dropbox.com/t/2/AADy0P6CTQYkwqFYDaqQG7DjFkGRlI36dEw1lY_Pf4D2oA/12/545924110/jpeg/32x32/1/_/1/2/02%20Gorfine%20Living%20Room.jpg/EOPBs68EGM4IIAIoAg/sHZk1k63gLqfiyyIplAcPM32CtpCTFzLFFw5LjLpty4%2CyRrhGvKDSB63M7Is4V8ykFwiHfvkPBH0Md69Ktf_-J4%2CQzrf7AGPq_RaDiZJxUrsJZ07BDfIVLKQa7AIFdVSeuk%2CQKBDWI0j7cBZcitAeMq9lVvSheZgEXZZlB121heH_VQ?size=2048x1536&size_mode=3'},
@@ -10,6 +8,6 @@ const Media = [
   {title: 'Image Three', src: 'https://photos-4.dropbox.com/t/2/AABkgwm_b_5pi5ogKhpREuazGir0W1z7VX8Ln2QJvO2aGQ/12/545924110/jpeg/32x32/1/_/1/2/IMG_5525e.jpg/EOPBs68EGM4IIAIoAg/dhlXrhX9lf0QFDYYTAnkpJqnCcmraGnenBZjWP47QZw%2CsY8cPUWs-iUTk277Z1UElFj-3X5DGUkBy83oAHRFEcU?size=2048x1536&size_mode=3'}
 ];
 
-export const LeftArrow = LeftArrowIcon;
-export const RightArrow = RightArrowIcon;
+export const LeftArrow = leftArrowIcon;
+export const RightArrow = rightArrowIcon;
 export default Media;

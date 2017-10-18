@@ -1,7 +1,7 @@
 import React from 'react';
-import { StaggeredMotion } from 'react-motion';
+import { Motion, spring } from 'react-motion';
 
-import Media from 'media/media.js';
+import Dimensioned from 'components/meta/Dimensioned.jsx';
 import GalleryButton from 'components/pure/buttons/GalleryButton.jsx';
 import LeftArrowIcon from 'components/pure/graphics/LeftArrowIcon.jsx';
 import RightArrowIcon from 'components/pure/graphics/RightArrowIcon.jsx';
@@ -17,15 +17,13 @@ export default class Gallery extends React.Component {
     selected: 0
   };
 
-  handleClick = (increment) => {
+  handleClick = increment => {
     const {selected} = this.state;
     const {sources} = this.props;
     const newSelection = ( selected + increment ) % sources.length;
 
     this.setState({
-      //TODO: disabled arrows make this no longer applicable
-      // handle looping through projects
-      selected: (newSelection >= 0) ? newSelection : sources.length - 1
+      selected: newSelection >= 0 ? newSelection : sources.length - 1
     });
   };
 
@@ -35,80 +33,85 @@ export default class Gallery extends React.Component {
 
     return (
       <div style={styles.base}>
-        <ProjectReel selected={selected} sources={sources} />
-        { selected && <GalleryButton
-            enabled={selected}
-            handleClick={() => this.handleClick(Directions.backward)}
-            injectedStyles={styles.leftButton}
-          >
-            <LeftArrowIcon {...styles.arrow} />
-          </GalleryButton>
-        }
-        { (sources.length - selected - 1) && <GalleryButton
-            enabled={(sources.length - selected - 1)}
-            handleClick={() => this.handleClick(Directions.forward)}
-            injectedStyles={styles.rightButton}
-          >
-            <RightArrowIcon {...styles.arrow} />
-          </GalleryButton>
-        }
+        <ImageReel selected={selected} sources={sources} />
+        <ImageControls
+          left={selected}
+          right={(sources.length - selected - 1)}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }
+};
+
+const ImageControls = ({left, right, handleClick}) => {
+  return (
+    <div style={styles.imageControls}>
+      <GalleryButton
+        enabled={left}
+        handleClick={() => handleClick(Directions.backward)}
+        injectedStyles={{justifyContent: 'flex-start'}}
+      >
+        <LeftArrowIcon {...styles.arrow} />
+      </GalleryButton>
+      <GalleryButton
+        enabled={right}
+        handleClick={() => handleClick(Directions.forward)}
+        injectedStyles={{justifyContent: 'flex-end'}}
+      >
+        <RightArrowIcon {...styles.arrow} />
+      </GalleryButton>
+    </div>
+  );
+};
+
+const Reel = ({dimensions, selected, sources}) => {
+  const initialCondition = {x: 0};
+  const trajectory = {x: spring(selected, {stiffness: 150, damping: 33})};
+  return (
+    <Motion defaultStyle={initialCondition} style={trajectory}>
+      { position =>
+          <div style={styles.imageReel(dimensions, position)}>
+            { sources.map((source) => <Project key={source.title} {...source} /> )}
+          </div>
+      }
+    </Motion>
+  );
 }
 
-const ProjectReel = ({selected, sources}) => {
-  const defaults = [
-    {x: 0},
-    {x: 1},
-    {x: 2}
-  ]
-  return (
-    <StaggeredMotion
-      defaultStyles={defaults}
-      styles={position => position.map((_, i) => {
-        return i === 0
-          ? {x: -selected}
-          : {x: position[i-1].x}
-      })}
-    >
-      { ({x}) => <Project x={x} /> }
-    </StaggeredMotion>
-  )
-}
+const ImageReel = Dimensioned(Reel);
 
 const styles = {
   base: {
-    gridRow: '2 / 9',
-    gridColumn: '1 / 9',
-
-    display: 'grid',
-    gridTemplateRows: 'repeat(3, 1fr)',
-    gridTemplateColumns: 'repeat(5, 1fr)'
+    position: 'fixed',
+    top: '75px',
+    width: '100vw',
+    height: '100vh'
   },
-  /*
-  project: {
-    gridRow: '1 / 4',
-    gridColumn: '1 / 6'
-  },
-  project: ({x}) => {
+  imageReel: (dimensions, position) => {
     return {
-      left:
-    };
-  },*/
-  leftButton: {
-    gridRow: '2',
-    gridColumn: '1',
-    justifyContent: 'flex-start'
+      position: 'absolute',
+      left: `${-dimensions.width * position.x}px`,
+      display: 'flex',
+      flexDirection: 'row',
+      height: '100%',
+      width: '100%'
+    }
   },
-  rightButton: {
-    gridRow: '2',
-    gridColumn: '5',
-    justifyContent: 'flex-end'
+  imageControls: {
+    position: 'absolute',
+    top: '40%',
+    width: '100%',
+    height: '15vh',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
   arrow: {
     stroke: 'rgba(255, 255, 255, 0.67)',
-    width: '50%',
-    height: '50%'
+    width: '25%',
+    height: '100%'
   }
 };

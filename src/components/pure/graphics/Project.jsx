@@ -2,38 +2,37 @@ import React from 'react';
 
 import Dimensioned from 'components/meta/Dimensioned.jsx';
 
-const Project = ({injectedStyles, src, title, x}) => {
+const Project = ({dimensions, src, title, x}) => {
   return (
     <div
       key={title}
-      style={{...styles.base}}
+      style={styles.base(dimensions, x)}
     >
-      <ProjectImg src={src} x={x} />
+      <CoveringImage src={src} />
     </div>
   );
 };
 
-const FullImg = ({dimensions, src, x}) => <div style={styles.image(dimensions, src, x)} />;
+const CoveringImage = ({src}) =>
+  <div style={styles.image(src)} />;
 
-const ProjectImg = Dimensioned(FullImg);
-
-export default Project;
+export default Dimensioned(Project);
 
 const styles = {
-  base: {
-    height: '100%',
-    width: '100%',
-
-    display: 'flex',
-    justifyContent: 'center'
+  base: (dimensions, x) => {
+    return {
+      height: '100%',
+      width: '100%',
+      //position: 'absolute',
+      //left: `${dimensions.width * x}`,
+    }
   },
-  image: (dimensions, src, x) => {
+  image: src => {
     return {
       background: `url("${src}")`,
       backgroundSize: 'cover',
-      left: `${dimensions.width * x}`,
-      width: '100vw',
-      height: `${dimensions.height - 75}px`
+      height: '100vh',
+      width: '100vw'
     };
   }
 };
