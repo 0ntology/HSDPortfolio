@@ -22,7 +22,8 @@ const styles = {
 
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    marginLeft: '32px'
   },
   image: {
     ...Blueprint.image

@@ -12,6 +12,7 @@ export default NavBar;
 
 const styles = {
   base: {
+    fontFamily: 'Josefin Sans',
     height: '100%',
     width: '50%',
 
@@ -20,7 +21,6 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
 
-    padding: '8px',
     marginRight: '32px',
     boxSizing: 'border-box'
   }

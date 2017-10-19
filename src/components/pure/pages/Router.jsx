@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Media from 'media/media.js';
-import { Pages } from 'constants/Configurations.js';
+import { AboutPage, Pages } from 'constants/Configurations.js';
 
 import Gallery from './Gallery.jsx';
 import About from './About.jsx';
@@ -13,7 +13,7 @@ const Router = ({current}) => {
     case Pages.PORTFOLIO:
       return <Gallery sources={Media} />;
     case Pages.ABOUT:
-      return <About />;
+      return <About {...AboutPage} />;
     case Pages.CONTACT:
       return <Contact />;
     case Pages.PRESS:

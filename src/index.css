@@ -8,6 +8,8 @@
   src: url('./constants/fonts/NaiveDecoSansTriple.otf') format('opentype');
 };
 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Playfair+Display');
+
 [data-reactroot] {
   position: absolute;
   width: 100% !important;

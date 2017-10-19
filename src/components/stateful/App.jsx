@@ -1,4 +1,5 @@
 import React, { Component } from  'react';
+import { StyleRoot } from 'radium';
 
 import Palette from 'constants/Palette.js';
 import Configurations from 'constants/Configurations.js';
@@ -31,21 +32,23 @@ class App extends Component {
     const {Navigation, Pages} = Configurations;
 
     return (
-      <div style={styles.base}>
-        <Header>
-          <Logo />
-          <NavBar>
-            <NavButtons
-              config={Navigation}
-              handleClick={this._handleNavigation}
-            />
-          </NavBar>
-        </Header>
-        <Router
-          config={Pages}
-          current={page}
-        />
-      </div>
+      <StyleRoot>
+        <div style={styles.base}>
+          <Header>
+            <Logo />
+            <NavBar>
+              <NavButtons
+                config={Navigation}
+                handleClick={this._handleNavigation}
+              />
+            </NavBar>
+          </Header>
+          <Router
+            config={Pages}
+            current={page}
+          />
+        </div>
+      </StyleRoot>
     );
   };
 };

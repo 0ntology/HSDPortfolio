@@ -86,7 +86,8 @@ const styles = {
     position: 'fixed',
     top: '75px',
     width: '100vw',
-    height: '100vh'
+    height: '90vh',
+    boxSizing: 'border-box'
   },
   imageReel: (dimensions, position) => {
     return {

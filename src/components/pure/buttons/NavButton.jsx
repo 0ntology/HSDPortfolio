@@ -1,21 +1,28 @@
 import React from 'react';
+import Radium from 'radium';
 
 const NavButton = ({label, destination, handleNavigation}) => {
   return (
-    <div onClick={() => handleNavigation(destination)}>
-      <div style={styles.label}>
+    <div style={styles.base} onClick={() => handleNavigation(destination)}>
         { label }
-      </div>
     </div>
   );
 };
 
-export default NavButton;
+export default Radium(NavButton);
 
 const styles = {
-  label: {
+  base: {
+    flex: '1',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
     cursor: 'pointer',
     fontSize: '2vmin',
-    fontWeight: '300'
+    fontWeight: '300',
+    ':hover': {
+      background: '#BFB09D'
+    }
   }
 };

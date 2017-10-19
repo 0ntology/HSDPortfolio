@@ -14,10 +14,10 @@ export default Header;
 
 const styles = {
   base: {
-    position: 'fixed',
-    zIndex: 1,
+    position: 'relative',
+    zIndex: '1',
     backgroundColor: 'white',
-    height: '100px',
+    height: '10vh',
     width: '100vw',
 
     display: 'flex',
@@ -25,7 +25,6 @@ const styles = {
     justifyContent: 'flex-end',
     alignItems: 'center',
 
-    padding: '12px',
     boxSizing: 'border-box',
     color: Palette.black,
     boxShadow: '0 2px 10px rgba(0,0,0,0.16), 0 2px 5px rgba(0,0,0,0.23)',
