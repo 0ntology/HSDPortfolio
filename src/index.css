@@ -1,14 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC:400,400i,700');
+
 @font-face {
   font-family: 'Deco';
-  src: url('./constants/fonts/NaiveDecoSansDouble.otf') format('opentype');
+  src: url('./constants/assets/fonts/NaiveDecoSansDouble.otf') format('opentype');
 };
-
-@font-face {
-  font-family: 'Deco Triple';
-  src: url('./constants/fonts/NaiveDecoSansTriple.otf') format('opentype');
-};
-
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Playfair+Display');
 
 [data-reactroot] {
   position: absolute;
@@ -19,7 +15,6 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'Deco';
 }
 
