@@ -4,8 +4,23 @@ import { chunk } from 'lodash';
 
 import Keys from 'constants/Keys.js';
 import Colors from 'constants/Colors.js';
+import { SmallScreen, MediumScreen, LargeScreen } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
+import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
+
+/**
+ * Utils
+ */
+
+const isSmall = width => (width < SmallScreen.width) && SmallScreen.columns;
+const isMedium = width => (width < MediumScreen.width) && MediumScreen.columns;
+const isLarge = width => (width < LargeScreen.width) && LargeScreen.columns;
+
+const calcRows = width => isSmall(width)
+    || isMedium(width)
+    || isLarge(width)
+    || 3;
 
 /**
  * Boxes
@@ -32,10 +47,16 @@ const Column = ({sources}) =>
 /**
  * Portfolio
  */
-const Portfolio = ({config: {media}}) =>
-  <div style={styles.base}>
-    <Columns sources={chunk(media, 3)} />
-  </div>;
+const Portfolio = Dimensioned(({config: {media}, dimensions: {width}}) => {
+  const colCount = calcRows(width);
+  const colSize = Math.ceil(media.length / colCount);
+
+  return (
+    <div style={styles.base}>
+      <Columns sources={chunk(media, colSize)} />
+    </div>
+  )
+});
 
 export default Radium(Connect(Keys.portfolio)(Portfolio));
 
@@ -44,9 +65,9 @@ const styles = {
     backgroundColor: Colors.white,
 
     overflow: 'auto',
-    height: '90vh',
-    width: '100vw',
-    padding: '16px',
+    height: 'calc(100vh - 55px)',
+    width: '100%',
+    padding: '4px',
     boxSizing: 'border-box',
 
     display: 'flex',
@@ -62,8 +83,7 @@ const styles = {
   column: {
     boxSizing: 'border-box',
     flex: '1',
-    padding: '8px',
-
+    margin: '4px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -75,7 +95,9 @@ const styles = {
       backgroundImage: `url("${src}")`,
       backgroundSize: 'cover',
       height: 'calc(100vh / 3)',
-      width: '100%'
+      width: '100%',
+      margin: '4px',
+
     }
   },
 }
