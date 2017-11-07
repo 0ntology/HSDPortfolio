@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Row from 'components/common/structural/Row.jsx';
-import Button from './Button.jsx';
+import Button from './MenuButton.jsx';
 
 const IconButton = ({children, expanded, onExpand}) =>
   <div onClick={() => onExpand(!expanded)} style={styles.menuIconButton}>

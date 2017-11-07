@@ -18,7 +18,7 @@ const styles = {
     backgroundColor: 'white',
     color: Colors.black,
 
-    height: '10vh',
+    height: '55px',
     width: '100vw',
     boxSizing: 'border-box',
   }

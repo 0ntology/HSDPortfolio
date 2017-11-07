@@ -1,26 +1,17 @@
 import React from 'react';
 import Radium from 'radium';
 
-const Image = ({src, title, customStyles}) => {
-  return (
-    <div
-      key={title}
-      style={styles.base}
-    >
-      <CoveringImage src={src} customStyles={customStyles} />
-    </div>
-  );
-};
+const Image = ({src, customStyles}) =>
+  <div style={styles.base}>
+    <div style={[styles.image(src), customStyles]} />
+  </div>;
 
-const CoveringImage = Radium(({src, customStyles}) =>
-  <div style={[styles.image(src), customStyles]} />);
-
-export default Image;
+export default Radium(Image);
 
 const styles = {
   base: {
-      height: '100%',
-      width: '100%',
+    height: '100%',
+    width: '100%',
   },
   image: src => {
     return {

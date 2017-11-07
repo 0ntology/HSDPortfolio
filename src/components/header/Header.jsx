@@ -57,8 +57,8 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: '8px',
     fontFamily: Fonts.body,
-    //boxShadow: '0 2px 3px rgba(0,0,0,0.16), 0 2px 3px rgba(0,0,0,0.23)',
   },
   icon: {
     height: '100%',

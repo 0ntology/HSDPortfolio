@@ -54,7 +54,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'flex-start',
 
-    '@media (max-width: 500px)': {
+    '@media (maxWidth: 500px)': {
       flexDirection: 'column',
       alignItems: 'center'
     },

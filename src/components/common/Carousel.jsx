@@ -36,7 +36,10 @@ const Reel = ({dimensions, config, selected, handleClick}) => {
     <Motion defaultStyle={initialCondition} style={trajectory}>
       { position =>
           <div style={styles.imageReel(dimensions, position)}>
-            { config.map((source) => <Image key={source.title} {...source} customStyles={styles.image} /> )}
+            { config.map((source) =>
+                <Image key={source.title} {...source} customStyles={styles.image} />
+              )
+            }
           </div>
       }
     </Motion>
@@ -45,8 +48,8 @@ const Reel = ({dimensions, config, selected, handleClick}) => {
 
 const Carousel = ({handleClick, ...rest}) => {
   return [
-    <Controls handleClick={handleClick} />,
-    <Reel {...rest} />
+    <Controls key={'carousel'} handleClick={handleClick} />,
+    <Reel key={'reel'} {...rest} />
   ];
 }
 
@@ -54,8 +57,7 @@ export default Dimensioned(Carousel);
 
 const styles = {
   base: {
-    width: '100%',
-    height: '90vh',
+    height: '100%',
     boxSizing: 'border-box',
     overflow: 'hidden',
   },
@@ -63,11 +65,16 @@ const styles = {
     return {
       position: 'relative',
       left: `${-dimensions.width * position.x}px`,
+      height: '100%',
       display: 'flex',
       flexDirection: 'row',
-      height: '90vh',
-      width: '100%'
+      alignItems: 'center',
+      overflow: 'hidden'
     }
+  },
+  image: {
+    width: '100vw',
+    height: '100%'
   },
   imageControls: {
     position: 'absolute',
@@ -83,10 +90,6 @@ const styles = {
   arrow: {
     stroke: 'rgba(255, 255, 255, 0.67)',
     width: '25%',
-    height: '100%'
-  },
-  image: {
-    width: '100vw',
     height: '100%'
   }
 };

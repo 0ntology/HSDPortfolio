@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Row from 'components/common/structural/Row.jsx';
-import Button from './Button.jsx';
+import MenuButton from './MenuButton.jsx';
 
-const Buttons = ({config, current}) => config.map((datum, i) =>
-  <Button
+const MenuButtons = ({config, current}) => config.map((datum, i) =>
+  <MenuButton
     key={`menu-button-${i}`}
     isCurrent={(current === datum.destination)}
     {...datum}
@@ -12,8 +11,21 @@ const Buttons = ({config, current}) => config.map((datum, i) =>
 );
 
 const Menu = ({config, current}) =>
-  <Row>
-    <Buttons config={config} current={current} />
-  </Row>;
+  <div style={styles.base}>
+    <MenuButtons config={config} current={current} />
+  </div>;
 
 export default Menu;
+
+const styles = {
+  base: {
+    width: '500px',
+    height: '100%',
+    marginRight: '16px',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  }
+}

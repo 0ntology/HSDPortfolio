@@ -6,14 +6,10 @@ import Colors from 'constants/Colors.js';
 import Fonts from 'constants/Fonts.js';
 
 const Logo = ({onNavigation}) =>
-  <Link to="/home">
-    <div style={styles.base}>
-      <div style={styles.text}>
-        Harry Schnaper
-      </div>
-    </div>
+  <Link to="/home" style={styles.base}>
+    Harry Schnaper
   </Link>;
-  
+
 export default Radium(Logo);
 
 const styles = {
@@ -24,17 +20,14 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginLeft: '32px'
-  },
-  image: {
-    maxWidth: '100%',
-    maxHeight: '100%'
-  },
-  text: {
-    fontSize: '5vmin',
-    fontFamily: Fonts.title,
-    cursor: 'pointer',
+    marginLeft: '32px',
+
     color: Colors.black,
+    cursor: 'pointer',
+    fontSize: '4vmin',
+    fontFamily: Fonts.title,
+    textDecoration: 'none',
+
     ':hover': {
       transform: 'scale(1.05)',
     }
