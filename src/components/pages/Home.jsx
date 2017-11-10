@@ -44,7 +44,8 @@ const styles = {
   wrap: {
     height: 'calc(100vh - 55px)',
     width: '100%',
-    padding: '8px',
+
+    padding: '0 4px 4px 4px',
     boxSizing: 'border-box',
   },
   base: {

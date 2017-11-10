@@ -1,0 +1,54 @@
+/**
+ * Navigator:
+ *
+ * An item for rendering links in the header.
+ */
+import React from 'react';
+import Radium from 'radium';
+
+import Keys from 'constants/Keys.js';
+import Store from 'constants/Store.js';
+import {
+  link,
+  flexItem,
+  flexCenter,
+  flexRow,
+  text,
+} from 'constants/Styles.js';
+
+import RadiantLink from 'components/common/RadiantLink.jsx';
+
+const COMP_ID = Keys.navigation;
+
+const NavigatorItem = ({label, destination}) =>
+  <RadiantLink to={destination} style={styles.item}>
+    { label }
+  </RadiantLink>;
+
+const Navigator = ({ current }) => {
+  const config = Store[COMP_ID];
+
+  return (
+    <div style={styles.container}>
+      { config.map((datum, i) =>
+          <NavigatorItem id={`Nav-Item-${i}`} {...datum} />
+        )
+      }
+    </div>
+  );
+}
+
+export default Radium(Navigator);
+
+const styles = {
+  container: {
+    ...flexItem,
+    ...flexRow,
+  },
+  item: {
+    ...link,
+    ...text,
+    ...flexItem,
+    ...flexCenter,
+  },
+}

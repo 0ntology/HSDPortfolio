@@ -1,7 +1,8 @@
 const Fonts = {
-  title: 'Deco',
-  body: 'Deco',
-  plain: 'kepler-std-semicondensed-dis'
+  title: 'BurlingtonCenter',
+  body: 'BurlingtonCenter',
+  plain: 'BurlingtonCenter',
+  kepler: 'kepler-std-semicondensed-dis',
 };
 
 export default Fonts;

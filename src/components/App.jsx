@@ -11,7 +11,7 @@ import View from 'components/View.jsx';
 
 const App = () =>
   <div style={styles.base}>
-    <Header config={navConfig} />
+    <Header/>
     <View />
   </div>;
 

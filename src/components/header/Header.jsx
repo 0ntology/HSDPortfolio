@@ -1,68 +1,77 @@
 import React from 'react';
+import Radium from 'radium';
+import { pick } from 'lodash';
+
+import styleUtils from 'utils/StyleUtils.js';
+
+import Keys from 'constants/Keys.js';
+import Fonts from 'constants/Fonts.js';
+import Colors from 'constants/Colors.js';
+import { flexRow } from 'constants/Styles.js';
 
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
-import Fonts from 'constants/Fonts.js';
-import { SmallScreen } from 'constants/UI.js';
 
-import Bar from 'components/common/structural/Bar.jsx';
-import LogoButton from 'components/common/graphics/LogoButton.jsx';
+import Navigator from 'components/header/Navigator.jsx';
+import Initial from 'components/header/Initial.jsx';
+import Title from 'components/header/Title.jsx';
+import Fill from 'components/header/Fill.jsx';
 
-import Menu from 'components/header/Menu.jsx';
-import CollapsibleMenu from 'components/header/CollapsibleMenu.jsx';
+const { navigator, initial, title, fill, mini } = Keys;
 
-class NarrowHeader extends React.Component {
-  state = {
-    expanded: false
-  };
+const points = {
+  [Keys.navigator]: {
+    Comp: Navigator,
+    profile: ['config', 'current'],
+  },
+  [Keys.initial]: {
+    Comp: Initial,
+    profile: [],
+  },
+  [Keys.title]: {
+    Comp: Title,
+    profile: [],
+  },
+  [Keys.fill]: {
+    Comp: Fill,
+    profile: []
+  },
+};
 
-  handleExpand = (doExpand) => {
-    this.setState({
-      expanded: doExpand
-    });
-  };
+const space = [
+  [fill, initial, fill],
+  [title, navigator],
+  [title, fill, navigator],
+];
 
-  render() {
-    const {config, current} = this.props;
-    const {expanded} = this.state;
+const Header = ({dimensions: {width}, ...props}) => {
+  const cols = styleUtils.calcCols(width);
+  const position = space[(cols-1)];
 
-    return (
-      <Bar customStyles={styles.base}>
-        { !expanded && <LogoButton /> }
-        <CollapsibleMenu
-          config={config}
-          current={current}
-          expanded={expanded}
-          onExpand={this.handleExpand}
-        />
-      </Bar>
-    );
-  }
+  return (
+    <div style={styles.base}>
+      { position.map((key) => {
+          const { Comp, profile } = points[key];
+          return <Comp {...pick(props, profile)} />;
+        })
+      }
+    </div>
+  );
 }
 
-const WideHeader = ({config, current}) =>
-  <Bar customStyles={styles.base}>
-    <LogoButton />
-    <Menu config={config} current={current} />
-  </Bar>;
-
-const Header = ({dimensions, ...rest}) => (dimensions.width < SmallScreen.width)
-    ? <NarrowHeader {...rest} />
-    : <WideHeader {...rest} />;
-
-export default Dimensioned(Header);
+export default Dimensioned(Radium(Header));
 
 const styles = {
   base: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingTop: '8px',
+    ...flexRow,
+    position: 'relative',
+    zIndex: '1',
+    padding: '4px 0 4px 0',
+    height: '55px',
+    width: '100vw',
+    boxSizing: 'border-box',
+
     fontFamily: Fonts.body,
+    backgroundColor: 'white',
+    color: Colors.black,
   },
-  icon: {
-    height: '100%',
-    width: '100%',
-    stroke: 'black'
-  }
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import Radium from 'radium';
 
 import Keys from 'constants/Keys.js';
+import Fonts from 'constants/Fonts.js';
+
 import Connect from 'components/common/hoc/Connected.jsx';
 
 const TextBox = Radium(({content, customStyles}) =>
@@ -55,7 +57,8 @@ const styles = {
     maxHeight: '100%'
   },
   textSection: {
-    flex: '2'
+    flex: '2',
+    fontFamily: Fonts.plain
   },
   imageSection: {
     marginTop: '5px',

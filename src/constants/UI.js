@@ -13,6 +13,12 @@ export const LargeScreen = {
   columns: 3
 };
 
+export const screens = {
+  small: SmallScreen,
+  medium: MediumScreen,
+  large: LargeScreen
+};
+
 export const Directions = {
   forward: 1,
   backward: -1

@@ -2,7 +2,7 @@ import Keys from 'constants/Keys.js';
 import Media from 'constants/Media.js';
 import Text from 'constants/Text.js';
 
-// Pages
+// Page configuration
 export const landingConfig = {
   media: Media[Keys.landing]
 };
@@ -24,10 +24,11 @@ export const portfolioConfig = {
   media: Media[Keys.portfolio]
 };
 
+// Component configurations
 export const navConfig = [
-  {label: 'Portfolio', destination: Keys.portfolio},
-  {label: 'About', destination: Keys.about},
-  {label: 'Contact', destination: Keys.contact}
+  {label: 'portfolio', destination: Keys.portfolio},
+  {label: 'about', destination: Keys.about},
+  {label: 'contact', destination: Keys.contact}
 ];
 
 const Store = {

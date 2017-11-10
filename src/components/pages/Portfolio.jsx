@@ -2,58 +2,46 @@ import React from 'react';
 import Radium from 'radium';
 import { chunk } from 'lodash';
 
+import styleUtils from 'utils/StyleUtils.js';
+
 import Keys from 'constants/Keys.js';
 import Colors from 'constants/Colors.js';
-import { SmallScreen, MediumScreen, LargeScreen } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
 /**
- * Utils
- */
-
-const isSmall = width => (width < SmallScreen.width) && SmallScreen.columns;
-const isMedium = width => (width < MediumScreen.width) && MediumScreen.columns;
-const isLarge = width => (width < LargeScreen.width) && LargeScreen.columns;
-
-const calcRows = width => isSmall(width)
-    || isMedium(width)
-    || isLarge(width)
-    || 3;
-
-/**
  * Boxes
  */
-const Boxes = ({sources}) => sources.map((datum, i) =>
-  <Box key={i} {...datum} />
+const Boxes = ({sources, count}) => sources.map((datum, i) =>
+  <Box key={i} {...datum} count={count} />
 );
 
-const Box = ({src, link, txt}) =>
-  <div key={link} style={styles.img(src)} />;
+const Box = ({src, link, txt, count}) =>
+  <div key={link} style={styles.img(src, count)} />;
 
 /**
  * Columns
  */
-const Columns = ({sources}) => sources.map((datum, i) =>
-  <Column key={`portfolio-col-${i}`} sources={datum} />
+const Columns = ({sources, count}) => sources.map((datum, i) =>
+  <Column key={`portfolio-col-${i}`} sources={datum} count={count} />
 );
 
-const Column = ({sources}) =>
+const Column = ({sources, count}) =>
   <div style={styles.column}>
-    <Boxes sources={sources} />
+    <Boxes sources={sources} count={count} />
   </div>;
 
 /**
  * Portfolio
  */
 const Portfolio = Dimensioned(({config: {media}, dimensions: {width}}) => {
-  const colCount = calcRows(width);
+  const colCount = styleUtils.calcCols(width);
   const colSize = Math.ceil(media.length / colCount);
 
   return (
     <div style={styles.base}>
-      <Columns sources={chunk(media, colSize)} />
+      <Columns sources={chunk(media, colSize)} count={colCount} />
     </div>
   )
 });
@@ -67,7 +55,9 @@ const styles = {
     overflow: 'auto',
     height: 'calc(100vh - 55px)',
     width: '100%',
-    padding: '4px',
+
+    padding: '0 4px 0 4px',
+    marginTop: '-8px',
     boxSizing: 'border-box',
 
     display: 'flex',
@@ -83,21 +73,22 @@ const styles = {
   column: {
     boxSizing: 'border-box',
     flex: '1',
-    margin: '4px',
+    margin: '4px 4px 0 4px',
+    width: '100%',
+
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%'
   },
-  img: src => {
+  img: (src, cols) => {
     return {
       backgroundImage: `url("${src}")`,
       backgroundSize: 'cover',
-      height: 'calc(100vh / 3)',
-      width: '100%',
+      backgroundPosition: 'center',
       margin: '4px',
-
+      width: '100%',
+      height: `calc((100vw / ${cols}) - (8px * ${cols})`
     }
   },
 }

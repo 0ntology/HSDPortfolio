@@ -8,6 +8,8 @@ import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
 import Colors from 'constants/Colors.js';
+import { flexBottom } from 'constants/Styles.js';
+
 import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
 
 /**
@@ -15,12 +17,12 @@ import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
  */
 const Emblem = Radium(({hover, hoverRef}) =>
   <div ref={hoverRef} style={styles.emblem(hover)}>
-    <div>HS</div>
+    HS
   </div>
 );
 
 const Landing = ({config, hover, hoverRef}) =>
-  <Link to='/home'>
+  <Link to='/home' style={styles.base}>
     <div style={styles.background(hover, config.media[0].src)} />
     <div style={styles.overlay}>
       <div style={styles.blur(config.media[0].src, hover)} />
@@ -32,17 +34,22 @@ const Landing = ({config, hover, hoverRef}) =>
 export default Radium(Hoverable(Connect(Keys.landing)(Landing)));
 
 const styles = {
+  base: {
+    padding: '4px',
+    boxSizing: 'border-box'
+  },
   background: (hover, src) => {
     return {
       background: `url("${src}") no-repeat`,
-      width: '100vw',
-      height: '100vh',
+      backgroundPosition: 'center',
+      width: 'calc(100vw - 8px)',
+      height: 'calc(100vh - 8px)',
 
       position: 'absolute',
-      top: '0px',
-      left: '0px',
+      top: '4px',
+      left: '4px',
       zIndex: '100',
-      transition: 'filter 1s ease',
+      transition: 'filter .5s ease',
 
       filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : ''
     }
@@ -71,7 +78,7 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
 
-      transition: 'background-color 1s ease, color 1s ease',
+      transition: 'background-color .5s ease, color .5s ease',
 
       backgroundColor: hover ? 'rgba(179, 176, 178, 0.54)' : '',
     }
@@ -82,8 +89,10 @@ const styles = {
 
       height: '50vmin',
       width: '50vmin',
+      transition: 'filter .5s ease',
       filter: `blur(${hover ? '50px' : '15px'})`,
-      background: `url("${src}") no-repeat fixed`
+      background: `url("${src}") no-repeat fixed`,
+      backgroundPosition: 'center',
     }
   },
   border: {
@@ -95,5 +104,5 @@ const styles = {
     strokeWidth: '4px',
     zIndex: 200
 
-  }
+  },
 }
