@@ -1,18 +1,17 @@
-/*;
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC:400,400i,700');
-@import url('https://fonts.googleapis.com/css?family=Spectral+SC:200');
-*/
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');
-
 @font-face {
   font-family: 'BurlingtonCenter';
-  src: url('./constants/assets/fonts/burlington-centered.ttf') format('truetype');
-};
+  src: url('./constants/assets/fonts/Yankee.ttf') format('truetype');
+}
 
-/*@font-face {
-  font-family: 'BurlingtonCenter';
-  src: url('./constants/assets/fonts/BurlingtonCenter.otf') format('opentype');
-};*/
+@font-face {
+  font-family: 'NewYorker';
+  src: url('./constants/assets/fonts/New-Yorker-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('./constants/assets/fonts/Bodoni-Condensed.ttf') format('truetype');
+}
 
 [data-reactroot] {
   position: absolute;
@@ -23,7 +22,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Deco';
+  font-family: 'Bodoni';
   overflow: hidden;
 }
 

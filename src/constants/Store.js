@@ -26,9 +26,9 @@ export const portfolioConfig = {
 
 // Component configurations
 export const navConfig = [
-  {label: 'portfolio', destination: Keys.portfolio},
-  {label: 'about', destination: Keys.about},
-  {label: 'contact', destination: Keys.contact}
+  {label: 'P O R T F O L I O', destination: Keys.portfolio},
+  {label: 'A B O U T', destination: Keys.about},
+  {label: 'C O N T A C T', destination: Keys.contact}
 ];
 
 const Store = {

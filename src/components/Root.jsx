@@ -13,7 +13,6 @@ class AppContainer extends Component {
         <HashRouter>
           <App />
         </HashRouter>
-        <Typekit kitId="xrq4ttt"/>
       </StyleRoot>
     );
   };

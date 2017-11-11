@@ -3,6 +3,7 @@ import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
+import Fonts from 'constants/Fonts.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
@@ -49,9 +50,9 @@ const styles = {
       top: '4px',
       left: '4px',
       zIndex: '100',
-      transition: 'filter .5s ease',
 
-      filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : ''
+      transition: 'filter 1s ease',
+      filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
     }
   },
   overlay: {
@@ -78,9 +79,9 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
 
-      transition: 'background-color .5s ease, color .5s ease',
-
-      backgroundColor: hover ? 'rgba(179, 176, 178, 0.54)' : '',
+      fontSize: '10vmin',
+      fontFamily: Fonts.title,
+      //transition: 'background-color 1s ease, color 1s ease',
     }
   },
   blur: (src, hover) => {
@@ -89,10 +90,11 @@ const styles = {
 
       height: '50vmin',
       width: '50vmin',
-      transition: 'filter .5s ease',
-      filter: `blur(${hover ? '50px' : '15px'})`,
       background: `url("${src}") no-repeat fixed`,
       backgroundPosition: 'center',
+
+      filter: `blur(${hover ? '0px' : '15px'})`,
+      transition: 'filter .5s ease',
     }
   },
   border: {

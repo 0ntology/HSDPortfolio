@@ -1,8 +1,6 @@
 const Fonts = {
   title: 'BurlingtonCenter',
-  body: 'BurlingtonCenter',
-  plain: 'BurlingtonCenter',
-  kepler: 'kepler-std-semicondensed-dis',
+  body: 'Bodoni',
 };
 
 export default Fonts;

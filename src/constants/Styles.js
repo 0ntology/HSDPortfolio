@@ -8,6 +8,13 @@ export const flexRow = {
   alignItems: 'center',
 };
 
+export const flexCol = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+};
+
 export const flexCenter = {
   display: 'flex',
   justifyContent: 'center',
@@ -24,6 +31,13 @@ export const flexBottom = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'end',
+}
+
+export const flexStart = {
+  display: 'flex',
+  justifyContent: 'start',
+  alignItems: 'center',
+  paddingLeft: '16px'
 }
 
 export const link = {

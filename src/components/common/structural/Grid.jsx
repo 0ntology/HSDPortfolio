@@ -13,18 +13,15 @@ import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 /**
  * Boxes
  */
-const Boxes = ({sources, count}) => sources.map((datum, i) =>
-  <Box key={i} {...datum} count={count} />
+const Boxes = ({sources, count}) => sources.map((Box, i) =>
+  <Box />
 );
-
-const Box = ({src, link, txt, count}) =>
-  <div key={link} style={styles.img(src, count)} />;
 
 /**
  * Columns
  */
 const Columns = ({sources, count}) => sources.map((datum, i) =>
-  <Column key={`portfolio-col-${i}`} sources={datum} count={count} />
+  <Column key={`grid-col-${i}`} sources={datum} count={count} />
 );
 
 const Column = ({sources, count}) =>
@@ -33,17 +30,21 @@ const Column = ({sources, count}) =>
   </div>;
 
 /**
- * Portfolio
+ * Grid:
+ * @param {Array<Component>} Cells
+ * @return {Component} Cells arranged in a container
  */
-const Portfolio = ({config: {media}, dimensions: {columns}}) =>
-  <div style={styles.base}>
-    <Columns
-      sources={chunk(media, Math.ceil(media.length / columns))}
-      count={columns}
-    />
-  </div>;
+const Grid = (Cells) => {
+  return class Organized extends Component {
+    render() {
+      <div>
+        { Cells }
+      </div>
+    }
+  }
+}
 
-export default Connect(Keys.portfolio)(Dimensioned(Radium(Portfolio)));
+export default Dimensioned(Radium(Grid));
 
 const styles = {
   base: {

@@ -6,6 +6,7 @@ import {
   flexItem,
   flexCenter
 } from 'constants/Styles.js';
+import Fonts from 'constants/Fonts.js';
 
 const Initial = () =>
   <RadiantLink to="/home" style={styles.container}>
@@ -17,6 +18,7 @@ export default Initial;
 const styles = {
   container: {
     fontSize: '22pt',
+    fontFamily: Fonts.title,
     ...link,
     ...flexItem,
     ...flexCenter

@@ -1,10 +1,12 @@
 import React from 'react';
+import styleUtils from 'utils/StyleUtils.js';
 
 const Dimensioned = (DimensionedChild) => {
   return class extends React.Component {
     state = {
       height: '0',
-      width: '0'
+      width: '0',
+      columns: 0
     };
 
     componentDidMount() {
@@ -17,7 +19,11 @@ const Dimensioned = (DimensionedChild) => {
     }
 
     updateWindowDimensions = () => {
-      this.setState({ width: window.innerWidth, height: window.innerHeight });
+      this.setState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        columns: styleUtils.calcCols(window.innerWidth)
+      });
     }
 
     render() {

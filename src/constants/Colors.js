@@ -14,6 +14,7 @@ const Colors = {
   black: 'black',
   white: 'white',
   gray: 'rgba(77, 91, 102, 0.62)',
+  offwhite: 'rgb(240, 237, 223)'
 };
 
 export default Colors;

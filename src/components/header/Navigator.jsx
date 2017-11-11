@@ -16,18 +16,15 @@ import {
   text,
 } from 'constants/Styles.js';
 
+import Connect from 'components/common/hoc/Connected.jsx';
 import RadiantLink from 'components/common/RadiantLink.jsx';
-
-const COMP_ID = Keys.navigation;
 
 const NavigatorItem = ({label, destination}) =>
   <RadiantLink to={destination} style={styles.item}>
     { label }
   </RadiantLink>;
 
-const Navigator = ({ current }) => {
-  const config = Store[COMP_ID];
-
+const Navigator = ({ config, current }) => {
   return (
     <div style={styles.container}>
       { config.map((datum, i) =>
@@ -38,7 +35,7 @@ const Navigator = ({ current }) => {
   );
 }
 
-export default Radium(Navigator);
+export default Radium(Connect(Keys.navigation)(Navigator));
 
 const styles = {
   container: {
@@ -50,5 +47,6 @@ const styles = {
     ...text,
     ...flexItem,
     ...flexCenter,
+    fontSize: '14pt'
   },
 }
