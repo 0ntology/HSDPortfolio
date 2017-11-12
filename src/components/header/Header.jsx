@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
 import { pick } from 'lodash';
 
@@ -12,11 +12,23 @@ import { flexRow } from 'constants/Styles.js';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
 import Navigator from 'components/header/Navigator.jsx';
+import Dropdown from 'components/header/Dropdown.jsx';
+
+// TODO - abstract the following into single item component which takes text content and custom styles
 import Initial from 'components/header/Initial.jsx';
 import Title from 'components/header/Title.jsx';
 import Fill from 'components/header/Fill.jsx';
+import Mini from 'components/header/Mini.jsx';
+import Close from 'components/header/Close.jsx';
 
-const { navigator, initial, title, fill, mini } = Keys;
+const {
+  navigator,
+  initial,
+  title,
+  fill,
+  mini,
+  close,
+} = Keys;
 
 const points = {
   [Keys.navigator]: {
@@ -35,27 +47,56 @@ const points = {
     Comp: Fill,
     profile: []
   },
+  [Keys.mini]: {
+    Comp: Mini,
+    config: {content: 'M E N U'},
+    profile: [],
+    contexts: ['handleToggle']
+  },
+  [Keys.close]: {
+    Comp: Close,
+    config: {content: 'C L O S E'},
+    contexts: ['handleToggle']
+  }
 };
 
 const space = [
-  [fill, initial, fill],
+  [fill, initial, close], // TODO: add dropdown here ?
+  [fill, initial, mini],
   [title, navigator],
   [title, fill, navigator],
 ];
 
-const Header = ({dimensions: {width}, ...props}) => {
-  const cols = styleUtils.calcCols(width);
-  const position = space[(cols-1)];
+class Header extends Component {
+  state = {
+    isOpen: false
+  }
 
-  return (
-    <div style={styles.base}>
-      { position.map((key, i) => {
-          const { Comp, profile } = points[key];
-          return <Comp key={`${key}-${i}`} {...pick(props, profile)} />;
-        })
-      }
-    </div>
-  );
+  handleToggle = () => this.setState({
+    isOpen: !this.state.isOpen
+  });
+
+  render() {
+    const { isOpen } = this.state;
+    const { dimensions: { columns } } = this.props;
+    const items = space[(isOpen ? 0 : columns)]
+
+    return (
+      <div style={styles.base}>
+        { items.map((key, i) => {
+            const { Comp, config, contexts, profile } = points[key];
+            return <Comp
+                      key={`${key}-${i}`}
+                      {...config}
+                      {...(contexts && pick(this, contexts))}
+                      {...pick(this.props, profile)}
+                    />;
+          })
+        }
+        { isOpen && <Dropdown handleToggle={this.handleToggle} /> }
+      </div>
+    )
+  }
 }
 
 export default Dimensioned(Radium(Header));

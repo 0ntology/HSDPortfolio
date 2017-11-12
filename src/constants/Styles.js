@@ -15,6 +15,12 @@ export const flexCol = {
   alignItems: 'center',
 };
 
+export const flexRight = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+}
 export const flexCenter = {
   display: 'flex',
   justifyContent: 'center',
@@ -43,6 +49,7 @@ export const flexStart = {
 export const link = {
   textDecoration: 'none',
   color: Colors.black,
+  cursor: 'pointer'
 }
 
 export const text = {

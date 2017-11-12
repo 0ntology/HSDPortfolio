@@ -20,6 +20,8 @@ export const compKeys = {
   title: 'title',
   fill: 'fill',
   map: 'map',
+  mini: 'mini',
+  close: 'close'
 }
 
 const Keys = {
