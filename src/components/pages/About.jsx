@@ -5,6 +5,7 @@ import { flexCol, flexRow, flexCenter } from 'constants/Styles.js';
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
 import Colors from 'constants/Colors.js';
+import { Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
@@ -29,7 +30,7 @@ export default Radium(Connect(Keys.about)(Dimensioned(About)));
 
 const styles = {
   container: dimensions => ({
-    height: 'calc(100vh - 55px)',
+    height: `calc(100vh - ${Header.height})`,
     width: '100vw',
     padding: '0px 3px 6px 3px',
     boxSizing: 'border-box',
@@ -41,7 +42,7 @@ const styles = {
     height: '100%',
     width: '100%',
     margin: '0px 3px 3px 3px',
-    backgroundColor: Colors.offwhite,
+    //backgroundColor: Colors.offwhite,
 
     ...flexCenter,
     padding: '16px',

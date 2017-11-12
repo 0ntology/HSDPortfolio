@@ -8,6 +8,7 @@ import Home      from 'components/pages/Home.jsx';
 import Portfolio from 'components/pages/Portfolio.jsx';
 import About     from 'components/pages/About.jsx';
 import Press     from 'components/pages/Press.jsx';
+import Contact   from 'components/pages/Contact.jsx';
 
 const View = () =>
     <Switch>
@@ -16,6 +17,7 @@ const View = () =>
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/about" component={About} />
       <Route path="/press" component={Press} />
+      <Route path="/contact" component={Contact} />
     </Switch>;
 
 export default View;

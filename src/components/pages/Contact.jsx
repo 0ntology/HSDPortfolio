@@ -1,70 +1,60 @@
 import React from 'react';
 
 import Colors from 'constants/Colors.js';
+import { Header } from 'constants/UI.js';
 import Keys from 'constants/Keys.js';
+import { flexCol } from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
+import StudioMap from 'components/common/StudioMap.jsx';
 
-const Title = () =>
-  <div style={styles.titleContent}>
-    <div>HARRY</div>
-    <div>SCHNAPER</div>
-  </div>;
+const Title = () => <div style={styles.title}>{ `H A R R Y S C H N A P E R` }</div>;
+const Address = () => <div style={styles.address}>{ `692 Madison Ave # 5, New York, NY 10065` }</div>;
+const Email = () => <div style={styles.email}>{ `harry@harryschnaper.com` }</div>;
+const Phone = () => <div style={styles.phone}>{ `(212) 980-9898` }</div>;
 
-const Info = () =>
-  <div style={styles.infoContent}>
-    Info
-  </div>;
-
-const BusinessCard = () =>
-  <div style={styles.businessCardBase}>
-    <div style={styles.titleBase}>
+const Contact = ({config, ...props}) =>
+  <div style={styles.container}>
+    <div style={styles.mapContainer}>
+      <StudioMap isMarkerShown />
+    </div>
+    <div style={styles.infoContainer}>
       <Title />
+      <Address />
+      <Email />
+      <Phone />
     </div>
-    <div style={styles.infoBase}>
-      <Info />
-    </div>
-  </div>;
-
-const Contact = ({config}) =>
-  <div style={styles.base}>
-    <BusinessCard />
   </div>;
 
 export default Connect(Keys.contact)(Contact);
 
 const styles = {
-  base: {
-    backgroundColor: Colors.cream,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    boxSizing: 'border-box',
-    padding: '50px',
-
-    height: '90vh',
+  container: {
+    height: `calc(100vh - ${Header.height})`,
+    width: '100vw',
+    ...flexCol
+  },
+  mapContainer: {
+    flex: '2',
     width: '100%'
   },
-  businessCardBase: {
-    height: '100%',
-    width: '100%',
-
-    padding: '16px',
-    boxSizing: 'border-box',
-
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  titleBase: {
+  infoContainer: {
     flex: '1',
+    minHeight: '200px',
+    padding: '4px 4px 16px 4px',
+    boxSizing: 'border-box',
+    ...flexCol
   },
-  titleContent: {
-    fontWeight: '700'
+  title: {
+
   },
-  infoBase: {
-    flex: '1'
+  address: {
+
+  },
+  email: {
+
+  },
+  phone: {
+
   }
 }

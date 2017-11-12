@@ -28,7 +28,7 @@ const Navigator = ({ config, current }) => {
   return (
     <div style={styles.container}>
       { config.map((datum, i) =>
-          <NavigatorItem id={`Nav-Item-${i}`} {...datum} />
+          <NavigatorItem key={`Nav-Item-${i}`} {...datum} />
         )
       }
     </div>

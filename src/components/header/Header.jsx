@@ -49,9 +49,9 @@ const Header = ({dimensions: {width}, ...props}) => {
 
   return (
     <div style={styles.base}>
-      { position.map((key) => {
+      { position.map((key, i) => {
           const { Comp, profile } = points[key];
-          return <Comp {...pick(props, profile)} />;
+          return <Comp key={`${key}-${i}`} {...pick(props, profile)} />;
         })
       }
     </div>
@@ -66,7 +66,7 @@ const styles = {
     position: 'relative',
     zIndex: '1',
     padding: '4px 0 4px 0',
-    height: '55px',
+    height: '70px',
     width: '100vw',
     boxSizing: 'border-box',
 

@@ -64,6 +64,7 @@ const styles = {
   imageReel: (dimensions, position) => {
     return {
       position: 'relative',
+      top: 0,
       left: `${-dimensions.width * position.x}px`,
       height: '100%',
       display: 'flex',
@@ -78,17 +79,18 @@ const styles = {
   },
   imageControls: {
     position: 'absolute',
-    top: '45vh',
-    width: '100%',
+    top: '45%',
+    width: 'calc(100% - 16px)',
     height: '15vh',
 
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 500,
   },
   arrow: {
-    stroke: 'rgba(255, 255, 255, 0.67)',
+    stroke: 'rgb(255,255,255)', // rgba(255, 255, 255, 0.67),
     width: '25%',
     height: '100%'
   }

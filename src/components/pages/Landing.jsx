@@ -17,7 +17,7 @@ import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
  * Emblem
  */
 const Emblem = Radium(({hover, hoverRef}) =>
-  <div ref={hoverRef} style={styles.emblem(hover)}>
+  <div ref={hoverRef} style={styles.emblem}>
     HS
   </div>
 );
@@ -69,20 +69,17 @@ const styles = {
     alignItems: 'center',
     fontSize: '12vmax',
   },
-  emblem: hover => {
-    return {
-      height: 'calc(50vmin - 65px)',
-      width: 'calc(50vmin - 65px)',
-      zIndex: '300',
+  emblem: {
+    height: 'calc(50vmin - 65px)',
+    width: 'calc(50vmin - 65px)',
+    zIndex: '300',
 
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 
-      fontSize: '10vmin',
-      fontFamily: Fonts.title,
-      //transition: 'background-color 1s ease, color 1s ease',
-    }
+    fontSize: '10vmin',
+    fontFamily: Fonts.title,
   },
   blur: (src, hover) => {
     return {
@@ -92,9 +89,9 @@ const styles = {
       width: '50vmin',
       background: `url("${src}") no-repeat fixed`,
       backgroundPosition: 'center',
+      transition: 'filter .75s ease-out',
 
       filter: `blur(${hover ? '0px' : '15px'})`,
-      transition: 'filter .5s ease',
     }
   },
   border: {

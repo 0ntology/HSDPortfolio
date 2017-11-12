@@ -6,6 +6,7 @@ import styleUtils from 'utils/StyleUtils.js';
 
 import Keys from 'constants/Keys.js';
 import Colors from 'constants/Colors.js';
+import { Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
@@ -50,7 +51,7 @@ const styles = {
     backgroundColor: Colors.white,
 
     overflow: 'auto',
-    height: 'calc(100vh - 55px)',
+    height: `calc(100vh - ${Header.height})`,
     width: '100%',
 
     padding: '0 4px 0 4px',
@@ -70,7 +71,7 @@ const styles = {
   column: {
     boxSizing: 'border-box',
     flex: '1',
-    margin: '4px 4px 0 4px',
+    margin: '-8px 4px 0 4px',
     width: '100%',
 
     display: 'flex',
@@ -83,7 +84,7 @@ const styles = {
       backgroundImage: `url("${src}")`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      margin: '4px',
+      margin: '8px 4px 0 4px',
       width: '100%',
       height: `calc((100vw / ${cols}) - (8px * ${cols})`
     }

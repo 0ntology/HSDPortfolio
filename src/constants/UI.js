@@ -23,3 +23,7 @@ export const Directions = {
   forward: 1,
   backward: -1
 };
+
+export const Header = {
+  height: '70px'
+};

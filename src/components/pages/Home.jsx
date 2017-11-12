@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Keys from 'constants/Keys.js';
+import { Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Carousel from 'components/common/Carousel.jsx';
@@ -42,10 +43,10 @@ export default Connect(Keys.home)(Home);
 
 const styles = {
   wrap: {
-    height: 'calc(100vh - 55px)',
+    height: `calc(100vh - ${Header.height})`,
     width: '100%',
 
-    padding: '0 4px 4px 4px',
+    padding: '0 8px 8px 8px',
     boxSizing: 'border-box',
   },
   base: {
