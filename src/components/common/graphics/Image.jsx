@@ -17,6 +17,7 @@ const styles = {
     return {
       backgroundImage: `url("${src}")`,
       backgroundSize: 'cover',
+      backgroundPosition: 'center'
     };
   }
 };
