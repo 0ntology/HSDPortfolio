@@ -46,7 +46,8 @@ export const contactMedia = [
 ];
 
 export const landingMedia = [
-  {title: 'Image Two', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450435/schnaper-4_hv1pfe.jpg'},
+  {title: 'five', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'},
+  // {title: 'Image Two', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450435/schnaper-4_hv1pfe.jpg'},
 ];
 
 const Media = {

@@ -13,6 +13,10 @@
   src: url('./constants/assets/fonts/Bodoni-Condensed.ttf') format('truetype');
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 [data-reactroot] {
   position: absolute;
   width: 100% !important;

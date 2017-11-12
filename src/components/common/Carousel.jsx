@@ -65,7 +65,7 @@ const styles = {
     return {
       position: 'relative',
       top: 0,
-      left: `${(-(dimensions.width - 8) * position.x)}px`,
+      left: `${(-(dimensions.width - 16) * position.x)}px`,
       height: '100%',
       display: 'flex',
       flexDirection: 'row',
@@ -73,7 +73,8 @@ const styles = {
     }
   },
   image: {
-    width: '100vw',
+    width: 'calc(100vw - 16px)',
+    marginRight: '8px',
     height: '100%'
   },
   imageControls: {
