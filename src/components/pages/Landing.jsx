@@ -43,6 +43,7 @@ const styles = {
     return {
       background: `url("${src}") no-repeat`,
       backgroundPosition: 'center',
+      backgroundSize: 'cover',
       width: 'calc(100vw - 8px)',
       height: 'calc(100vh - 8px)',
 
@@ -88,6 +89,7 @@ const styles = {
       height: '50vmin',
       width: '50vmin',
       background: `url("${src}") no-repeat fixed`,
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
       transition: 'filter .75s ease-out',
 
