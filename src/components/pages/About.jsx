@@ -32,7 +32,7 @@ const styles = {
   container: dimensions => ({
     height: `calc(100vh - ${Header.height})`,
     width: '100vw',
-    padding: '0px 3px 6px 3px',
+    padding: '0px 4px 4px 4px',
     boxSizing: 'border-box',
     overflow: 'auto',
     ...(dimensions.columns <= 2 ? flexCol : flexRow)
@@ -41,7 +41,7 @@ const styles = {
     flex: '1',
     height: '100%',
     width: '100%',
-    margin: '0px 3px 3px 3px',
+    margin: '0px 4px 4px 4px',
     //backgroundColor: Colors.offwhite,
 
     ...flexCenter,
@@ -52,7 +52,7 @@ const styles = {
     flex: '2',
     height: '100%',
     width: '100%',
-    margin: '0px 3px 3px 3px',
+    margin: '0px 4px 4px 4px',
     fontFamily: Fonts.body,
     fontSize: '16pt',
     backgroundColor: Colors.offwhite,
