@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import { pick } from 'lodash';
+import { withRouter } from 'react-router';
 
 import styleUtils from 'utils/StyleUtils.js';
 
@@ -78,9 +79,11 @@ class Header extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const { dimensions: { columns } } = this.props;
-    const items = space[(isOpen ? 0 : columns)]
+    const { dimensions: { columns }, location: { pathname } } = this.props;
 
+    if (pathname === "/") return false;
+
+    const items = space[(isOpen ? 0 : columns)]
     return (
       <div style={styles.base}>
         { items.map((key, i) => {
@@ -99,7 +102,7 @@ class Header extends Component {
   }
 }
 
-export default Dimensioned(Radium(Header));
+export default withRouter(Dimensioned(Radium(Header)));
 
 const styles = {
   base: {
