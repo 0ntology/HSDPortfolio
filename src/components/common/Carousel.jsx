@@ -79,7 +79,7 @@ const styles = {
   },
   imageControls: {
     position: 'absolute',
-    top: '45%',
+    top: '50%',
     width: 'calc(100% - 16px)',
     height: '15vh',
 
