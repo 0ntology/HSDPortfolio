@@ -82,7 +82,7 @@ const styles = {
     fontSize: '10vmin',
     fontFamily: Fonts.title,
 
-    color: hover ? 'transparent' : 'white',
+    //color: hover ? 'transparent' : 'white',
     transition: 'all .5s ease-out',
   }),
   blur: (src, hover) => {
