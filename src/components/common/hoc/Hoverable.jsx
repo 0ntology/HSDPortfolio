@@ -24,9 +24,6 @@ const Hoverable = InnerComponent => {
 
         el.addEventListener('mouseenter', (e) => this._toggleHover(true));
         el.addEventListener('mouseleave', (e) => this._toggleHover(false));
-        //el.addEventListener('mouseover', (e) => this._toggleHover(true));
-        //el.addEventListener('mouseout', (e) => this._toggleHover(false));
-
       }
     };
 

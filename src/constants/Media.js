@@ -35,9 +35,11 @@ export const pressMedia = [
 ];
 
 export const homeMedia = [
-  {title: 'Image One', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451199/schnaper-3_r2cgcp.jpg'},
+  {title: 'five', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'},
+  {title: 'nine', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451196/schnaper-8_tpgt3z.jpg'},
+  {title: 'six', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450485/schnaper-10_bseffw.jpg'},
+  {title: 'seven', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451190/schnaper-7_gol917.jpg'},
   {title: 'Image Two', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450435/schnaper-4_hv1pfe.jpg'},
-  {title: 'Image Three', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'}
 ];
 
 export const contactMedia = [
@@ -46,8 +48,7 @@ export const contactMedia = [
 ];
 
 export const landingMedia = [
-  {title: 'five', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'},
-  // {title: 'Image Two', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450435/schnaper-4_hv1pfe.jpg'},
+  {title: 'six', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450485/schnaper-10_bseffw.jpg'},
 ];
 
 const Media = {
