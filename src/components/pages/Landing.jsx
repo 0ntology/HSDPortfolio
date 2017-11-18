@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
@@ -9,104 +9,92 @@ import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
 import Colors from 'constants/Colors.js';
-import { flexBottom } from 'constants/Styles.js';
 
 import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
 
-/**
- * Emblem
- */
-const Emblem = Radium(({hover, hoverRef}) =>
-  <div ref={hoverRef} style={styles.emblem(hover)}>
-    HS
-  </div>
-);
+const BackgroundPane = ({src}) => <div style={styles.background(src)} />;
+const BlurredPane = ({src}) => <div style={styles.blurred(src)} />;
+const Emblem = ({content}) => <div style={styles.initial}>{ content }</div>;
 
-const Landing = ({config, hover, hoverRef}) =>
-  <Link to='/home' style={styles.base}>
-    <div style={styles.background(hover, config.media[0].src)} />
-    <div style={styles.overlay}>
-      <div style={styles.blur(config.media[0].src, hover)} />
-      <FourLineBorder customStyles={styles.border} />
-      <Emblem hover={hover} hoverRef={hoverRef} />
+const FixedLanding = ({config}) => {
+  const src = config.media[0].src;
+  return (
+    <div style={styles.container}>
+      <BackgroundPane src={src} />
+      <BlurredPane src={src} />
+      <Emblem content="HS" />
+      <FourLineBorder customStyle={styles.border} />
     </div>
-  </Link>;
+  )
+}
 
-export default Radium(Hoverable(Connect(Keys.landing)(Landing)));
+export default Hoverable(Connect(Keys.landing)(Radium(FixedLanding)));
+
+const MARGIN = 8;
+const BOXSIZE = `50vmin`;
+const BOXTOP = `(100vh - ${BOXSIZE}) / 2`;
+const BOXLEFT = `(100vw - ${BOXSIZE}) / 2`;
 
 const styles = {
-  base: {
-    padding: '4px',
-    boxSizing: 'border-box'
-  },
-  background: (hover, src) => {
-    return {
-      background: `url("${src}") no-repeat`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      width: 'calc(100vw - 8px)',
-      height: 'calc(100vh - 8px)',
-
-      position: 'absolute',
-      top: '4px',
-      left: '4px',
-      zIndex: '100',
-
-      transition: 'filter 1s ease',
-      filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
-    }
-  },
-  overlay: {
-    position: 'absolute',
-    width: '100vw',
+  container: {
     height: '100vh',
-    top: '0px',
-    left: '0px',
-    zIndex: '150',
-    color: Colors.white,
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '12vmax',
+    width: '100vw',
+    padding: `${MARGIN}px`,
+    boxSizing: 'border-box',
   },
-  emblem: hover => ({
-    height: 'calc(50vmin - 65px)',
-    width: 'calc(50vmin - 65px)',
-    zIndex: '300',
+  background: src => ({
+    position: 'absolute',
+    height: `calc(100% - ${2 * MARGIN}px)`,
+    width: `calc(100% - ${2 * MARGIN}px)`,
+
+    background: `url("${src}") no-repeat`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+
+    // transition: 'filter 1s ease',
+    // filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
+  }),
+  blurred: src => ({
+    position: 'absolute',
+    top: `calc(${BOXTOP})`,
+    left: `calc(${BOXLEFT})`,
+
+    height: `calc(${BOXSIZE})`,
+    width: `calc(${BOXSIZE})`,
+
+    background: `url("${src}") no-repeat fixed`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+
+    //     transition: 'filter .75s ease-out',
+    //     filter: `blur(${hover ? '0px' : '15px'})`,
+  }),
+  initial: {
+    position: 'absolute',
+    top: `calc(${BOXTOP})`,
+    left: `calc(${BOXLEFT})`,
+
+    height: `calc(${BOXSIZE})`,
+    width: `calc(${BOXSIZE})`,
 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
 
+    color: Colors.white,
     fontSize: '10vmin',
     fontFamily: Fonts.title,
-
-    //color: hover ? 'transparent' : 'white',
-    transition: 'all .5s ease-out',
-  }),
-  blur: (src, hover) => {
-    return {
-      position: 'fixed',
-
-      height: '50vmin',
-      width: '50vmin',
-      background: `url("${src}") no-repeat fixed`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      transition: 'filter .75s ease-out',
-
-      filter: `blur(${hover ? '0px' : '15px'})`,
-    }
   },
   border: {
-    position: 'fixed',
+    position: 'absolute',
+    top: `calc(${BOXTOP})`,
+    left: `calc(${BOXLEFT})`,
 
-    height: '50vmin',
-    width: '50vmin',
+    height: `calc(${BOXSIZE})`,
+    width: `calc(${BOXSIZE})`,
+
     stroke: 'white',
     strokeWidth: '4px',
-    zIndex: 200
-
-  },
+    zIndex: 200,
+  }
 }

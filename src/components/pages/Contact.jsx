@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Colors from 'constants/Colors.js';
 import { Header } from 'constants/UI.js';
 import Keys from 'constants/Keys.js';
 import { flexCol } from 'constants/Styles.js';

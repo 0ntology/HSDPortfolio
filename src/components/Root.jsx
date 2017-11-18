@@ -2,7 +2,6 @@
 import React, { Component } from  'react';
 import { HashRouter } from 'react-router-dom';
 import { StyleRoot } from 'radium';
-import Typekit from 'react-typekit';
 
 import App from 'components/App.jsx';
 

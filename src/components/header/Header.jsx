@@ -3,8 +3,6 @@ import Radium from 'radium';
 import { pick } from 'lodash';
 import { withRouter } from 'react-router';
 
-import styleUtils from 'utils/StyleUtils.js';
-
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
 import Colors from 'constants/Colors.js';

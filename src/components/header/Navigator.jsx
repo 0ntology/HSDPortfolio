@@ -7,7 +7,6 @@ import React from 'react';
 import Radium from 'radium';
 
 import Keys from 'constants/Keys.js';
-import Store from 'constants/Store.js';
 import {
   link,
   flexItem,

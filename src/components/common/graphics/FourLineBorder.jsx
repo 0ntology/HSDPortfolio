@@ -1,14 +1,14 @@
 import React from 'react';
 import Radium from 'radium';
 
-const FourLineBorder = ({ customStyles }) => {
+const FourLineBorder = ({ customStyle }) => {
   return (
     <svg
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 500 500"
-      style={[styles.base, customStyles]}
+      style={[styles.base, customStyle]}
     >
       <title>four-line-border</title>
       <rect x="2.5" y="2.5" width="495" height="495" />

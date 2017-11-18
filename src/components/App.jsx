@@ -2,7 +2,6 @@ import React from  'react';
 
 import Fonts from 'constants/Fonts.js';
 import Colors from 'constants/Colors.js';
-import { navConfig } from 'constants/Store.js';
 
 import Header from 'components/header/Header.jsx';
 import View from 'components/View.jsx';
@@ -26,8 +25,8 @@ const styles = {
     backgroundColor: Colors.white,
 
     overflow: 'hidden',
-    height: '100%',
-    width: '100%',
+    height: '100vh',
+    width: '100vw',
     boxSizing: 'border-box'
   }
 };
