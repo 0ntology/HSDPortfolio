@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
@@ -12,19 +12,19 @@ import Colors from 'constants/Colors.js';
 
 import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
 
-const BackgroundPane = ({src}) => <div style={styles.background(src)} />;
-const BlurredPane = ({src}) => <div style={styles.blurred(src)} />;
-const Emblem = ({content}) => <div style={styles.initial}>{ content }</div>;
+const BackgroundPane = ({src, hover}) => <div style={styles.background(src, hover)} />;
+const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />;
+const Emblem = ({content, hoverRef}) => <div ref={hoverRef} style={styles.initial}>{ content }</div>;
 
-const FixedLanding = ({config}) => {
+const FixedLanding = ({config, hover, hoverRef}) => {
   const src = config.media[0].src;
   return (
-    <div style={styles.container}>
-      <BackgroundPane src={src} />
-      <BlurredPane src={src} />
-      <Emblem content="HS" />
+    <Link to="/home" style={styles.container}>
+      <BackgroundPane hover={hover}  src={src} />
+      <BlurredPane hover={hover}  src={src} />
+      <Emblem content="HS" hoverRef={hoverRef} />
       <FourLineBorder customStyle={styles.border} />
-    </div>
+    </Link>
   )
 }
 
@@ -37,12 +37,13 @@ const BOXLEFT = `(100vw - ${BOXSIZE}) / 2`;
 
 const styles = {
   container: {
-    height: '100vh',
-    width: '100vw',
+    display: 'block',
+    height: '100%',
+    width: '100%',
     padding: `${MARGIN}px`,
     boxSizing: 'border-box',
   },
-  background: src => ({
+  background: (src, hover) => ({
     position: 'absolute',
     height: `calc(100% - ${2 * MARGIN}px)`,
     width: `calc(100% - ${2 * MARGIN}px)`,
@@ -51,10 +52,10 @@ const styles = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
 
-    // transition: 'filter 1s ease',
-    // filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
+    transition: 'filter 1s ease',
+    filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
   }),
-  blurred: src => ({
+  blurred: (src, hover) => ({
     position: 'absolute',
     top: `calc(${BOXTOP})`,
     left: `calc(${BOXLEFT})`,
@@ -66,8 +67,8 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
-    //     transition: 'filter .75s ease-out',
-    //     filter: `blur(${hover ? '0px' : '15px'})`,
+    transition: 'filter .75s ease-out',
+    filter: `blur(${hover ? '0px' : '15px'})`,
   }),
   initial: {
     position: 'absolute',
@@ -84,6 +85,8 @@ const styles = {
     color: Colors.white,
     fontSize: '10vmin',
     fontFamily: Fonts.title,
+
+    zIndex: 500
   },
   border: {
     position: 'absolute',
@@ -95,6 +98,6 @@ const styles = {
 
     stroke: 'white',
     strokeWidth: '4px',
-    zIndex: 200,
+    //zIndex: 200,
   }
 }
