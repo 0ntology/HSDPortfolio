@@ -4,13 +4,13 @@
 }
 
 @font-face {
-  font-family: 'NewYorker';
-  src: url('./constants/assets/fonts/New-Yorker-Regular.ttf') format('truetype');
+  font-family: 'Bodoni';
+  src: url('./constants/assets/fonts/Bodoni-Condensed.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Bodoni';
-  src: url('./constants/assets/fonts/Bodoni-Condensed.ttf') format('truetype');
+  font-family: 'Bodoni Light';
+  src: url('./constants/assets/fonts/Bodoni-BE-Light-Regular.otf') format('opentype');
 }
 
 * {

@@ -9,6 +9,7 @@ import { Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
+import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
 const ImageSection = ({config: {src, title}}) =>
   <div style={styles.imageContainer}>
@@ -21,55 +22,43 @@ const TextSection = ({content}) =>
   </div>;
 
 const About = ({config: {media, txt: {body}}, dimensions}) =>
-  <div style={styles.container(dimensions)}>
-    <ImageSection config={media[0]} />
-    <TextSection content={body} />
-  </div>;
+  <FourLineBorder customStyle={styles.container}>
+    <div style={styles.content}>
+      <div style={styles.image(media[0].src)} />
+      <p style={styles.text}>{ body }</p>
+    </div>
+  </FourLineBorder>;
 
 export default Radium(Connect(Keys.about)(Dimensioned(About)));
 
 const styles = {
-  container: dimensions => ({
+  container: {
     height: `calc(100vh - ${Header.height})`,
     width: '100vw',
-    padding: '0px 4px 4px 4px',
-    boxSizing: 'border-box',
-    overflow: 'auto',
-    ...(dimensions.columns <= 2 ? flexCol : flexRow)
-  }),
-  imageContainer: {
-    flex: '1',
-    height: '100%',
-    width: '100%',
-    margin: '0px 4px 4px 4px',
-    //backgroundColor: Colors.offwhite,
-
-    ...flexCenter,
-    padding: '16px',
+    padding: '8px 24px 24px 24px',
     boxSizing: 'border-box',
   },
-  text: {
-    flex: '2',
+  content: {
     height: '100%',
-    width: '100%',
-    margin: '0px 4px 4px 4px',
-    fontFamily: Fonts.body,
-    fontSize: '16pt',
-    backgroundColor: Colors.offwhite,
-
-    ...flexCenter,
-    padding: '16px 24px 16px 24px',
-    boxSizing: 'border-box',
+    overflow: 'auto'
+  },
+  text: {
+    fontFamily: Fonts.text,
+    fontSize: '14pt',
+    lineHeight: 1.5,
+    textAlign: 'justify',
+    margin: 0,
+    padding: '24px 24px 24px 24px',
+    boxSizing: 'border-box'
   },
   image: src => ({
     backgroundImage: `url("${src}")`,
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-
-    width: '100%',
-    height: '100%',
-    minHeight: '200px',
-    maxHeight: '400px'
+    margin: '24px 24px 24px 24px',
+    float: 'left',
+    width: '25vw',
+    height: '25vw',
   }),
 }

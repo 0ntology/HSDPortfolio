@@ -15,6 +15,7 @@ const View = () =>
       <Route path="/" exact component={Landing} />
       <Route path="/home" component={Home} />
       <Route path="/portfolio" component={Portfolio} />
+      <Route path="/portfolio/:portKey" component={Portfolio} />
       <Route path="/about" component={About} />
       <Route path="/press" component={Press} />
       <Route path="/contact" component={Contact} />

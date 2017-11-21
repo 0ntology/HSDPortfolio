@@ -15,6 +15,7 @@ import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
 const BackgroundPane = ({src, hover}) => <div style={styles.background(src, hover)} />;
 const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />;
 const Emblem = ({content, hoverRef}) => <div ref={hoverRef} style={styles.initial}>{ content }</div>;
+const WhiteLineBorder = () => <div style={styles.whitelineborder} />
 
 const FixedLanding = ({config, hover, hoverRef}) => {
   const src = config.media[0].src;
@@ -24,13 +25,15 @@ const FixedLanding = ({config, hover, hoverRef}) => {
       <BlurredPane hover={hover}  src={src} />
       <Emblem content="HS" hoverRef={hoverRef} />
       <FourLineBorder customStyle={styles.border} />
+      <WhiteLineBorder />
     </Link>
   )
 }
 
 export default Hoverable(Connect(Keys.landing)(Radium(FixedLanding)));
 
-const MARGIN = 8;
+/** Styles **/
+const MARGIN = 0;
 const BOXSIZE = `50vmin`;
 const BOXTOP = `(100vh - ${BOXSIZE}) / 2`;
 const BOXLEFT = `(100vw - ${BOXSIZE}) / 2`;
@@ -53,7 +56,7 @@ const styles = {
     backgroundSize: 'cover',
 
     transition: 'filter 1s ease',
-    filter: hover ? 'blur(8px) contrast(1) saturate(1.5) invert(0.1)' : 'none',
+    filter: hover ? 'blur(8px)' : 'none',
   }),
   blurred: (src, hover) => ({
     position: 'absolute',
@@ -68,7 +71,7 @@ const styles = {
     backgroundPosition: 'center',
 
     transition: 'filter .75s ease-out',
-    filter: `blur(${hover ? '0px' : '15px'})`,
+    filter: hover ? `blur(0px) grayscale(100%)` : 'blur(15px)',
   }),
   initial: {
     position: 'absolute',
@@ -99,5 +102,12 @@ const styles = {
     stroke: 'white',
     strokeWidth: '4px',
     //zIndex: 200,
+  },
+  whitelineborder: {
+    position: 'absolute',
+    height: `calc(100% - ${2 * MARGIN}px)`,
+    width: `calc(100% - ${2 * MARGIN}px)`,
+    border: '4px solid white',
+    boxSizing: 'border-box',
   }
 }

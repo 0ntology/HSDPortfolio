@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import { chunk } from 'lodash';
 
-import styleUtils from 'utils/StyleUtils.js';
+import utils from 'utils/Utils.js';
 
 import Keys from 'constants/Keys.js';
 import Colors from 'constants/Colors.js';

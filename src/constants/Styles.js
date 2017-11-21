@@ -42,7 +42,6 @@ export const flexBottom = {
 export const flexStart = {
   display: 'flex',
   justifyContent: 'start',
-  alignItems: 'center',
   paddingLeft: '16px'
 }
 

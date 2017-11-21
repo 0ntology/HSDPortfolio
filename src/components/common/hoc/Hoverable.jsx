@@ -34,6 +34,7 @@ const Hoverable = InnerComponent => {
         <InnerComponent
           hoverRef={this._connect}
           hover={hover}
+          {...this.props}
         />
       );
     }

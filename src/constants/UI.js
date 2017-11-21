@@ -27,3 +27,9 @@ export const Directions = {
 export const Header = {
   height: '70px'
 };
+
+export const BoxTypes = {
+  link: 'link',
+  img: 'img',
+  hoverlink: 'hoverlink'
+}

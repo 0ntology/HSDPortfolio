@@ -1,23 +1,32 @@
 import React from 'react';
 import Radium from 'radium';
-import { chunk } from 'lodash';
+import { ceil, chunk, values } from 'lodash';
 
-import Keys from 'constants/Keys.js';
+import { chunkColumns } from 'utils/Utils.js';
+
 import Colors from 'constants/Colors.js';
-import { Header } from 'constants/UI.js';
+import Keys from 'constants/Keys.js';
+import Fonts from 'constants/Fonts.js';
+import { BoxTypes, Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
+import { HoverlinkBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
+
 /**
  * Boxes
  */
-const Boxes = ({sources, count}) => sources.map((datum, i) =>
-  <Box key={i} {...datum} count={count} />
-);
+const BoxComponents = {
+  [BoxTypes.hoverlink]: HoverlinkBox,
+  [BoxTypes.img]: ImgBox,
+  [BoxTypes.link]: LinkBox,
+};
 
-const Box = ({src, link, txt, count}) =>
-  <div key={link} style={styles.img(src, count)} />;
+const Boxes = ({sources, count}) => sources.map(({type, ...props}, i) => {
+  const Box = BoxComponents[type];
+  return <Box key={`${type}-box-${i}`} cols={count} {...props} />;
+});
 
 /**
  * Columns
@@ -34,13 +43,20 @@ const Column = ({sources, count}) =>
 /**
  * Portfolio
  */
-const Portfolio = ({config: {media}, dimensions: {columns}}) =>
-  <div style={styles.base}>
-    <Columns
-      sources={chunk(media, Math.ceil(media.length / columns))}
-      count={columns}
-    />
-  </div>;
+const Portfolio = ({
+  config,
+  dimensions: {columns},
+  location: {pathname},
+}) => {
+  return (
+    <div style={styles.base}>
+      <Columns
+        sources={chunkColumns(columns)(config[pathname])}
+        count={columns}
+      />
+    </div>
+  );
+}
 
 export default Connect(Keys.portfolio)(Dimensioned(Radium(Portfolio)));
 
@@ -53,7 +69,6 @@ const styles = {
     width: '100%',
 
     padding: '0 4px 0 4px',
-    marginTop: '-8px',
     boxSizing: 'border-box',
 
     display: 'flex',
@@ -69,22 +84,12 @@ const styles = {
   column: {
     boxSizing: 'border-box',
     flex: '1',
-    margin: '-8px 4px 0 4px',
+    margin: '0px 4px 0 4px',
     width: '100%',
 
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  img: (src, cols) => {
-    return {
-      backgroundImage: `url("${src}")`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      margin: '8px 4px 0 4px',
-      width: '100%',
-      height: `calc((100vw / ${cols}) - (8px * ${cols})`
-    }
-  },
+  }
 }

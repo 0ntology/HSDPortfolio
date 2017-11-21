@@ -1,5 +1,5 @@
 import React from 'react';
-import styleUtils from 'utils/StyleUtils.js';
+import utils from 'utils/Utils.js';
 
 const Dimensioned = (DimensionedChild) => {
   return class extends React.Component {
@@ -22,7 +22,7 @@ const Dimensioned = (DimensionedChild) => {
       this.setState({
         width: window.innerWidth,
         height: window.innerHeight,
-        columns: styleUtils.calcCols(window.innerWidth)
+        columns: utils.calcCols(window.innerWidth)
       });
     }
 

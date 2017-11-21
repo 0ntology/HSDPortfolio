@@ -24,6 +24,17 @@ export const compKeys = {
   close: 'close'
 }
 
+export const portKeys = {
+  tableOfContents: '/portfolio/',
+  upperEastSide: '/portfolio/upperEastSide',
+  fifthAvenue: '/portfolio/fifthAvenue',
+  eightySeventhStreet: '/portfolio/eightySeventhStreet',
+  newYork: '/portfolio/newYork',
+  madisonAvenue: '/portfolio/madisonAvenue',
+  hamptonBays: '/portfolio/hamptonBays',
+  kidsBedrooms: '/portfolio/kidsBedrooms',
+};
+
 const Keys = {
   ...screenKeys,
   ...pageKeys,
