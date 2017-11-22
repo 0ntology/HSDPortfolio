@@ -25,7 +25,9 @@ const About = ({config: {media, txt: {body}}, dimensions}) =>
   <FourLineBorder customStyle={styles.container}>
     <div style={styles.content}>
       <div style={styles.image(media[0].src)} />
-      <p style={styles.text}>{ body }</p>
+      <p style={styles.text}>
+        { body }
+      </p>
     </div>
   </FourLineBorder>;
 
@@ -35,10 +37,10 @@ const styles = {
   container: {
     height: `calc(100vh - ${Header.height})`,
     width: '100vw',
-    padding: '8px 24px 24px 24px',
     boxSizing: 'border-box',
   },
   content: {
+    padding: '8px 24px 24px 24px',
     height: '100%',
     overflow: 'auto'
   },

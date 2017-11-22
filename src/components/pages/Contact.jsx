@@ -1,16 +1,32 @@
 import React from 'react';
 
-import { Header } from 'constants/UI.js';
+import Fonts from 'constants/Fonts.js';
 import Keys from 'constants/Keys.js';
+import { Header } from 'constants/UI.js';
 import { flexCol } from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import StudioMap from 'components/common/StudioMap.jsx';
 
-const Title = () => <div style={styles.title}>{ `H A R R Y S C H N A P E R` }</div>;
-const Address = () => <div style={styles.address}>{ `692 Madison Ave # 5, New York, NY 10065` }</div>;
-const Email = () => <div style={styles.email}>{ `harry@harryschnaper.com` }</div>;
-const Phone = () => <div style={styles.phone}>{ `(212) 980-9898` }</div>;
+const Title = () =>
+  <span style={styles.title}>
+    { `harry schnaper` }
+  </span>;
+
+const Address = () =>
+  <span style={styles.address}>
+    { `692 Madison Ave # 5, New York, NY 10065` }
+  </span>;
+
+const Email = () =>
+  <span style={styles.email}>
+    { `info@harryschnaper.com` }
+  </span>;
+
+const Phone = () =>
+  <span style={styles.phone}>
+    { `(212) 980-9898` }
+  </span>;
 
 const Contact = ({config, ...props}) =>
   <div style={styles.container}>
@@ -45,15 +61,19 @@ const styles = {
     ...flexCol
   },
   title: {
-
+    fontFamily: Fonts.body,
+    fontSize: '20pt',
+    letterSpacing: '15px',
+    textAlign: 'center',
+    textTransform: 'uppercase'
   },
   address: {
-
+    fontSize: '14pt'
   },
   email: {
-
+    fontSize: '14pt'
   },
   phone: {
-
+    fontSize: '14pt'
   }
 }

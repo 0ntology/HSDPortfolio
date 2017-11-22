@@ -1,4 +1,4 @@
-import { chunk, ceil, values } from 'lodash';
+import { fill, forEach, values } from 'lodash';
 import { screens } from 'constants/UI.js';
 import { screenKeys } from 'constants/Keys.js';
 
@@ -16,10 +16,17 @@ export default class Utils {
 
 }
 
-export const chunkColumns = (columns) => (media) => chunk(
-  media,
-  ceil(media.length / columns)
-);
+export const chunkColumns = (n) => (items) => {
+  let chunks = Array(n);
+
+  items.forEach((el, i) => {
+    chunks[i % n]
+      ? chunks[i % n].push(el)
+      : chunks[i % n] = [el];
+  });
+
+  return chunks;
+}
 
 export const defaultKeyHandler = key => ({
   get: (target, name) => target[`${name in target ? name : key}`]

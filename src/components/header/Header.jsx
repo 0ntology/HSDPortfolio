@@ -107,7 +107,7 @@ const styles = {
     ...flexRow,
     position: 'relative',
     zIndex: '1',
-    padding: '4px 0 4px 0',
+    padding: '4px',
     height: '70px',
     width: '100vw',
     boxSizing: 'border-box',

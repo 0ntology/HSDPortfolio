@@ -6,7 +6,7 @@ const Dimensioned = (DimensionedChild) => {
     state = {
       height: '0',
       width: '0',
-      columns: 0
+      columns: 1
     };
 
     componentDidMount() {

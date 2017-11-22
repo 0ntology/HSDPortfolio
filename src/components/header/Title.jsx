@@ -29,7 +29,7 @@ const styles = {
     display: 'block',
     ...link,
     ...flexItem,
-    ...flexStart,
+    ...flexCenter,
   },
   wrap: {
     display: 'flex',

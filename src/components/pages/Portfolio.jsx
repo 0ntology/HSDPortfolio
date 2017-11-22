@@ -1,6 +1,5 @@
 import React from 'react';
 import Radium from 'radium';
-import { ceil, chunk, values } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
 
