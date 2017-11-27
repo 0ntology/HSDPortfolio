@@ -30,7 +30,7 @@ const FixedLanding = ({config, hover, hoverRef}) => {
   )
 }
 
-export default Hoverable(Connect(Keys.landing)(Radium(FixedLanding)));
+export default Hoverable(Connect(Keys.pages.landing)(Radium(FixedLanding)));
 
 /** Styles **/
 const MARGIN = 0;

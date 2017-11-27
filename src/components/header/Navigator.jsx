@@ -18,7 +18,7 @@ import {
 import Connect from 'components/common/hoc/Connected.jsx';
 import RadiantLink from 'components/common/RadiantLink.jsx';
 
-const NavigatorItem = ({label, destination}) =>
+const NavigatorItem = ({ label, destination }) =>
   <RadiantLink to={destination} style={styles.item}>
     { label }
   </RadiantLink>;
@@ -46,6 +46,8 @@ const styles = {
     ...text,
     ...flexItem,
     ...flexCenter,
-    fontSize: '14pt'
+    fontSize: '14pt',
+    textTransform: 'uppercase',
+    letterSpacing: 2
   },
 }

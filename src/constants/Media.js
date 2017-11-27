@@ -14,12 +14,6 @@ export const aboutMedia = [
   {title: 'about', src: aboutPhotoSrc}
 ];
 
-// export const pressMedia = [
-//   {src: Press1, txt: 'At Home - Architectural Digest', link: 'https://www.architecturaldigest.com/story/schnaper-article-092002'},
-//   {src: Press2, txt: 'Philadelphia Freedom - Architectural Digest', link: 'https://www.architecturaldigest.com/story/schnaper-article-022003'},
-//   {src: Press3, txt: 'Featured - Architectural Digest', link: 'https://www.architecturaldigest.com/story/harry-schnaper-profile'},
-// ];
-
 export const homeMedia = [
   {title: 'five', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'},
   {title: 'nine', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451196/schnaper-8_tpgt3z.jpg'},
@@ -69,12 +63,20 @@ const portfolioMedia = {
   },
 };
 
+// archives
+const archives = {
+  [Keys.archives.architecturalDigest1]: '',
+  [Keys.archives.architecturalDigest2]: '',
+  [Keys.archives.architecturalDigest3]: '',
+}
+
 const Media = {
-  [Keys.about]: aboutMedia,
-  [Keys.home]: homeMedia,
-  [Keys.contact]: contactMedia,
-  [Keys.landing]: landingMedia,
-  [Keys.portfolio]: portfolioMedia,
+  [Keys.pages.about]: aboutMedia,
+  [Keys.pages.home]: homeMedia,
+  [Keys.pages.contact]: contactMedia,
+  [Keys.pages.landing]: landingMedia,
+  [Keys.pages.portfolio]: portfolioMedia,
+  [Keys.pages.archives]: archives
 };
 
 export default Media;

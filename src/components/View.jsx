@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // pages
+import Archives  from 'components/pages/Archives.jsx';
 import Landing   from 'components/pages/Landing.jsx';
 import Home      from 'components/pages/Home.jsx';
 import Portfolio from 'components/pages/Portfolio.jsx';
@@ -19,6 +20,7 @@ const View = () =>
       <Route path="/about" component={About} />
       <Route path="/press" component={Press} />
       <Route path="/contact" component={Contact} />
+      <Route path="/archives" component={Archives} />
     </Switch>;
 
 export default View;

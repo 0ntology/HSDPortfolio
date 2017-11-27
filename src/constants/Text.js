@@ -5,7 +5,13 @@ const about = {
 }
 
 const Text = {
-  [Keys.about]: about
+  [Keys.pages.about]: about,
+  [Keys.pages.archives]: {
+    label: 'archives',
+    [Keys.archives.architecturalDigest1]: 'At Home - Architectural Digest',
+    [Keys.archives.architecturalDigest2]: 'Philadelphia Freedom - Architectural Digest',
+    [Keys.archives.architecturalDigest3]: 'Featured - Architectural Digest',
+  },
 }
 
 export default Text;

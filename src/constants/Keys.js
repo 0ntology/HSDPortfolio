@@ -1,19 +1,25 @@
+/**
+ * UI
+ */
 export const screenKeys = {
   small: 'small',
   medium: 'medium',
   large: 'large',
-}
+};
 
-export const pageKeys = {
+/**
+ * Data
+ */
+const pages = {
   about: 'about',
   contact: 'contact',
   portfolio: 'portfolio',
   home: 'home',
   landing: 'landing',
-}
+  archives: 'archives',
+};
 
 export const compKeys = {
-  navigation: 'navigation',
   header: 'header',
   navigator: 'navigator',
   initial: 'initial',
@@ -22,7 +28,13 @@ export const compKeys = {
   map: 'map',
   mini: 'mini',
   close: 'close'
-}
+};
+
+const archives = {
+  architecturalDigest1: 'architecturalDigest1',
+  architecturalDigest2: 'architecturalDigest2',
+  architecturalDigest3: 'architecturalDigest3',
+};
 
 export const portKeys = {
   tableOfContents: '/portfolio/',
@@ -35,10 +47,19 @@ export const portKeys = {
   kidsBedrooms: '/portfolio/kidsBedrooms',
 };
 
-const Keys = {
-  ...screenKeys,
-  ...pageKeys,
-  ...compKeys
+const navigation = {
+  about: 'about',
+  contact: 'contact',
+  portfolio: 'portfolio',
+  archives: 'archives'
 }
+
+const Keys = {
+  pages,
+  navigation,
+  archives,
+  ...screenKeys,
+  ...compKeys
+};
 
 export default Keys;

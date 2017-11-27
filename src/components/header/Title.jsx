@@ -4,7 +4,6 @@ import Fonts from 'constants/Fonts.js';
 import {
   link,
   flexItem,
-  flexStart,
   flexCenter
 } from 'constants/Styles.js';
 

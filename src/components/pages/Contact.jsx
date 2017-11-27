@@ -41,7 +41,7 @@ const Contact = ({config, ...props}) =>
     </div>
   </div>;
 
-export default Connect(Keys.contact)(Contact);
+export default Connect(Keys.pages.contact)(Contact);
 
 const styles = {
   container: {

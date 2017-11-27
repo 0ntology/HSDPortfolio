@@ -39,7 +39,7 @@ class Home extends React.Component {
   }
 };
 
-export default Connect(Keys.home)(Home);
+export default Connect(Keys.pages.home)(Home);
 
 const styles = {
   wrap: {

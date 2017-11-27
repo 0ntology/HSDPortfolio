@@ -5,7 +5,7 @@ import { chunkColumns } from 'utils/Utils.js';
 
 import Colors from 'constants/Colors.js';
 import Keys from 'constants/Keys.js';
-import Fonts from 'constants/Fonts.js';
+// import Fonts from 'constants/Fonts.js';
 import { BoxTypes, Header } from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
@@ -57,7 +57,7 @@ const Portfolio = ({
   );
 }
 
-export default Connect(Keys.portfolio)(Dimensioned(Radium(Portfolio)));
+export default Connect(Keys.pages.portfolio)(Dimensioned(Radium(Portfolio)));
 
 const styles = {
   base: {
