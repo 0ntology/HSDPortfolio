@@ -36,8 +36,18 @@ const archives = {
   architecturalDigest3: 'architecturalDigest3',
 };
 
-export const portKeys = {
-  tableOfContents: '/portfolio/',
+const portfolio = {
+  directory: '/portfolio/',
+  upperEastSide: '/portfolio/upperEastSide',
+  fifthAvenue: '/portfolio/fifthAvenue',
+  eightySeventhStreet: '/portfolio/eightySeventhStreet',
+  newYork: '/portfolio/newYork',
+  madisonAvenue: '/portfolio/madisonAvenue',
+  hamptonBays: '/portfolio/hamptonBays',
+  kidsBedrooms: '/portfolio/kidsBedrooms',
+};
+
+const projects = {
   upperEastSide: '/portfolio/upperEastSide',
   fifthAvenue: '/portfolio/fifthAvenue',
   eightySeventhStreet: '/portfolio/eightySeventhStreet',
@@ -58,6 +68,8 @@ const Keys = {
   pages,
   navigation,
   archives,
+  portfolio,
+  projects,
   ...screenKeys,
   ...compKeys
 };

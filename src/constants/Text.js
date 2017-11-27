@@ -8,10 +8,24 @@ const Text = {
   [Keys.pages.about]: about,
   [Keys.pages.archives]: {
     label: 'archives',
-    [Keys.archives.architecturalDigest1]: 'At Home - Architectural Digest',
-    [Keys.archives.architecturalDigest2]: 'Philadelphia Freedom - Architectural Digest',
-    [Keys.archives.architecturalDigest3]: 'Featured - Architectural Digest',
+    archives: {
+      [Keys.archives.architecturalDigest1]: 'At Home - Architectural Digest',
+      [Keys.archives.architecturalDigest2]: 'Philadelphia Freedom - Architectural Digest',
+      [Keys.archives.architecturalDigest3]: 'Featured - Architectural Digest',
+    }
   },
+  [Keys.pages.portfolio]: {
+    label: 'portfolio',
+    projects: {
+      [Keys.projects.upperEastSide]: 'Upper East Side',
+      [Keys.projects.fifthAvenue]: '5th Avenue',
+      [Keys.projects.eightySeventhStreet]: '87th Street',
+      [Keys.projects.newYork]: 'New York, NY',
+      [Keys.projects.madisonAvenue]: 'Madison Avenue',
+      [Keys.projects.hamptonBays]: 'Hampton Bays, NY',
+      [Keys.projects.kidsBedrooms]: `Kid's Bedrooms`,
+    }
+  }
 }
 
 export default Text;

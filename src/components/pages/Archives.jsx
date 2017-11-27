@@ -4,20 +4,32 @@ import { map } from 'lodash';
 import connected from 'components/common/hoc/Connected.jsx';
 import Keys from 'constants/Keys.js';
 
-const Archive = ({label, link, src}) =>
+const Archive = ({
+  label,
+  link,
+  src
+}) => (
   <div style={styles.item}>
     { label }
-  </div>;
+  </div>
+);
 
-const ArchiveList = ({archives}) => map(
+const ArchiveList = ({
+  archives
+}) => map(
   archives,
   datum => <Archive key={`Archive-${datum.label}`} {...datum} />
 );
 
-const ArchivesPage = ({config: {archives}}) =>
+const ArchivesPage = ({
+  config: {
+    archives
+  }
+}) => (
   <div style={styles.container}>
     <ArchiveList archives={archives} />
-  </div>;
+  </div>
+);
 
 export default connected(Keys.pages.archives)(ArchivesPage);
 
