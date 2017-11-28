@@ -7,6 +7,7 @@ const boxTypes = {
 };
 
 const UI = {
+  spacing: 8,
   screens: {
     small: {
       width: 500,

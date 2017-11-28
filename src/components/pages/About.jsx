@@ -10,14 +10,16 @@ import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
 const About = ({config: {media, txt: {body}}, dimensions}) =>
-  <FourLineBorder customStyle={styles.container}>
-    <div style={styles.content}>
-      <div style={styles.image(media)} />
-      <p style={styles.text}>
-        { body }
-      </p>
-    </div>
-  </FourLineBorder>;
+  <div style={styles.container}>
+    <FourLineBorder customStyle={styles.border}>
+      <div style={styles.content}>
+        <div style={styles.image(media)} />
+        <p style={styles.text}>
+          { body }
+        </p>
+      </div>
+    </FourLineBorder>
+  </div>;
 
 export default Radium(Connect(Keys.pages.about)(Dimensioned(About)));
 
@@ -25,7 +27,11 @@ const styles = {
   container: {
     height: `calc(100vh - ${UI.header.height})`,
     width: '100vw',
+    padding: `4px ${UI.spacing}px ${UI.spacing}px ${UI.spacing}px`,
     boxSizing: 'border-box',
+  },
+  border: {
+    height: '100%',
   },
   content: {
     padding: '8px 24px 24px 24px',

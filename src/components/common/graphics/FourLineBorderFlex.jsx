@@ -15,7 +15,6 @@ export default Radium(Frame);
 
 const styles = {
   container: {
-    position: 'absolute',
     height: '100%',
     width: '100%',
 
