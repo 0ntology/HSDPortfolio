@@ -1,56 +1,53 @@
 import Colors from 'constants/Colors.js';
 import Fonts from 'constants/Fonts.js';
 
-export const flexRow = {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+const Styles = {
+  flexRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  flexCol: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  flexRight: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  flexCenter: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  flexItem: {
+    flex: 1,
+    height: '100%',
+    margin: '0px 4px 0px 4px',
+  },
+  flexBottom: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'end',
+  },
+  flexStart: {
+    display: 'flex',
+    justifyContent: 'start',
+    paddingLeft: '16px'
+  },
+  link: {
+    textDecoration: 'none',
+    color: Colors.black,
+    cursor: 'pointer'
+  },
+  text: {
+    fontFamily: Fonts.plain
+  },
 };
 
-export const flexCol = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-};
-
-export const flexRight = {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
-}
-export const flexCenter = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-}
-
-export const flexItem = {
-  flex: 1,
-  height: '100%',
-  margin: '0px 4px 0px 4px',
-}
-
-export const flexBottom = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'end',
-}
-
-export const flexStart = {
-  display: 'flex',
-  justifyContent: 'start',
-  paddingLeft: '16px'
-}
-
-export const link = {
-  textDecoration: 'none',
-  color: Colors.black,
-  cursor: 'pointer'
-}
-
-export const text = {
-  fontFamily: Fonts.plain
-}
+export default Styles;

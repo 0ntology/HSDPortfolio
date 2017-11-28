@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Keys from 'constants/Keys.js';
-import { Header } from 'constants/UI.js';
+import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Carousel from 'components/common/Carousel.jsx';
@@ -23,7 +23,7 @@ class Home extends React.Component {
 
   render() {
     const { selected } = this.state;
-    const { config: {media} } = this.props;
+    const { config: { media } } = this.props;
 
     return (
       <div style={styles.wrap}>
@@ -43,7 +43,7 @@ export default Connect(Keys.pages.home)(Home);
 
 const styles = {
   wrap: {
-    height: `calc(100vh - ${Header.height})`,
+    height: `calc(100vh - ${UI.header.height})`,
     width: '100%',
 
     padding: '0 8px 8px 8px',

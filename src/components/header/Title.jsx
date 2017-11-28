@@ -1,11 +1,7 @@
 import React from 'react';
 
 import Fonts from 'constants/Fonts.js';
-import {
-  link,
-  flexItem,
-  flexCenter
-} from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 
 
 import RadiantLink from 'components/common/RadiantLink';
@@ -26,9 +22,9 @@ export default Title;
 const styles = {
   container: {
     display: 'block',
-    ...link,
-    ...flexItem,
-    ...flexCenter,
+    ...Styles.link,
+    ...Styles.flexItem,
+    ...Styles.flexCenter,
   },
   wrap: {
     display: 'flex',

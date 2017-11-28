@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import { pick } from 'lodash';
+import { map, pick } from 'lodash';
 import { withRouter } from 'react-router';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
 import Colors from 'constants/Colors.js';
-import { flexRow } from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
@@ -27,32 +27,32 @@ const {
   fill,
   mini,
   close,
-} = Keys;
+} = Keys.components;
 
 const points = {
-  [Keys.navigator]: {
+  [navigator]: {
     Comp: Navigator,
     profile: ['config', 'current'],
   },
-  [Keys.initial]: {
+  [initial]: {
     Comp: Initial,
     profile: [],
   },
-  [Keys.title]: {
+  [title]: {
     Comp: Title,
     profile: [],
   },
-  [Keys.fill]: {
+  [fill]: {
     Comp: Fill,
     profile: []
   },
-  [Keys.mini]: {
+  [mini]: {
     Comp: Mini,
     config: {content: 'M E N U'},
     profile: [],
     contexts: ['handleToggle']
   },
-  [Keys.close]: {
+  [close]: {
     Comp: Close,
     config: {content: 'C L O S E'},
     contexts: ['handleToggle']
@@ -60,7 +60,7 @@ const points = {
 };
 
 const space = [
-  [fill, initial, close], // TODO: add dropdown here ?
+  [fill, initial, close],
   [fill, initial, mini],
   [title, navigator],
   [title, fill, navigator],
@@ -76,23 +76,30 @@ class Header extends Component {
   });
 
   render() {
-    const { isOpen } = this.state;
     const { dimensions: { columns }, location: { pathname } } = this.props;
-
     if (pathname === "/") return false;
 
-    const items = space[(isOpen ? 0 : columns)]
+    const { isOpen } = this.state;
+    const position = isOpen ? 0 : columns;
+    const items = space[position]
+
     return (
       <div style={styles.base}>
-        { items.map((key, i) => {
-            const { Comp, config, contexts, profile } = points[key];
-            return <Comp
-                      key={`${key}-${i}`}
-                      {...config}
-                      {...(contexts && pick(this, contexts))}
-                      {...pick(this.props, profile)}
-                    />;
-          })
+        { map(
+            items,
+            (key, i) => {
+              const { Comp, config, contexts, profile } = points[key];
+
+              return (
+                <Comp
+                  key={`${key}-${i}`}
+                  {...config}
+                  {...(contexts && pick(this, contexts))}
+                  {...pick(this.props, profile)}
+                />
+              )
+            }
+          )
         }
         { isOpen && <Dropdown handleToggle={this.handleToggle} /> }
       </div>
@@ -104,7 +111,7 @@ export default withRouter(Dimensioned(Radium(Header)));
 
 const styles = {
   base: {
-    ...flexRow,
+    ...Styles.flexRow,
     position: 'relative',
     zIndex: '1',
     padding: '4px',

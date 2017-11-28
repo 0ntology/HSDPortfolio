@@ -18,7 +18,8 @@ const Emblem = ({content, hoverRef}) => <div ref={hoverRef} style={styles.initia
 const WhiteLineBorder = () => <div style={styles.whitelineborder} />
 
 const FixedLanding = ({config, hover, hoverRef}) => {
-  const src = config.media[0].src;
+  const { src } = config;
+
   return (
     <Link to="/home" style={styles.container}>
       <BackgroundPane hover={hover}  src={src} />

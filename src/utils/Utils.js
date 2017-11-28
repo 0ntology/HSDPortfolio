@@ -1,18 +1,17 @@
-import { screens } from 'constants/UI.js';
-import { screenKeys } from 'constants/Keys.js';
+import Keys from 'constants/Keys.js';
+import UI from 'constants/UI.js';
 
 export default class Utils {
   static calcScreen(width) {
-    return ((width < screens.small.width) && screenKeys.small)
-      || ((width < screens.medium.width) && screenKeys.medium)
-      || screenKeys.large;
+    return ((width < UI.screens.small.width) && Keys.screens.small)
+      || ((width < UI.screens.medium.width) && Keys.screens.medium)
+      || Keys.screens.large;
   }
 
   static calcCols(width) {
     const screenKey = Utils.calcScreen(width);
-    return screens[screenKey].columns;
+    return UI.screens[screenKey].columns;
   }
-
 }
 
 export const chunkColumns = (n) => (items) => {

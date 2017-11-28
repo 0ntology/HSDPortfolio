@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  link,
-  flexItem,
-  flexRight
-} from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 import Fonts from 'constants/Fonts.js';
 
 const Mini = ({content, handleToggle}) =>
@@ -19,8 +15,8 @@ const styles = {
     fontSize: '14pt',
     fontFamily: Fonts.body,
     paddingRight: '8px',
-    ...link,
-    ...flexItem,
-    ...flexRight
+    ...Styles.link,
+    ...Styles.flexItem,
+    ...Styles.flexRight
   },
 }

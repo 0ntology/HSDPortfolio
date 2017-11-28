@@ -7,13 +7,7 @@ import React from 'react';
 import Radium from 'radium';
 
 import Keys from 'constants/Keys.js';
-import {
-  link,
-  flexItem,
-  flexCenter,
-  flexRow,
-  text,
-} from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import RadiantLink from 'components/common/RadiantLink.jsx';
@@ -38,14 +32,14 @@ export default Radium(Connect(Keys.navigation)(Navigator));
 
 const styles = {
   container: {
-    ...flexItem,
-    ...flexRow,
+    ...Styles.flexItem,
+    ...Styles.flexRow,
   },
   item: {
-    ...link,
-    ...text,
-    ...flexItem,
-    ...flexCenter,
+    ...Styles.link,
+    ...Styles.text,
+    ...Styles.flexItem,
+    ...Styles.flexCenter,
     fontSize: '14pt',
     textTransform: 'uppercase',
     letterSpacing: 2

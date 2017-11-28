@@ -3,7 +3,7 @@ import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
 import Fonts from 'constants/Fonts.js';
-import { Header } from 'constants/UI.js';
+import UI from 'constants/UI.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
@@ -42,7 +42,7 @@ const styles = {
     display: 'block',
     margin: '0 4px 8px 4px',
     width: '100%',
-    height: `calc((100vw - ${Header.height}) / ${cols})`,
+    height: `calc(100vw / ${cols})`,
   }),
   img: src => ({
     height: '100%',

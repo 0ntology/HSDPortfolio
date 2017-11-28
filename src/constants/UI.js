@@ -1,35 +1,42 @@
-export const SmallScreen = {
-  width: 500,
-  columns: 1
-};
+import Keys from 'constants/Keys.js';
 
-export const MediumScreen = {
-  width: 1000,
-  columns: 2
-};
-
-export const LargeScreen = {
-  width: 1500,
-  columns: 3
-};
-
-export const screens = {
-  small: SmallScreen,
-  medium: MediumScreen,
-  large: LargeScreen
-};
-
-export const Directions = {
-  forward: 1,
-  backward: -1
-};
-
-export const Header = {
-  height: '70px'
-};
-
-export const BoxTypes = {
+const boxTypes = {
   link: 'link',
   img: 'img',
   hoverlink: 'hoverlink'
-}
+};
+
+const UI = {
+  screens: {
+    small: {
+      width: 500,
+      columns: 1
+    },
+    medium: {
+      width: 1000,
+      columns: 2
+    },
+    large: {
+      width: 1500,
+      columns: 3
+    },
+  },
+  directions: {
+    forward: 1,
+    backward: -1
+  },
+  header: {
+    height: '70px'
+  },
+  boxTypes: boxTypes,
+  getBoxType: (containerKey, index) => {
+    switch(containerKey) {
+      case Keys.portfolio.directory:
+        return boxTypes.hoverlink;
+      default:
+        return index ? boxTypes.img : boxTypes.link;
+    }
+  }
+};
+
+export default UI;

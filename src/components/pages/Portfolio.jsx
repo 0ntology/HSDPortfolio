@@ -5,8 +5,7 @@ import { chunkColumns } from 'utils/Utils.js';
 
 import Colors from 'constants/Colors.js';
 import Keys from 'constants/Keys.js';
-// import Fonts from 'constants/Fonts.js';
-import { BoxTypes, Header } from 'constants/UI.js';
+import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
@@ -17,9 +16,9 @@ import { HoverlinkBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
  * Boxes
  */
 const BoxComponents = {
-  [BoxTypes.hoverlink]: HoverlinkBox,
-  [BoxTypes.img]: ImgBox,
-  [BoxTypes.link]: LinkBox,
+  [UI.boxTypes.hoverlink]: HoverlinkBox,
+  [UI.boxTypes.img]: ImgBox,
+  [UI.boxTypes.link]: LinkBox,
 };
 
 const Boxes = ({sources, count}) => sources.map(({type, ...props}, i) => {
@@ -47,10 +46,12 @@ const Portfolio = ({
   dimensions: {columns},
   location: {pathname},
 }) => {
+  const items = config[pathname].items;
+
   return (
     <div style={styles.base}>
       <Columns
-        sources={chunkColumns(columns)(config[pathname])}
+        sources={chunkColumns(columns)(items)}
         count={columns}
       />
     </div>
@@ -64,7 +65,7 @@ const styles = {
     backgroundColor: Colors.white,
 
     overflow: 'auto',
-    height: `calc(100vh - ${Header.height})`,
+    height: `calc(100vh - ${UI.header.height})`,
     width: '100%',
 
     padding: '0 4px 0 4px',

@@ -1,11 +1,7 @@
 import React from 'react';
 
 import RadiantLink from 'components/common/RadiantLink';
-import {
-  link,
-  flexItem,
-  flexCenter
-} from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 import Fonts from 'constants/Fonts.js';
 
 const Initial = () =>
@@ -19,8 +15,8 @@ const styles = {
   container: {
     fontSize: '22pt',
     fontFamily: Fonts.title,
-    ...link,
-    ...flexItem,
-    ...flexCenter
+    ...Styles.link,
+    ...Styles.flexItem,
+    ...Styles.flexCenter
   },
 }

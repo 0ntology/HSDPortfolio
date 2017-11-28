@@ -3,8 +3,7 @@ import Radium from 'radium';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
-// import Colors from 'constants/Colors.js';
-import { Header } from 'constants/UI.js';
+import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
@@ -13,7 +12,7 @@ import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 const About = ({config: {media, txt: {body}}, dimensions}) =>
   <FourLineBorder customStyle={styles.container}>
     <div style={styles.content}>
-      <div style={styles.image(media[0].src)} />
+      <div style={styles.image(media)} />
       <p style={styles.text}>
         { body }
       </p>
@@ -24,7 +23,7 @@ export default Radium(Connect(Keys.pages.about)(Dimensioned(About)));
 
 const styles = {
   container: {
-    height: `calc(100vh - ${Header.height})`,
+    height: `calc(100vh - ${UI.header.height})`,
     width: '100vw',
     boxSizing: 'border-box',
   },

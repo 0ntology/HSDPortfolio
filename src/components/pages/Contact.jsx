@@ -2,8 +2,8 @@ import React from 'react';
 
 import Fonts from 'constants/Fonts.js';
 import Keys from 'constants/Keys.js';
-import { Header } from 'constants/UI.js';
-import { flexCol } from 'constants/Styles.js';
+import UI from 'constants/UI.js';
+import Styles from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import StudioMap from 'components/common/StudioMap.jsx';
@@ -45,9 +45,9 @@ export default Connect(Keys.pages.contact)(Contact);
 
 const styles = {
   container: {
-    height: `calc(100vh - ${Header.height})`,
+    height: `calc(100vh - ${UI.header.height})`,
     width: '100vw',
-    ...flexCol
+    ...Styles.flexCol
   },
   mapContainer: {
     flex: '2',
@@ -58,7 +58,7 @@ const styles = {
     minHeight: '200px',
     padding: '4px 4px 16px 4px',
     boxSizing: 'border-box',
-    ...flexCol
+    ...Styles.flexCol
   },
   title: {
     fontFamily: Fonts.body,

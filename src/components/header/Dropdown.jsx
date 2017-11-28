@@ -2,7 +2,7 @@ import React from 'react';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
-import { link } from 'constants/Styles.js';
+import Styles from 'constants/Styles.js';
 
 import Connected from 'components/common/hoc/Connected.jsx';
 import RadiantLink from 'components/common/RadiantLink.jsx';
@@ -49,7 +49,7 @@ const styles = {
     width: '100%',
     fontFamily: Fonts.body,
     textAlign: 'right',
-    ...link
+    ...Styles.link
   }
 
 }

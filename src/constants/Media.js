@@ -2,86 +2,58 @@ import Keys from 'constants/Keys.js';
 
 import leftArrowIcon from 'constants/assets/iconography/left_arrow.svg';
 import rightArrowIcon from 'constants/assets/iconography/right_arrow.svg';
-import aboutPhotoSrc from 'constants/assets/img/hsd-about.jpg';
-
-// image registry
-const images = {
-
-};
-
-// iconography
-export const LeftArrow = leftArrowIcon;
-export const RightArrow = rightArrowIcon;
-
-// pages
-export const aboutMedia = [
-  {title: 'about', src: aboutPhotoSrc}
-];
-
-export const homeMedia = [
-  {title: 'five', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450477/schnaper-9_cdtnjz.jpg'},
-  {title: 'nine', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451196/schnaper-8_tpgt3z.jpg'},
-  {title: 'six', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450485/schnaper-10_bseffw.jpg'},
-  {title: 'seven', src: 'https://res.cloudinary.com/enclave/image/upload/v1510451190/schnaper-7_gol917.jpg'},
-  {title: 'Image Two', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450435/schnaper-4_hv1pfe.jpg'},
-];
-
-export const contactMedia = [
-  {title: 'Harry Schnaper', src: aboutPhotoSrc},
-  {title: 'Elise Casey', src: aboutPhotoSrc}
-];
-
-export const landingMedia = [
-  {title: 'six', src: 'https://res.cloudinary.com/enclave/image/upload/v1510450485/schnaper-10_bseffw.jpg'},
-];
-
-// portfolio
-const portfolio = {
-  [Keys.projects.upperEastSide] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.fifthAvenue] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.eightySeventhStreet] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.newYork] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.madisonAvenue] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.hamptonBays] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-  [Keys.projects.kidsBedrooms] : {
-    cover: 'https://res.cloudinary.com/enclave/image/upload/v1510450363/schnaper-1_xjquc9.jpg',
-    feed: [],
-  },
-};
-
-// archives
-const archives = {
-  [Keys.archives.architecturalDigest1]: '',
-  [Keys.archives.architecturalDigest2]: '',
-  [Keys.archives.architecturalDigest3]: '',
-}
 
 const Media = {
-  [Keys.pages.about]: aboutMedia,
-  [Keys.pages.home]: homeMedia,
-  [Keys.pages.contact]: contactMedia,
-  [Keys.pages.landing]: landingMedia,
-  [Keys.pages.portfolio]: portfolio,
-  [Keys.pages.archives]: archives,
-  images
+  [Keys.icons.leftArrow]: leftArrowIcon,
+  [Keys.icons.rightArrow]: rightArrowIcon,
+  [Keys.pages.landing]: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-0.jpg',
+  eightySeventhStreet0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-0.jpg',
+  eightySeventhStreet1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-1.jpg',
+  eightySeventhStreet2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-2.jpg',
+  eightySeventhStreet3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-3.jpg',
+  eightySeventhStreet4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-4.jpg',
+  eightySeventhStreet5: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-5.jpg',
+  eightySeventhStreet6: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-6.jpg',
+  fifthAvenue0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-fifthAvenue-0.jpg',
+  fifthAvenue1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-fifthAvenue-1.jpg',
+  fifthAvenue2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-fifthAvenue-2.jpg',
+  fifthAvenue3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-fifthAvenue-3.jpg',
+  fifthAvenue4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-fifthAvenue-4.jpg',
+  hamptonBays0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-hamptonBays-0.jpg',
+  hamptonBays1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-hamptonBays-1.jpg',
+  hamptonBays2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-hamptonBays-2.jpg',
+  hamptonBays3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-hamptonBays-3.jpg',
+  hamptonBays4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-hamptonBays-4.jpg',
+  home0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-0.jpg',
+  home1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-1.jpg',
+  home2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-2.jpg',
+  home3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-3.jpg',
+  home4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-4.jpg',
+  home5: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-5.jpg',
+  home6: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-6.jpg',
+  home7: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-7.jpg',
+  home8: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-8.jpg',
+  kids0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-kids-0.jpg',
+  kids1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-kids-1.jpg',
+  kids2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-kids-2.jpg',
+  kids3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-kids-3.jpg',
+  kids4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-kids-4.jpg',
+  madisonAvenue0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-madisonAvenue-0.jpg',
+  madisonAvenue1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-madisonAvenue-1.jpg',
+  madisonAvenue2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-madisonAvenue-2.jpg',
+  madisonAvenue3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-madisonAvenue-3.jpg',
+  newYork0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-0.jpg',
+  newYork1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-1.jpg',
+  newYork2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-2.jpg',
+  newYork3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-3.jpg',
+  newYork4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-4.jpg',
+  personal1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-1.jpg',
+  personal2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-2.jpg',
+  personal3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-3.jpg',
+  upperEastSide0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-0.jpg',
+  upperEastSide1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-1.jpg',
+  upperEastSide2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-2.jpg',
+  portrait: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-portrait.jpg',
 };
 
 export default Media;

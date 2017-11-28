@@ -1,7 +1,7 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
 
-import { Directions } from 'constants/UI.js';
+import UI from 'constants/UI.js';
 
 import ArrowButton from 'components/common/ArrowButton.jsx';
 import RightArrowIcon from 'components/common/graphics/RightArrowIcon.jsx';
@@ -13,13 +13,13 @@ const Controls = ({handleClick}) => {
   return (
     <div style={styles.imageControls}>
       <ArrowButton
-        handleClick={() => handleClick(Directions.backward)}
+        handleClick={() => handleClick(UI.directions.backward)}
         injectedStyles={{justifyContent: 'flex-start'}}
       >
         <LeftArrowIcon {...styles.arrow} />
       </ArrowButton>
       <ArrowButton
-        handleClick={() => handleClick(Directions.forward)}
+        handleClick={() => handleClick(UI.directions.forward)}
         injectedStyles={{justifyContent: 'flex-end'}}
       >
         <RightArrowIcon {...styles.arrow} />
@@ -36,8 +36,14 @@ const Reel = ({dimensions, config, selected, handleClick}) => {
     <Motion defaultStyle={initialCondition} style={trajectory}>
       { position =>
           <div style={styles.imageReel(dimensions, position)}>
-            { config.map((source) =>
-                <Image key={source.title} {...source} customStyles={styles.image} />
+            { config.map(
+                src => (
+                  <Image
+                    key={src}
+                    src={src}
+                    customStyles={styles.image}
+                  />
+                )
               )
             }
           </div>
