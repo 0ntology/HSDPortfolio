@@ -66,25 +66,20 @@ const styles = {
 
     overflow: 'auto',
     height: `calc(100vh - ${UI.header.height})`,
-    width: '100%',
 
     padding: '0 4px 0 4px',
+    borderBottom: '8px solid white',
     boxSizing: 'border-box',
 
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-
-    '@media (maxWidth: 500px)': {
-      flexDirection: 'column',
-      alignItems: 'center'
-    },
   },
   column: {
     boxSizing: 'border-box',
     flex: '1',
-    margin: '0px 4px 0 4px',
+    margin: '0 4px 0 4px',
     width: '100%',
 
     display: 'flex',

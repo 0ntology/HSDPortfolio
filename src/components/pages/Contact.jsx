@@ -7,10 +7,11 @@ import Styles from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import StudioMap from 'components/common/StudioMap.jsx';
+import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
 const Title = () =>
   <span style={styles.title}>
-    { `harry schnaper` }
+    { ` harry schnaper` }
   </span>;
 
 const Address = () =>
@@ -28,17 +29,29 @@ const Phone = () =>
     { `(212) 980-9898` }
   </span>;
 
+const MapDisplay = () => (
+  <div style={styles.mapContainer}>
+    <StudioMap isMarkerShown />
+  </div>
+);
+
+const InfoDisplay = () => (
+  <div style={styles.infoContainer}>
+    <FourLineBorder>
+      <div style={styles.infoContent}>
+        <Title />
+        <Address />
+        <Email />
+        <Phone />
+      </div>
+    </FourLineBorder>
+  </div>
+);
+
 const Contact = ({config, ...props}) =>
   <div style={styles.container}>
-    <div style={styles.mapContainer}>
-      <StudioMap isMarkerShown />
-    </div>
-    <div style={styles.infoContainer}>
-      <Title />
-      <Address />
-      <Email />
-      <Phone />
-    </div>
+    <MapDisplay />
+    <InfoDisplay />
   </div>;
 
 export default Connect(Keys.pages.contact)(Contact);
@@ -46,7 +59,12 @@ export default Connect(Keys.pages.contact)(Contact);
 const styles = {
   container: {
     height: `calc(100vh - ${UI.header.height})`,
-    width: '100vw',
+    boxSizing: 'border-box',
+
+    borderWidth: '0 8px 8px 8px',
+    borderStyle: 'solid',
+    borderColor: 'white',
+
     ...Styles.flexCol
   },
   mapContainer: {
@@ -56,11 +74,22 @@ const styles = {
   infoContainer: {
     flex: '1',
     minHeight: '200px',
-    padding: '4px 4px 16px 4px',
+    padding: '16px 8px 8px 8px',
     boxSizing: 'border-box',
-    ...Styles.flexCol
+  },
+  infoContent: {
+    height: '100%',
+    padding: '16px',
+    boxSizing: 'border-box',
+
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   title: {
+    display: 'inline-block',
+    marginLeft: '15px',
     fontFamily: Fonts.body,
     fontSize: '20pt',
     letterSpacing: '15px',
