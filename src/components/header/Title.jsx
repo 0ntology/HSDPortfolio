@@ -39,7 +39,7 @@ const styles = {
     fontSize: '18pt',
     textAlign: 'center',
     letterSpacing: '4px',
-    height: '100%',
+    height: '50%',
     width: '100%',
     marginTop: '8px'
   },
@@ -48,7 +48,7 @@ const styles = {
     fontSize: '12pt',
     letterSpacing: '15px',
     textAlign: 'center',
-    height: '100%',
+    height: '50%',
     width: '100%',
   }
 }

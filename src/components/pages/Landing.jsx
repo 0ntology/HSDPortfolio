@@ -73,7 +73,7 @@ const styles = {
     backgroundPosition: 'center',
 
     transition: 'filter .75s ease-out',
-    filter: hover ? `blur(0px) grayscale(100%)` : 'blur(15px)',
+    filter: hover ? `blur(0px) grayscale(100%)` : 'blur(15px) grayscale(0%)',
   }),
   initial: {
     position: 'absolute',
@@ -103,7 +103,6 @@ const styles = {
 
     stroke: 'white',
     strokeWidth: '4px',
-    //zIndex: 200,
   },
   whitelineborder: {
     position: 'absolute',

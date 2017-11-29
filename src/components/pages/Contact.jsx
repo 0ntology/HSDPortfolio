@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 
 import Fonts from 'constants/Fonts.js';
 import Keys from 'constants/Keys.js';
@@ -54,7 +55,7 @@ const Contact = ({config, ...props}) =>
     <InfoDisplay />
   </div>;
 
-export default Connect(Keys.pages.contact)(Contact);
+export default Connect(Keys.pages.contact)(Radium(Contact));
 
 const styles = {
   container: {
@@ -68,12 +69,11 @@ const styles = {
     ...Styles.flexCol
   },
   mapContainer: {
-    flex: '2',
+    height: `calc((100vh - ${UI.header.height}) * 2 / 3)`,
     width: '100%'
   },
   infoContainer: {
-    flex: '1',
-    minHeight: '200px',
+    height: `calc((100vh - ${UI.header.height}) * 1 / 3)`,
     padding: '16px 8px 8px 8px',
     boxSizing: 'border-box',
   },

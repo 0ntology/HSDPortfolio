@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 import { compose, withProps } from 'recompose';
 
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
@@ -23,7 +24,7 @@ const MapView = (props) =>
 
 const withGoogle = compose(withProps(DEFAULT_PROPS), withScriptjs, withGoogleMap);
 
-export default withGoogle(MapView);
+export default withGoogle(Radium(MapView));
 
 const styles = {
   silver: [
