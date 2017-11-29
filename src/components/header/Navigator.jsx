@@ -34,11 +34,11 @@ const styles = {
   container: {
     ...Styles.flexItem,
     ...Styles.flexRow,
+    justifyContent: 'space-around',
   },
   item: {
     ...Styles.link,
     ...Styles.text,
-    ...Styles.flexItem,
     ...Styles.flexCenter,
     fontSize: '14pt',
     textTransform: 'uppercase',
