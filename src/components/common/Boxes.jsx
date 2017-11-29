@@ -8,21 +8,47 @@ import UI from 'constants/UI.js';
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
-const RawImgBox = ({src, cols}) =>
+export const IconBox = Radium(({
+  link,
+  cols,
+  icon
+}) => (
+  <Link to={link} style={{...styles.box(cols), ...styles.link, ...styles.icon}}>
+    { icon }
+  </Link>
+));
+
+export const ImgBox = Radium(({
+  src,
+  cols
+}) => (
   <div style={styles.box(cols)}>
     <div key={src} style={styles.img(src)} />
-  </div>;
+  </div>
+));
 
-const RawLinkBox = ({label, link, cols}) =>
+export const LinkBox = Radium(({
+  label,
+  link,
+  cols
+}) => (
   <Link to={link} style={{...styles.box(cols), ...styles.link}}>
     <FourLineBorder customStyle={styles.border}>
       <div style={styles.label}>
         { label }
       </div>
     </FourLineBorder>
-  </Link>;
+  </Link>
+));
 
-const RawHoverlinkBox = ({hover, hoverRef, src, link, label, cols}) =>
+export const HoverlinkBox = Radium(Hoverable(({
+  hover,
+  hoverRef,
+  src,
+  link,
+  label,
+  cols
+}) =>
   <Link to={link} style={{...styles.box(cols), ...styles.link}}>
     <div key={link} style={{...styles.img(src), ...styles.opacityHover(hover, false)}} />
     <FourLineBorder customStyle={{...styles.border, ...styles.opacityHover(hover)}}>
@@ -30,11 +56,8 @@ const RawHoverlinkBox = ({hover, hoverRef, src, link, label, cols}) =>
         { label }
       </div>
     </FourLineBorder>
-  </Link>;
-
-export const HoverlinkBox = Radium(Hoverable(RawHoverlinkBox));
-export const ImgBox = Radium(RawImgBox);
-export const LinkBox = Radium(RawLinkBox);
+  </Link>
+));
 
 const styles = {
   box: cols => ({
@@ -82,4 +105,9 @@ const styles = {
     opacity: hover ? (inverted ? 1 : 0) : (inverted ? 0 : 1),
     transition: 'all 1s ease',
   }),
+  icon: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 }

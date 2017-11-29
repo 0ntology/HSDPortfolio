@@ -3,7 +3,8 @@ import Keys from 'constants/Keys.js';
 const boxTypes = {
   link: 'link',
   img: 'img',
-  hoverlink: 'hoverlink'
+  hoverlink: 'hoverlink',
+  icon: 'icon'
 };
 
 const UI = {
@@ -31,12 +32,10 @@ const UI = {
   },
   boxTypes: boxTypes,
   getBoxType: (containerKey, index) => {
-    switch(containerKey) {
-      case Keys.portfolio.directory:
-        return boxTypes.hoverlink;
-      default:
-        return index ? boxTypes.img : boxTypes.link;
-    }
+    return containerKey === Keys.portfolio.directory
+            ? boxTypes.hoverlink
+            : boxTypes.img;
+
   }
 };
 
