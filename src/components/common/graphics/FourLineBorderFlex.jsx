@@ -18,7 +18,7 @@ const styles = {
     height: '100%',
     width: '100%',
 
-    padding: '4px',
+    padding: '2px',
     boxSizing: 'border-box',
 
     borderStyle: 'solid',
@@ -32,7 +32,7 @@ const styles = {
 
     height: '100%',
     width: '100%',
-    padding: '4px',
+    padding: '2px',
     boxSizing: 'border-box',
   },
 };

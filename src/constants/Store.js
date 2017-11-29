@@ -57,7 +57,8 @@ const Store = {
     label: Text[Keys.pages.archives].label,
     archives: map(values(Keys.archives),
       key => ({
-        label: Text[key],
+        label: Text[key].label,
+        date: Text[key].date,
         src: Media[key],
         link: Routes[key]
       })

@@ -56,6 +56,8 @@ const archives = {
   architecturalDigest1: 'architecturalDigest1',
   architecturalDigest2: 'architecturalDigest2',
   architecturalDigest3: 'architecturalDigest3',
+  architecturalDigest4: 'architecturalDigest4',
+  architecturalDigest5: 'architecturalDigest5',
 };
 
 const images = {

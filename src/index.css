@@ -13,6 +13,11 @@
   src: url('./constants/assets/fonts/Bodoni-BE-Light-Regular.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'Bodoni Italic';
+  src: url('./constants/assets/fonts/Bodoni-Condensed-Italic.ttf') format('truetype');
+}
+
 * {
   --webkit-tap-highlight-color: transparent;
 }

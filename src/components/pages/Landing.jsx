@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
+import UI from 'constants/UI.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
@@ -108,7 +109,7 @@ const styles = {
     position: 'absolute',
     height: `calc(100% - ${2 * MARGIN}px)`,
     width: `calc(100% - ${2 * MARGIN}px)`,
-    border: '4px solid white',
+    border: `${UI.spacing/2}px solid white`,
     boxSizing: 'border-box',
   }
 }
