@@ -34,13 +34,14 @@ const styles = {
     height: '100%',
   },
   content: {
-    padding: '8px 24px 24px 24px',
+    padding: '15vh 0 24px 0',
+    boxSizing: 'border-box',
     height: '100%',
     overflow: 'auto'
   },
   text: {
     fontFamily: Fonts.text,
-    fontSize: '14pt',
+    fontSize: '12pt',
     lineHeight: 1.5,
     textAlign: 'justify',
     margin: 0,
@@ -52,9 +53,11 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    margin: '24px 24px 24px 24px',
+    margin: '24px 24px 12px 24px',
     float: 'left',
     width: '25vw',
     height: '25vw',
+    maxHeight: '300px',
+    maxWidth: '300px',
   }),
 }
