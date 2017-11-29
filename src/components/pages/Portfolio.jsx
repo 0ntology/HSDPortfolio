@@ -1,16 +1,20 @@
 import React from 'react';
 import Radium from 'radium';
+import { includes } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
 
 import Colors from 'constants/Colors.js';
+import Text from 'constants/Text.js';
+import Routes from 'constants/Routes.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
-import { HoverlinkBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
+import LeftArrowIcon from 'components/common/graphics/LeftArrowIcon.jsx';
+import { HoverlinkBox, IconBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
 
 /**
  * Boxes
@@ -19,6 +23,7 @@ const BoxComponents = {
   [UI.boxTypes.hoverlink]: HoverlinkBox,
   [UI.boxTypes.img]: ImgBox,
   [UI.boxTypes.link]: LinkBox,
+  [UI.boxTypes.icon]: IconBox,
 };
 
 const Boxes = ({sources, count}) => sources.map(({type, ...props}, i) => {
@@ -41,13 +46,36 @@ const Column = ({sources, count}) =>
 /**
  * Portfolio
  */
+const genHead = (label) => ({
+  type: UI.boxTypes.link,
+  link: Keys.portfolio.directory,
+  label,
+});
+
+const tail = {
+  type: UI.boxTypes.icon,
+  link: Keys.portfolio.directory,
+  icon: (
+    <LeftArrowIcon
+      stroke="black"
+      hoverStroke="black"
+      width="75px"
+      height="75px"
+    />
+  )
+}
+
 const Portfolio = ({
   config,
   dimensions: {columns},
   location: {pathname},
 }) => {
-  const items = config[pathname].items;
+  const isDirectory = !(includes(Keys.portfolio, pathname) && (pathname !== Keys.portfolio.directory));
+  const configItems = config[pathname].items;
 
+  const items = isDirectory
+                  ? configItems
+                  : [genHead(Text[pathname]), ...configItems, tail];
   return (
     <div style={styles.base}>
       <Columns
