@@ -32,7 +32,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    width: '75%',
+    width: '100%',
   },
   title: {
     fontFamily: Fonts.title,
@@ -41,12 +41,13 @@ const styles = {
     letterSpacing: '4px',
     height: '50%',
     width: '100%',
-    marginTop: '8px'
+    margin: '8px 0 0 4px',
   },
   subtitle: {
     fontFamily: Fonts.body,
     fontSize: '12pt',
-    letterSpacing: '15px',
+    letterSpacing: '18px',
+    marginLeft: '18px',
     textAlign: 'center',
     height: '50%',
     width: '100%',
