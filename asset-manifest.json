@@ -1,15 +1,12 @@
 {
-  "main.css": "static/css/main.9a7f7f06.css",
-  "main.css.map": "static/css/main.9a7f7f06.css.map",
-  "main.js": "static/js/main.0306874b.js",
-  "main.js.map": "static/js/main.0306874b.js.map",
+  "main.css": "static/css/main.6c5539fe.css",
+  "main.css.map": "static/css/main.6c5539fe.css.map",
+  "main.js": "static/js/main.9d947b6c.js",
+  "main.js.map": "static/js/main.9d947b6c.js.map",
+  "static/media/Bodoni-BE-Light-Regular.otf": "static/media/Bodoni-BE-Light-Regular.a16bdb3d.otf",
+  "static/media/Bodoni-Condensed-Italic.ttf": "static/media/Bodoni-Condensed-Italic.1012dfd2.ttf",
   "static/media/Bodoni-Condensed.ttf": "static/media/Bodoni-Condensed.e3d5ec4c.ttf",
-  "static/media/New-Yorker-Regular.ttf": "static/media/New-Yorker-Regular.aace49bf.ttf",
   "static/media/Yankee.ttf": "static/media/Yankee.85dbd113.ttf",
-  "static/media/hsd-about.jpg": "static/media/hsd-about.a328e0d5.jpg",
   "static/media/left_arrow.svg": "static/media/left_arrow.a8c5c9f6.svg",
-  "static/media/press1.jpg": "static/media/press1.5399a706.jpg",
-  "static/media/press2.jpg": "static/media/press2.0b2fa582.jpg",
-  "static/media/press3.jpg": "static/media/press3.e5ebcf81.jpg",
   "static/media/right_arrow.svg": "static/media/right_arrow.131feb24.svg"
 }
