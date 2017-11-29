@@ -10,7 +10,7 @@ const UI = {
   spacing: 8,
   screens: {
     small: {
-      width: 500,
+      width: 615,
       columns: 1
     },
     medium: {
