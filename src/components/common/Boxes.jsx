@@ -86,6 +86,7 @@ const styles = {
 
     background: 'white',
     fontFamily: Fonts.body,
+    textDecoration: 'none',
     textTransform: 'uppercase',
     letterSpacing: '5px',
   },
