@@ -17,7 +17,7 @@ const MapView = (props) =>
   <GoogleMap
     defaultZoom={zoom}
     defaultCenter={location}
-    defaultOptions={{styles: styles.silver}}
+    defaultOptions={{styles: styles.retro}}
   >
     { props.isMarkerShown && <Marker position={location} /> }
   </GoogleMap>;
