@@ -6,7 +6,7 @@ import rightArrowIcon from 'constants/assets/iconography/right_arrow.svg';
 const Media = {
   [Keys.icons.leftArrow]: leftArrowIcon,
   [Keys.icons.rightArrow]: rightArrowIcon,
-  [Keys.pages.landing]: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-0.jpg',
+  [Keys.pages.landing]: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-0.jpg',
   eightySeventhStreet0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-0.jpg',
   eightySeventhStreet1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-1.jpg',
   eightySeventhStreet2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-2.jpg',
