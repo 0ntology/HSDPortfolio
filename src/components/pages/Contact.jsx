@@ -6,7 +6,9 @@ import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 import Styles from 'constants/Styles.js';
 
+import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
+
 import StudioMap from 'components/common/StudioMap.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
@@ -30,14 +32,16 @@ const Phone = () =>
     { `(212) 980-9898` }
   </span>;
 
-const MapDisplay = () => (
-  <div style={styles.mapContainer}>
-    <StudioMap isMarkerShown />
-  </div>
+const MapDisplay = ({ numCols }) => (
+  <FourLineBorder customStyle={styles.mapContainer(numCols)}>
+    <div style={styles.mapContent}>
+      <StudioMap isMarkerShown />
+    </div>
+  </FourLineBorder>
 );
 
-const InfoDisplay = () => (
-  <div style={styles.infoContainer}>
+const InfoDisplay = ({ numCols }) => (
+  <div style={styles.infoContainer(numCols)}>
     <FourLineBorder>
       <div style={styles.infoContent}>
         <Title />
@@ -49,13 +53,18 @@ const InfoDisplay = () => (
   </div>
 );
 
-const Contact = ({config, ...props}) =>
+const Contact = ({
+  config,
+  dimensions: { columns },
+  ...props
+}) => (
   <div style={styles.container}>
-    <MapDisplay />
-    <InfoDisplay />
-  </div>;
+    <MapDisplay numCols={columns} />
+    <InfoDisplay numCols={columns} />
+  </div>
+);
 
-export default Connect(Keys.pages.contact)(Radium(Contact));
+export default Connect(Keys.pages.contact)(Radium(Dimensioned(Contact)));
 
 const styles = {
   container: {
@@ -68,15 +77,20 @@ const styles = {
 
     ...Styles.flexCol
   },
-  mapContainer: {
+  mapContainer: (numCols) => ({
     height: `calc((100vh - ${UI.header.height}) * 2 / 3)`,
-    width: '100%'
+    width: `${100 / numCols}%`,
+    //borderWidth: '0 0 2px 0'
+  }),
+  mapContent: {
+    height: '100%'
   },
-  infoContainer: {
+  infoContainer: (numCols) => ({
     height: `calc((100vh - ${UI.header.height}) * 1 / 3)`,
-    padding: '16px 8px 8px 8px',
+    width: `${100 / numCols}%`,
+    padding: '16px 0px 8px 0px',
     boxSizing: 'border-box',
-  },
+  }),
   infoContent: {
     height: '100%',
     padding: '16px',
