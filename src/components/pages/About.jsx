@@ -9,14 +9,26 @@ import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
-const About = ({config: {media, txt: {body}}, dimensions}) =>
+const About = ({
+  config: {
+    media,
+    txt: {
+      body
+    }
+  },
+  dimensions: {
+    columns
+  }
+}) =>
   <div style={styles.container}>
-    <FourLineBorder customStyle={styles.border}>
+    <FourLineBorder customStyle={styles.border(columns)}>
       <div style={styles.content}>
-        <div style={styles.image(media)} />
-        <p style={styles.text}>
+        <div style={styles.imageContainer}>
+          <div style={styles.image(media)} />
+        </div>
+        <div style={styles.text}>
           { body }
-        </p>
+        </div>
       </div>
     </FourLineBorder>
   </div>;
@@ -30,14 +42,16 @@ const styles = {
     padding: `4px ${UI.spacing}px ${UI.spacing}px ${UI.spacing}px`,
     boxSizing: 'border-box',
   },
-  border: {
+  border: (numCols) => ({
     height: '100%',
-  },
+    width: `${100 / numCols}%`,
+    position: 'relative',
+    left: `${[0,25,33][numCols-1]}%`
+  }),
   content: {
-    padding: '15vh 0 24px 0',
     boxSizing: 'border-box',
     height: '100%',
-    overflow: 'auto'
+    overflow: 'auto',
   },
   text: {
     fontFamily: Fonts.text,
@@ -45,19 +59,24 @@ const styles = {
     lineHeight: 1.5,
     textAlign: 'justify',
     margin: 0,
-    padding: '24px 24px 24px 24px',
+    padding: '0px 24px 24px 24px',
     boxSizing: 'border-box'
+  },
+  imageContainer: {
+    width: '100%',
+    height: '33%',
+    padding: '16px',
+    boxSizing: 'border-box',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   image: src => ({
     backgroundImage: `url("${src}")`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    margin: '24px 24px 12px 24px',
-    float: 'left',
-    width: '25vw',
-    height: '25vw',
-    maxHeight: '300px',
-    maxWidth: '300px',
+    height: '100%',
+    width: '100%',
   }),
 }
