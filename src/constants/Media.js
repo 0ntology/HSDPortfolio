@@ -47,13 +47,13 @@ const Media = {
   newYork2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-2.jpg',
   newYork3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-3.jpg',
   newYork4: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-newYork-4.jpg',
-  personal1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-1.jpg',
-  personal2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-2.jpg',
-  personal3: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-personal-3.jpg',
   upperEastSide0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-0.jpg',
   upperEastSide1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-1.jpg',
   upperEastSide2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-upperEastSide-2.jpg',
   portrait: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-portrait.jpg',
+  personal1: 'https://res.cloudinary.com/enclave/image/upload/v1511833598/hsd-portfolio/hsd-personal-1.jpg',
+  personal2: 'https://res.cloudinary.com/enclave/image/upload/v1511833598/hsd-portfolio/hsd-personal-2.jpg',
+  personal3: 'https://res.cloudinary.com/enclave/image/upload/v1511833598/hsd-portfolio/hsd-personal-3.jpg',
 };
 
 export default Media;

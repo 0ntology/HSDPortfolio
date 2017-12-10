@@ -21,7 +21,12 @@ const Store = {
     )
   },
   [Keys.pages.about]: {
-    media: Media.portrait,
+    media: [
+      Media.portrait,
+      Media.personal1,
+      Media.personal2,
+      Media.personal3,
+    ],
     txt: {
       body: Text.testament
     }
