@@ -3,7 +3,6 @@ import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
 import Fonts from 'constants/Fonts.js';
-import UI from 'constants/UI.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';

@@ -6,7 +6,6 @@ import { chunkColumns } from 'utils/Utils.js';
 
 import Colors from 'constants/Colors.js';
 import Text from 'constants/Text.js';
-import Routes from 'constants/Routes.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
