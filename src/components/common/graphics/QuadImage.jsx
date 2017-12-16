@@ -1,28 +1,25 @@
 import React from 'react';
 
-const QuadImage = ({ media }) =>
-  <div style={styles.quadContainer}>
+const QuadImage = ({ media, style }) =>
+  <div style={{...styles.container, ...style}}>
     <div style={styles.quadColumn}>
-      <div style={styles.quadImage(media[0])}/>
-      <div style={styles.quadImage(media[1])}/>
+      <div style={styles.quadImage(media[0])} />
+      <div style={styles.quadImage(media[1])} />
     </div>
     <div style={styles.quadColumn}>
-      <div style={styles.quadImage(media[2])}/>
-      <div style={styles.quadImage(media[3])}/>
+      <div style={styles.quadImage(media[2])} />
+      <div style={styles.quadImage(media[3])} />
     </div>
   </div>;
 
 export default QuadImage;
 
 const styles = {
-  quadContainer: {
+  container: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '50vw',
-    height: '50vw',
-    maxHeight: '50vh',
-    maxWidth: '50vh'
+    flex: '0 0 auto',
   },
   quadColumn: {
     display: 'flex',
@@ -35,6 +32,7 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    backgroundOrigin: 'border-box',
     height: '50%',
     width: '100%',
     border: `4px solid white`,

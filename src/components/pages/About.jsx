@@ -9,50 +9,54 @@ import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import QuadImage from 'components/common/graphics/QuadImage.jsx';
 
-/**
- * @func About
- */
 const About = ({
   config: { media, txt: { body } },
   dimensions: { columns }
 }) => (
-  <div style={styles.container}>
-    <QuadImage media={media} />
-    <Text content={body} />
+  <div style={styles.container(columns)}>
+    <QuadImage
+      media={media}
+      style={styles.quadContainer}
+    />
+    <div style={styles.textContainer}>
+      { body }
+    </div>
   </div>
 );
 
 export default Radium(Connect(Keys.pages.about)(Dimensioned(About)));
 
-/** <<< Helpers >>> **/
-
-const Text = ({ content }) =>
-  <div style={styles.textContainer}>
-    { content }
-  </div>;
-
 const styles = {
-  container: {
+  container: columns => ({
     height: `calc(100vh - ${UI.header.height})`,
     width: '100vw',
-    padding: `4px ${UI.spacing}px ${UI.spacing}px ${UI.spacing}px`,
+
+    padding: `24px 120px 24px 120px`,
     boxSizing: 'border-box',
+
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
+    alignItems: 'center',
+    justifyContent: 'space-between',
+
+    overflow: 'auto'
+  }),
   textContainer: {
-    width: '40vw',
     fontFamily: Fonts.text,
     fontSize: '12pt',
     lineHeight: 1.5,
     textAlign: 'justify',
+
+    width: '75vw',
+    height: '75vw',
+    maxWidth: '60vh',
+    maxHeight: '60vh',
+    padding: '24px 0px'
   },
-  border: (numCols) => ({
-    height: '100%',
-    width: `${100 / numCols}%`,
-    position: 'relative',
-    left: `${[0,25,33][numCols-1]}%`
-  }),
+  quadContainer: {
+    width: '75vw',
+    height: '75vw',
+    maxWidth: '60vh',
+    maxHeight: '60vh',
+  }
 }

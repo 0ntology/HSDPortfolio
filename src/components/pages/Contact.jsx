@@ -80,7 +80,6 @@ const styles = {
   mapContainer: (numCols) => ({
     height: `calc((100vh - ${UI.header.height}) * 2 / 3)`,
     width: `${100 / numCols}%`,
-    //borderWidth: '0 0 2px 0'
   }),
   mapContent: {
     height: '100%'

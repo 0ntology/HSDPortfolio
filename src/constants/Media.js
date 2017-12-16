@@ -3,6 +3,11 @@ import Keys from 'constants/Keys.js';
 import leftArrowIcon from 'constants/assets/iconography/left_arrow.svg';
 import rightArrowIcon from 'constants/assets/iconography/right_arrow.svg';
 
+/**
+ * @const Media:
+ * A single store of all media references.
+ *
+ */
 const Media = {
   [Keys.icons.leftArrow]: leftArrowIcon,
   [Keys.icons.rightArrow]: rightArrowIcon,
