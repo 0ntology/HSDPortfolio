@@ -53,11 +53,10 @@ const components = {
 };
 
 const archives = {
-  architecturalDigest1: 'architecturalDigest1',
-  architecturalDigest2: 'architecturalDigest2',
-  architecturalDigest3: 'architecturalDigest3',
-  architecturalDigest4: 'architecturalDigest4',
-  architecturalDigest5: 'architecturalDigest5',
+  archive1: 'archive1',
+  archive2: 'archive2',
+  archive3: 'archive3',
+  archive4: 'archive4',
 };
 
 const images = {
@@ -72,12 +71,18 @@ const images = {
 };
 
 const feeds = {
+  [pages.about]: [
+    'portrait',
+    'personal1',
+    'personal2',
+    'personal3',
+  ],
   [pages.home]: [
-    'home0',
-    'home1',
-    'home2',
     'home3',
     'home4',
+    'home1',
+    'home0',
+    'home2',
     'home5',
     'home6',
     'home7',

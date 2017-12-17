@@ -1,11 +1,10 @@
 import Keys from 'constants/Keys.js';
 
 const Routes = {
-  [Keys.archives.architecturalDigest1]: 'https://www.architecturaldigest.com/story/schnaper-article-092002',
-  [Keys.archives.architecturalDigest2]: 'https://www.architecturaldigest.com/story/schnaper-article-022003',
-  [Keys.archives.architecturalDigest3]: 'https://www.architecturaldigest.com/story/harry-schnaper-profile',
-  [Keys.archives.architecturalDigest4]: 'https://www.architecturaldigest.com/story/schnaper-article-072007',
-
+  [Keys.archives.archive1]: 'https://www.architecturaldigest.com/story/schnaper-article-072007',
+  [Keys.archives.archive2]: 'https://www.architecturaldigest.com/story/schnaper-article-022003',
+  [Keys.archives.archive3]: 'https://www.architecturaldigest.com/story/harry-schnaper-profile',
+  [Keys.archives.archive4]: 'https://www.architecturaldigest.com/story/schnaper-article-092002',
   [Keys.destinations.about]: '/about',
   [Keys.destinations.archives]: '/archives',
   [Keys.destinations.contact]: '/contact',
