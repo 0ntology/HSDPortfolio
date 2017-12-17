@@ -32,6 +32,7 @@ const Store = {
               Media[key],
               UI.getBoxType(containerKey, index),
               Routes[key],
+              index
           ))
         })
       ),

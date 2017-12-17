@@ -9,11 +9,12 @@ const Archive = (label, date, src, link) => ({
   link,
 });
 
-const Project = (label, src, type, link=Keys.portfolio.directory) => ({
+const Project = (label, src, type, link=Keys.portfolio.directory, index) => ({
   label,
   src,
   type,
   link,
+  index
 });
 
 const Link = (label, destination) => ({

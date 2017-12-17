@@ -90,12 +90,12 @@ const feeds = {
   ],
   [portfolio.directory]: [
     'upperEastSide0',
-    'kids0',
-    'madisonAvenue0',
-    'newYork0',
-    'hamptonBays0',
-    'eightySeventhStreet0',
     'fifthAvenue0',
+    'eightySeventhStreet0',
+    'newYork0',
+    'madisonAvenue0',
+    'hamptonBays0',
+    'kids0',
   ],
   [portfolio.upperEastSide]: [
     'upperEastSide0',
