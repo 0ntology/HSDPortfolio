@@ -1,7 +1,8 @@
 import React from 'react';
 import Radium from 'radium';
+import PropTypes from 'prop-types';
 
-const LeftArrowIcon = ({stroke, hoverStroke, width, height}) => {
+const LeftArrowIcon = ({stroke, strokeWidth, width, height}) => {
   return (
     <svg
       id="Layer_1"
@@ -10,7 +11,7 @@ const LeftArrowIcon = ({stroke, hoverStroke, width, height}) => {
       viewBox="0 0 150 150"
       width={width}
       height={height}
-      style={styles.base(stroke, hoverStroke)}
+      style={styles.base(stroke, strokeWidth)}
     >
       <title>
         left_arrow
@@ -30,17 +31,30 @@ const LeftArrowIcon = ({stroke, hoverStroke, width, height}) => {
   );
 };
 
+LeftArrowIcon.propTypes = {
+  stroke: PropTypes.string,
+  strokeWidth: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
+
+LeftArrowIcon.defaultProps = {
+  stroke: 'black',
+  strokeWidth: '2px',
+  width: '25%',
+  height: '100%',
+};
+
 export default Radium(LeftArrowIcon);
 
 const styles = {
-  base: (strokeColor, hoverColor) => {
+  base: (stroke, strokeWidth) => {
     return {
       fill: 'none',
-      stroke: `${strokeColor}`,
+      stroke: `${stroke}`,
       strokeMiterlimit: 10,
-      strokeWidth: '3px',
+      strokeWidth: `${strokeWidth}`,
       ':hover': {
-        stroke: hoverColor || `white`,
         transform: 'scale(1.05)',
       }
     }

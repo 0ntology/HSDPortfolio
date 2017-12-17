@@ -18,8 +18,8 @@ const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />
 const Emblem = ({content, hoverRef}) => <div ref={hoverRef} style={styles.initial}>{ content }</div>;
 const WhiteLineBorder = () => <div style={styles.whitelineborder} />
 
-const FixedLanding = ({config, hover, hoverRef}) => {
-  const { src } = config;
+const Landing = ({config, hover, hoverRef}) => {
+  const { media: src } = config;
 
   return (
     <Link to="/home" style={styles.container}>
@@ -32,7 +32,7 @@ const FixedLanding = ({config, hover, hoverRef}) => {
   )
 }
 
-export default Hoverable(Connect(Keys.pages.landing)(Radium(FixedLanding)));
+export default Hoverable(Connect(Keys.pages.landing)(Radium(Landing)));
 
 /** Styles **/
 const MARGIN = 0;

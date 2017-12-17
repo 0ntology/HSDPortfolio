@@ -16,8 +16,9 @@ const styles = {
   image: src => {
     return {
       backgroundImage: `url("${src}")`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
+      backgroundSize: 'contain',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
     };
   }
 };

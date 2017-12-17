@@ -16,13 +16,13 @@ const Controls = ({handleClick}) => {
         handleClick={() => handleClick(UI.directions.backward)}
         injectedStyles={{justifyContent: 'flex-start'}}
       >
-        <LeftArrowIcon {...styles.arrow} />
+        <LeftArrowIcon />
       </ArrowButton>
       <ArrowButton
         handleClick={() => handleClick(UI.directions.forward)}
         injectedStyles={{justifyContent: 'flex-end'}}
       >
-        <RightArrowIcon {...styles.arrow} />
+        <RightArrowIcon />
       </ArrowButton>
     </div>
   );
@@ -94,10 +94,5 @@ const styles = {
     justifyContent: 'flex-end',
     alignItems: 'center',
     zIndex: 500,
-  },
-  arrow: {
-    stroke: 'rgb(255,255,255)', // rgba(255, 255, 255, 0.67),
-    width: '25%',
-    height: '100%'
   }
 };

@@ -17,10 +17,10 @@ const NavigatorItem = ({ label, destination }) =>
     { label }
   </RadiantLink>;
 
-const Navigator = ({ config, current }) => {
+const Navigator = ({ config: { links }, current }) => {
   return (
     <div style={styles.container}>
-      { config.map((datum, i) =>
+      { links.map((datum, i) =>
           <NavigatorItem key={`Nav-Item-${i}`} {...datum} />
         )
       }

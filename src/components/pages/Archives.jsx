@@ -16,17 +16,21 @@ const Archive = ({
   label,
   link,
   src,
-  date
+  date,
+  isLabel
 }) => (
   <div key={`Archive-${label}`} style={styles.box(columns)}>
     <FourLineBorder>
       <div style={styles.content}>
-        { src ? (
-          <div style={styles.image(src)} />
-        ) : ([
-          <div style={styles.label}>{ label }</div>,
-          <div style={styles.label}>{ date }</div>
-        ])}
+        { isLabel ? (
+          <div style={styles.labelImage(src)} />
+        ) : (
+          <a href={link} style={styles.link}>
+            <div style={styles.image(src)} />
+            <div style={styles.label}>{ label }</div>
+            <div style={styles.label}>{ date }</div>
+          </a>
+        )}
       </div>
     </FourLineBorder>
   </div>
@@ -34,9 +38,7 @@ const Archive = ({
 
 const ArchiveColumn = ({pool, index, columns}) => (
   <div style={styles.column}>
-    { map(
-      pool,
-      (datum, i) => (
+    { map(pool, (datum, i) => (
         <Archive
           key={`Archive-Column-${i}`}
           columns={columns}
@@ -49,7 +51,14 @@ const ArchiveColumn = ({pool, index, columns}) => (
 
 const ArchiveColumns = ({ pools, columns }) => map(
   pools,
-  (pool, i) => <ArchiveColumn key={`Archive-Column-${i}`} index={i} pool={pool} columns={columns} />
+  (pool, i) => (
+    <ArchiveColumn
+      key={`Archive-Column-${i}`}
+      index={i}
+      pool={pool}
+      columns={columns}
+    />
+  )
 );
 
 const ArchivesPage = ({
@@ -57,10 +66,10 @@ const ArchivesPage = ({
     columns
   },
   config: {
-    archives
+    media
   }
 }) => {
-  const items = [{src: ADEmblem}, ...archives];
+  const items = [{src: ADEmblem, isLabel: true}, ...media];
   return (
     <div style={styles.container}>
       <ArchiveColumns
@@ -101,7 +110,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: src => ({
+  labelImage: src => ({
     height: '50%',
     width: '50%',
     backgroundImage: `url("${src}")`,
@@ -109,11 +118,28 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
   }),
+  image: src => ({
+    height: '75%',
+    width: '75%',
+    backgroundImage: `url("${src}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    marginBottom: '16px',
+  }),
   label: {
     fontSize: '14pt',
-    fontFamily: Fonts.italic,
     letterSpacing: 1.25,
     textTransform: 'uppercase',
     textAlign: 'center'
+  },
+  link: {
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textDecoration: 'none'
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import Radium from 'radium';
+import PropTypes from 'prop-types';
 
-const RightArrowIcon = ({stroke, width, height}) => {
+const RightArrowIcon = ({stroke, strokeWidth, width, height}) => {
   return (
     <svg
       id="Layer_1"
@@ -10,7 +11,7 @@ const RightArrowIcon = ({stroke, width, height}) => {
       viewBox="0 0 150 150"
       width={width}
       height={height}
-      style={styles.base(stroke)}
+      style={styles.base(stroke, strokeWidth)}
     >
       <title>
         right_arrow
@@ -32,17 +33,30 @@ const RightArrowIcon = ({stroke, width, height}) => {
   );
 };
 
+RightArrowIcon.propTypes = {
+  stroke: PropTypes.string,
+  strokeWidth: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
+
+RightArrowIcon.defaultProps = {
+  stroke: 'black',
+  strokeWidth: '2px',
+  width: '25%',
+  height: '100%',
+};
+
 export default Radium(RightArrowIcon);
 
 const styles = {
-  base: (strokeColor) => {
+  base: (color, strokeWidth) => {
     return {
       fill: 'none',
-      stroke: `${strokeColor}`,
+      stroke: `${color}`,
       strokeMiterlimit: 10,
-      strokeWidth: '3px',
+      strokeWidth: `${strokeWidth}`,
       ':hover': {
-        stroke: `white`,
         transform: 'scale(1.05)',
       }
     }

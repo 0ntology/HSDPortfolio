@@ -17,7 +17,7 @@ const DropdownItem = ({label, destination}) =>
 
 const Dropdown = ({config, handleToggle}) =>
   <div onClick={handleToggle} style={styles.container}>
-    { config.map((datum, i) =>
+    { config.links.map((datum, i) =>
         <DropdownItem
           key={`dd-item-${i}`}
           {...datum}

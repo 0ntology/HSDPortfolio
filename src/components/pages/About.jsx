@@ -9,20 +9,22 @@ import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import QuadImage from 'components/common/graphics/QuadImage.jsx';
 
-const About = ({
-  config: { media, txt: { body } },
-  dimensions: { columns }
-}) => (
-  <div style={styles.container(columns)}>
-    <QuadImage
-      media={media}
-      style={styles.quadContainer}
-    />
-    <div style={styles.textContainer}>
-      { body }
+const About = ({ config, dimensions }) => {
+  const { media, body } = config;
+  const { columns } = dimensions;
+
+  return (
+    <div style={styles.container(columns)}>
+      <QuadImage
+        media={media}
+        style={styles.quadContainer}
+      />
+      <div style={styles.textContainer}>
+        { body }
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
 export default Radium(Connect(Keys.pages.about)(Dimensioned(About)));
 
