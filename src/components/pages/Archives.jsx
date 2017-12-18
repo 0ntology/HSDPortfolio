@@ -7,9 +7,12 @@ import Ui from 'constants/UI.js';
 
 import dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import connected from 'components/common/hoc/Connected.jsx';
-import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
-import ADEmblem from 'constants/assets/ad-emblem.png';
 
+import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
+
+/**-<< components >>-**/
+
+// an archive box
 const Archive = ({
   columns,
   label,
@@ -35,6 +38,7 @@ const Archive = ({
   </div>
 );
 
+// a column of archives
 const ArchiveColumn = ({pool, index, columns}) => (
   <div style={styles.column}>
     { map(pool, (datum, i) => (
@@ -48,6 +52,7 @@ const ArchiveColumn = ({pool, index, columns}) => (
   </div>
 );
 
+// a group of columns of archives
 const ArchiveColumns = ({ pools, columns }) => map(
   pools,
   (pool, i) => (
@@ -60,6 +65,7 @@ const ArchiveColumns = ({ pools, columns }) => map(
   )
 );
 
+// the archives page
 const ArchivesPage = ({
   dimensions: {
     columns
@@ -68,11 +74,10 @@ const ArchivesPage = ({
     media
   }
 }) => {
-  const items = [{src: ADEmblem, isLabel: true}, ...media];
   return (
     <div style={styles.container}>
       <ArchiveColumns
-        pools={chunkColumns(columns)(items)}
+        pools={chunkColumns(columns)(media)}
         columns={columns}
       />
     </div>
@@ -80,6 +85,8 @@ const ArchivesPage = ({
 };
 
 export default connected(Keys.pages.archives)(dimensioned(ArchivesPage));
+
+/**-<< styles >>-**/
 
 const styles = {
   container: {

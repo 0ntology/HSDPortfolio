@@ -9,6 +9,7 @@ import rightArrowIcon from 'constants/assets/iconography/right_arrow.svg';
  *
  */
 const Media = {
+  adEmblem: 'https://res.cloudinary.com/enclave/image/upload/v1513614058/ad-emblem.png',
   [Keys.icons.leftArrow]: leftArrowIcon,
   [Keys.icons.rightArrow]: rightArrowIcon,
   [Keys.pages.landing]: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-0.jpg',

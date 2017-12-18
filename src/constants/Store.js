@@ -13,12 +13,18 @@ const Store = {
   [Keys.pages.about]: Types.Page(values(pick(Media, Keys.feeds[Keys.pages.about])), false, Text.testament),
   [Keys.pages.contact]: Types.Page(),
   [Keys.pages.landing]: Types.Page(Media[Keys.pages.landing]),
-  [Keys.pages.archives]: Types.Page(map(Keys.archives, key => Types.Archive(
-    Text[key].label,
-    Text[key].date,
-    Media[key],
-    Routes[key]
-  ))),
+  [Keys.pages.archives]: Types.Page([
+    {
+      src: Media.adEmblem,
+      isLabel: true
+    },
+    ...map(Keys.archives, key => Types.Archive(
+      Text[key].label,
+      Text[key].date,
+      Media[key],
+      Routes[key]
+    ))
+  ]),
   [Keys.pages.portfolio]: keyBy(map(Keys.portfolio, containerKey => ({
         key: containerKey,
         items: map(Keys.feeds[containerKey],
