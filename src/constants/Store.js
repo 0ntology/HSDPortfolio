@@ -1,5 +1,4 @@
 import { keyBy, map, pick, values } from 'lodash';
-import { defaultKeyHandler } from 'utils/Utils.js';
 
 import Keys from 'constants/Keys.js';
 import Media from 'constants/Media.js';

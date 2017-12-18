@@ -3,7 +3,6 @@ import { map } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
 import Keys from 'constants/Keys.js';
-import Fonts from 'constants/Fonts.js';
 import Ui from 'constants/UI.js';
 
 import dimensioned from 'components/common/hoc/Dimensioned.jsx';
@@ -107,7 +106,7 @@ const styles = {
     height: '100%',
     padding: '16px',
     boxSizing: 'border-box',
-    
+
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

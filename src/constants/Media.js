@@ -61,7 +61,7 @@ const Media = {
   personal3: 'https://res.cloudinary.com/enclave/image/upload/v1511833598/hsd-portfolio/hsd-personal-3.jpg',
   [Keys.archives.archive1]: 'https://res.cloudinary.com/enclave/image/upload/v1513448317/hsd-archive1.jpg',
   [Keys.archives.archive2]: 'https://res.cloudinary.com/enclave/image/upload/v1513448317/hsd-archive2.jpg',
-  [Keys.archives.archive3]: 'https://res.cloudinary.com/enclave/image/upload/v1513448317/hsd-archive3.jpg',
+  [Keys.archives.archive3]: 'https://res.cloudinary.com/enclave/image/upload/v1513462763/hsd-archive3.jpg',
   [Keys.archives.archive4]: 'https://res.cloudinary.com/enclave/image/upload/v1513448317/hsd-archive4.jpg',
 };
 
