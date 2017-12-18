@@ -1,8 +1,12 @@
 import React from 'react';
+import Radium from 'radium';
 
-import RadiantLink from 'components/common/RadiantLink';
+import { Link } from 'react-router-dom';
+
 import Styles from 'constants/Styles.js';
 import Fonts from 'constants/Fonts.js';
+
+const RadiantLink = Radium(Link);
 
 const Initial = () =>
   <RadiantLink to="/home" style={styles.container}>

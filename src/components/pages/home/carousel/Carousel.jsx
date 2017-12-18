@@ -5,8 +5,8 @@ import UI from 'constants/UI.js';
 
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
-import RightArrowIcon from 'components/common/graphics/RightArrowIcon.jsx';
-import LeftArrowIcon from 'components/common/graphics/LeftArrowIcon.jsx';
+import RightArrowIcon from 'components/common/svg/RightArrowIcon.jsx';
+import LeftArrowIcon from 'components/common/svg/LeftArrowIcon.jsx';
 
 import ArrowButton from './CarouselButton.jsx';
 import Image from './CarouselImage.jsx';

@@ -12,8 +12,8 @@ import UI from 'constants/UI.js';
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 
-import LeftArrowIcon from 'components/common/graphics/LeftArrowIcon.jsx';
-import { HoverlinkBox, IconBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
+import LeftArrowIcon from 'components/common/svg/LeftArrowIcon.jsx';
+import { HoverlinkBox, IconBox, ImgBox, LinkBox } from 'components/common/box/Boxes.jsx';
 
 /**
  * Boxes

@@ -8,7 +8,7 @@ import Ui from 'constants/UI.js';
 import dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import connected from 'components/common/hoc/Connected.jsx';
 
-import RecursiveBorder from 'components/common/RecursiveBorder.jsx';
+import BorderBox from 'components/common/box/BorderBox.jsx';
 
 /**-<< components >>-**/
 
@@ -22,7 +22,7 @@ const Archive = ({
   isLabel
 }) => (
   <div key={`Archive-${label}`} style={styles.box(columns)}>
-    <RecursiveBorder>
+    <BorderBox>
       <div style={styles.content}>
         { isLabel ? (
           <div style={styles.labelImage(src)} />
@@ -34,7 +34,7 @@ const Archive = ({
           </a>
         )}
       </div>
-    </RecursiveBorder>
+    </BorderBox>
   </div>
 );
 

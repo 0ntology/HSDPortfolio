@@ -9,7 +9,7 @@ import Styles from 'constants/Styles.js';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
-import RecursiveBorder from 'components/common/RecursiveBorder.jsx';
+import BorderBox from 'components/common/box/BorderBox.jsx';
 
 import ContactMap from './ContactMap.jsx';
 
@@ -34,23 +34,23 @@ const Phone = () =>
   </span>;
 
 const MapDisplay = ({ numCols }) => (
-  <RecursiveBorder customStyle={styles.mapContainer(numCols)}>
+  <BorderBox customStyle={styles.mapContainer(numCols)}>
     <div style={styles.mapContent}>
       <ContactMap isMarkerShown />
     </div>
-  </RecursiveBorder>
+  </BorderBox>
 );
 
 const InfoDisplay = ({ numCols }) => (
   <div style={styles.infoContainer(numCols)}>
-    <RecursiveBorder>
+    <BorderBox>
       <div style={styles.infoContent}>
         <Title />
         <Address />
         <Email />
         <Phone />
       </div>
-    </RecursiveBorder>
+    </BorderBox>
   </div>
 );
 

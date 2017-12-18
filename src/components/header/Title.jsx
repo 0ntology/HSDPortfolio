@@ -1,11 +1,11 @@
 import React from 'react';
+import Radium from 'radium';
+import { Link } from 'react-router-dom';
 
 import Fonts from 'constants/Fonts.js';
 import Styles from 'constants/Styles.js';
 
-
-import RadiantLink from 'components/common/RadiantLink';
-
+const RadiantLink = Radium(Link);
 const title = 'HARRY SCHNAPER';
 const subtitle = 'INCORPORATED';
 

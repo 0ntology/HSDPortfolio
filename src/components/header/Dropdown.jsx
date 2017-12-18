@@ -1,11 +1,15 @@
 import React from 'react';
+import Radium from 'radium';
+
+import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
 import Styles from 'constants/Styles.js';
 
 import Connected from 'components/common/hoc/Connected.jsx';
-import RadiantLink from 'components/common/RadiantLink.jsx';
+
+const RadiantLink = Radium(Link);
 
 const DropdownItem = ({label, destination}) =>
   <RadiantLink

@@ -1,16 +1,13 @@
-/**
- * Navigator:
- *
- * An item for rendering links in the header.
- */
 import React from 'react';
 import Radium from 'radium';
+import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Styles from 'constants/Styles.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
-import RadiantLink from 'components/common/RadiantLink.jsx';
+
+const RadiantLink = Radium(Link);
 
 const NavigatorItem = ({ label, destination }) =>
   <RadiantLink to={destination} style={styles.item}>
