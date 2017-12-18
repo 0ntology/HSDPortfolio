@@ -11,7 +11,6 @@ import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
-import ScrollToTop from 'components/common/ScrollToTop.jsx';
 
 import LeftArrowIcon from 'components/common/graphics/LeftArrowIcon.jsx';
 import { HoverlinkBox, IconBox, ImgBox, LinkBox } from 'components/common/Boxes.jsx';
@@ -72,7 +71,6 @@ const Portfolio = ({
 
   return (
     <div style={styles.base}>
-      <ScrollToTop />
       <Columns
         sources={chunkColumns(columns)(boxItems)}
         count={columns}

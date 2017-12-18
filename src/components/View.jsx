@@ -3,13 +3,12 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // pages
-import Archives  from 'components/pages/Archives.jsx';
-import Landing   from 'components/pages/Landing.jsx';
-import Home      from 'components/pages/Home.jsx';
-import Portfolio from 'components/pages/Portfolio.jsx';
 import About     from 'components/pages/about/About.jsx';
-import Press     from 'components/pages/Press.jsx';
-import Contact   from 'components/pages/Contact.jsx';
+import Archives  from 'components/pages/archives/Archives.jsx';
+import Contact   from 'components/pages/contact/Contact.jsx';
+import Home      from 'components/pages/home/Home.jsx';
+import Landing   from 'components/pages/landing/Landing.jsx';
+import Portfolio from 'components/pages/portfolio/Portfolio.jsx';
 
 const View = () =>
     <Switch>
@@ -18,7 +17,6 @@ const View = () =>
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/portfolio/:portKey" component={Portfolio} />
       <Route path="/about" component={About} />
-      <Route path="/press" component={Press} />
       <Route path="/contact" component={Contact} />
       <Route path="/archives" component={Archives} />
     </Switch>;

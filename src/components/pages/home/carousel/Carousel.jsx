@@ -3,11 +3,13 @@ import { Motion, spring } from 'react-motion';
 
 import UI from 'constants/UI.js';
 
-import ArrowButton from 'components/common/ArrowButton.jsx';
+import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
+
 import RightArrowIcon from 'components/common/graphics/RightArrowIcon.jsx';
 import LeftArrowIcon from 'components/common/graphics/LeftArrowIcon.jsx';
-import Image from 'components/common/graphics/Image.jsx';
-import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
+
+import ArrowButton from './CarouselButton.jsx';
+import Image from './CarouselImage.jsx';
 
 const Controls = ({handleClick}) => {
   return (

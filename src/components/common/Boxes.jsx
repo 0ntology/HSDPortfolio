@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Fonts from 'constants/Fonts.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
-import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
+import RecursiveBorder from 'components/common/RecursiveBorder.jsx';
 
 /**-<< Components >>-**/
 
@@ -37,11 +37,11 @@ export const LinkBox = Radium(({
   cols
 }) => (
   <Link to={link} style={{...styles.box(cols), ...styles.link}}>
-    <FourLineBorder customStyle={styles.border}>
+    <RecursiveBorder customStyle={styles.border}>
       <div style={styles.label}>
         { label }
       </div>
-    </FourLineBorder>
+    </RecursiveBorder>
   </Link>
 ));
 
@@ -57,20 +57,20 @@ export const HoverlinkBox = Radium(Hoverable(({
   return (cols > 2) ? (
     <Link to={link} style={{...styles.box(cols), ...styles.link}}>
       <div key={link} style={{...styles.img(src), ...styles.opacityHover(hover, false)}} />
-      <FourLineBorder customStyle={{...styles.border, ...styles.opacityHover(hover)}}>
+      <RecursiveBorder customStyle={{...styles.border, ...styles.opacityHover(hover)}}>
         <div ref={hoverRef} style={{...styles.label, ...styles.opacityHover(hover)}}>
           { label }
         </div>
-      </FourLineBorder>
+      </RecursiveBorder>
     </Link>
   ) : (
     <Link to={link} style={{...styles.box(cols), ...styles.link}}>
-      <FourLineBorder customStyle={styles.border}>
+      <RecursiveBorder customStyle={styles.border}>
         <div ref={hoverRef} style={styles.projectWrap}>
           <div style={styles.projectImage(src)} />
           <div style={styles.projectLabel}>{ label }</div>
         </div>
-      </FourLineBorder>
+      </RecursiveBorder>
     </Link>
   );
 }));

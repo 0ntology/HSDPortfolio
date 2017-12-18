@@ -9,8 +9,9 @@ import Styles from 'constants/Styles.js';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
-import StudioMap from 'components/common/StudioMap.jsx';
-import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
+import RecursiveBorder from 'components/common/RecursiveBorder.jsx';
+
+import ContactMap from './ContactMap.jsx';
 
 const Title = () =>
   <span style={styles.title}>
@@ -33,23 +34,23 @@ const Phone = () =>
   </span>;
 
 const MapDisplay = ({ numCols }) => (
-  <FourLineBorder customStyle={styles.mapContainer(numCols)}>
+  <RecursiveBorder customStyle={styles.mapContainer(numCols)}>
     <div style={styles.mapContent}>
-      <StudioMap isMarkerShown />
+      <ContactMap isMarkerShown />
     </div>
-  </FourLineBorder>
+  </RecursiveBorder>
 );
 
 const InfoDisplay = ({ numCols }) => (
   <div style={styles.infoContainer(numCols)}>
-    <FourLineBorder>
+    <RecursiveBorder>
       <div style={styles.infoContent}>
         <Title />
         <Address />
         <Email />
         <Phone />
       </div>
-    </FourLineBorder>
+    </RecursiveBorder>
   </div>
 );
 

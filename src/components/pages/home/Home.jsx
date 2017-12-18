@@ -4,7 +4,8 @@ import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
-import Carousel from 'components/common/Carousel.jsx';
+
+import Carousel from './carousel/Carousel.jsx';
 
 class Home extends React.Component {
   state = {

@@ -2,16 +2,15 @@ import React from 'react';
 import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
-import Keys from 'constants/Keys.js';
+import Colors from 'constants/Colors.js';
 import Fonts from 'constants/Fonts.js';
+import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
-import Colors from 'constants/Colors.js';
-
-import FourLineBorder from 'components/common/graphics/FourLineBorder.jsx';
+import QuadBorder from 'components/common/svg/QuadBorder.jsx';
 
 const BackgroundPane = ({src, hover}) => <div style={styles.background(src, hover)} />;
 const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />;
@@ -26,7 +25,7 @@ const Landing = ({config, hover, hoverRef}) => {
       <BackgroundPane hover={hover}  src={src} />
       <BlurredPane hover={hover}  src={src} />
       <Emblem content="HS" hoverRef={hoverRef} />
-      <FourLineBorder customStyle={styles.border} />
+      <QuadBorder customStyle={styles.border} />
       <WhiteLineBorder />
     </Link>
   )

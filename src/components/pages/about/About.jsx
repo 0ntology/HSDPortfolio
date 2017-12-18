@@ -7,7 +7,8 @@ import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
-import QuadImage from 'components/common/graphics/QuadImage.jsx';
+
+import AboutImageGrid from './AboutImageGrid.jsx';
 
 const About = ({ config, dimensions }) => {
   const { media, body } = config;
@@ -15,7 +16,7 @@ const About = ({ config, dimensions }) => {
 
   return (
     <div style={styles.container(columns)}>
-      <QuadImage
+      <AboutImageGrid
         media={media}
         style={styles.quadContainer}
       />
