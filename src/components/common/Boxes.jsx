@@ -7,6 +7,9 @@ import Fonts from 'constants/Fonts.js';
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import FourLineBorder from 'components/common/graphics/FourLineBorderFlex.jsx';
 
+/**-<< Components >>-**/
+
+// A box w/ an icon
 export const IconBox = Radium(({
   link,
   cols,
@@ -17,6 +20,7 @@ export const IconBox = Radium(({
   </Link>
 ));
 
+// A box w/ an image
 export const ImgBox = Radium(({
   src,
   cols
@@ -26,6 +30,7 @@ export const ImgBox = Radium(({
   </div>
 ));
 
+// A box w/ a link
 export const LinkBox = Radium(({
   label,
   link,
@@ -40,6 +45,7 @@ export const LinkBox = Radium(({
   </Link>
 ));
 
+// A box w/ a link exposed on hover
 export const HoverlinkBox = Radium(Hoverable(({
   hover,
   hoverRef,
@@ -47,16 +53,29 @@ export const HoverlinkBox = Radium(Hoverable(({
   link,
   label,
   cols
-}) =>
-  <Link to={link} style={{...styles.box(cols), ...styles.link}}>
-    <div key={link} style={{...styles.img(src), ...styles.opacityHover(hover, false)}} />
-    <FourLineBorder customStyle={{...styles.border, ...styles.opacityHover(hover)}}>
-      <div ref={hoverRef} style={{...styles.label, ...styles.opacityHover(hover)}}>
-        { label }
-      </div>
-    </FourLineBorder>
-  </Link>
-));
+}) => {
+  return (cols > 2) ? (
+    <Link to={link} style={{...styles.box(cols), ...styles.link}}>
+      <div key={link} style={{...styles.img(src), ...styles.opacityHover(hover, false)}} />
+      <FourLineBorder customStyle={{...styles.border, ...styles.opacityHover(hover)}}>
+        <div ref={hoverRef} style={{...styles.label, ...styles.opacityHover(hover)}}>
+          { label }
+        </div>
+      </FourLineBorder>
+    </Link>
+  ) : (
+    <Link to={link} style={{...styles.box(cols), ...styles.link}}>
+      <FourLineBorder customStyle={styles.border}>
+        <div ref={hoverRef} style={styles.projectWrap}>
+          <div style={styles.projectImage(src)} />
+          <div style={styles.projectLabel}>{ label }</div>
+        </div>
+      </FourLineBorder>
+    </Link>
+  );
+}));
+
+/**-<< Styles >>-**/
 
 const styles = {
   box: cols => ({
@@ -109,5 +128,31 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  projectWrap: {
+    height: '100%',
+    width: '100%',
+
+    padding: '16px',
+    boxSizing: 'border-box',
+
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
+  projectLabel: {
+    fontSize: '14pt',
+    letterSpacing: 1.25,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+  },
+  projectImage: src => ({
+    height: '75%',
+    width: '75%',
+
+    backgroundImage: `url("${src}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  })
 }

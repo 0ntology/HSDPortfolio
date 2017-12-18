@@ -25,7 +25,7 @@ const Archive = ({
         { isLabel ? (
           <div style={styles.labelImage(src)} />
         ) : (
-          <a href={link} style={styles.link}>
+          <a href={link} style={styles.boxWrap}>
             <div style={styles.image(src)} />
             <div style={styles.label}>{ label }</div>
             <div style={styles.label}>{ date }</div>
@@ -105,6 +105,9 @@ const styles = {
   }),
   content: {
     height: '100%',
+    padding: '16px',
+    boxSizing: 'border-box',
+    
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -118,6 +121,17 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
   }),
+  boxWrap: {
+    height: '100%',
+    width: '100%',
+
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+
+    textDecoration: 'none',
+  },
   image: src => ({
     height: '75%',
     width: '75%',
@@ -125,7 +139,6 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    marginBottom: '16px',
   }),
   label: {
     fontSize: '14pt',
@@ -133,13 +146,4 @@ const styles = {
     textTransform: 'uppercase',
     textAlign: 'center'
   },
-  link: {
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textDecoration: 'none'
-  }
 }

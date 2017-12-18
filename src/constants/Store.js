@@ -20,25 +20,19 @@ const Store = {
     Media[key],
     Routes[key]
   ))),
-  [Keys.pages.portfolio]: new Proxy(
-    keyBy(
-      map(
-        Keys.portfolio,
-        containerKey => ({
-          key: containerKey,
-          items: map(Keys.feeds[containerKey],
-            (key, index) => Types.Project(
-              Text[key],
-              Media[key],
-              UI.getBoxType(containerKey, index),
-              Routes[key],
-              index
-          ))
-        })
-      ),
-      'key'
+  [Keys.pages.portfolio]: keyBy(map(Keys.portfolio, containerKey => ({
+        key: containerKey,
+        items: map(Keys.feeds[containerKey],
+          (key, index) => Types.Project(
+            Text[key],
+            Media[key],
+            UI.getBoxType(containerKey, index),
+            Routes[key],
+            index
+        ))
+      })
     ),
-    defaultKeyHandler(Keys.portfolio.directory)
+    'key'
   ),
 };
 

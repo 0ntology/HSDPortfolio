@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import { includes } from 'lodash';
+import { get, includes } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
 
@@ -46,22 +46,15 @@ const Column = ({sources, count}) =>
  * Portfolio
  */
 const genHead = (label) => ({
+  label,
   type: UI.boxTypes.link,
   link: Keys.portfolio.directory,
-  label,
 });
 
 const tail = {
   type: UI.boxTypes.icon,
   link: Keys.portfolio.directory,
-  icon: (
-    <LeftArrowIcon
-      stroke="black"
-      hoverStroke="black"
-      width="75px"
-      height="75px"
-    />
-  )
+  icon: <LeftArrowIcon width="75px" height="75px" />
 }
 
 const Portfolio = ({
@@ -69,16 +62,17 @@ const Portfolio = ({
   dimensions: {columns},
   location: {pathname},
 }) => {
-  const isDirectory = !(includes(Keys.portfolio, pathname) && (pathname !== Keys.portfolio.directory));
-  const configItems = config[pathname].items;
 
-  const items = isDirectory
-                  ? configItems
-                  : [genHead(Text[pathname]), ...configItems, tail];
+  const { items, key } = get(config, pathname, config[Keys.portfolio.directory]);
+
+  const boxItems = (key !== Keys.portfolio.directory)
+    ? [genHead(Text[pathname]), ...items, tail]
+    : items;
+
   return (
     <div style={styles.base}>
       <Columns
-        sources={chunkColumns(columns)(items)}
+        sources={chunkColumns(columns)(boxItems)}
         count={columns}
       />
     </div>
