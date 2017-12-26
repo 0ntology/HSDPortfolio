@@ -4,41 +4,17 @@ import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
 import Connect from 'components/common/hoc/Connected.jsx';
-
 import Carousel from './carousel/Carousel.jsx';
 
-class Home extends React.Component {
-  state = {
-    selected: 0
-  };
-
-  handleClick = increment => {
-    const {selected} = this.state;
-    const {config: {media}} = this.props;
-    const newSelection = ( selected + increment ) % media.length;
-
-    this.setState({
-      selected: newSelection >= 0 ? newSelection : media.length - 1
-    });
-  };
-
-  render() {
-    const { selected } = this.state;
-    const { config: { media } } = this.props;
-
-    return (
-      <div style={styles.wrap}>
-        <div style={styles.base}>
-          <Carousel
-            config={media}
-            selected={selected}
-            handleClick={this.handleClick}
-          />
-        </div>
+const Home = ({ config }) => {
+  return (
+    <div style={styles.wrap}>
+      <div style={styles.base}>
+        <Carousel media={config.media} />
       </div>
-    );
-  }
-};
+    </div>
+  )
+}
 
 export default Connect(Keys.pages.home)(Home);
 

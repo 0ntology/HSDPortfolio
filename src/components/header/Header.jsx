@@ -85,9 +85,7 @@ class Header extends Component {
 
     return (
       <div style={styles.base}>
-        { map(
-            items,
-            (key, i) => {
+        { map(items, (key, i) => {
               const { Comp, config, contexts, profile } = points[key];
 
               return (

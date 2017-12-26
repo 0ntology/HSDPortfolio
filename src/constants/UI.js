@@ -8,6 +8,11 @@ const boxTypes = {
 };
 
 const UI = {
+  touch: {
+    start: "touchstart",
+    move: "touchmove",
+    end: "touchend",
+  },
   spacing: 8,
   screens: {
     small: {
@@ -24,8 +29,8 @@ const UI = {
     },
   },
   directions: {
-    forward: 1,
-    backward: -1
+    backward: 'backward',
+    forward: 'forward',
   },
   header: {
     height: '70px'
@@ -35,7 +40,6 @@ const UI = {
     return containerKey === Keys.portfolio.directory
             ? boxTypes.hoverlink
             : boxTypes.img;
-
   }
 };
 

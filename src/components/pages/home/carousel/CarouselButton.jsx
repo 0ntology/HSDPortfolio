@@ -1,21 +1,37 @@
 import React from 'react';
 
-const ArrowButton = ({children, handleClick, injectedStyles}) => {
+import UI from 'constants/UI.js';
+
+import RightArrowIcon from 'components/common/svg/RightArrowIcon.jsx';
+import LeftArrowIcon from 'components/common/svg/LeftArrowIcon.jsx';
+
+const iconMap = {
+  [UI.directions.forward]: RightArrowIcon,
+  [UI.directions.backward]: LeftArrowIcon,
+}
+
+const ArrowButton = ({direction, handleClick, style}) => {
   return (
-    <div style={{...styles.base, ...injectedStyles}} onClick={handleClick}>
-      {children}
+    <div onClick={() => handleClick(direction)} style={styles.base(direction)}>
+      <ArrowIcon direction={direction} style={style} />
     </div>
-  );
-};
+  )
+}
+
+const ArrowIcon = ({ direction, style }) => {
+  const Icon = iconMap[direction];
+  return (
+    <Icon {...style} />
+  )
+}
 
 export default ArrowButton;
 
 const styles = {
-  base: {
-    height: '100%',
-    width: '100%',
+  base: (direction) => ({
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+    justifyContent: `flex-${direction === UI.directions.backward ? 'start' : 'end'}`,
+  })
 };
