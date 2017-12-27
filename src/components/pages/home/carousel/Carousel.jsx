@@ -17,7 +17,8 @@ class Carousel extends React.Component {
   /*-<< initials >>-*/
 
   state = {
-    selected: 0
+    selected: 0,
+    touches: []
   };
 
   /*-<< handlers >>-*/
@@ -57,25 +58,30 @@ class Carousel extends React.Component {
       const touchStart = find(this.state.touches, ['identifier', touchEnd.identifier]);
       const direction = this._calcSwipeDirection(touchStart, touchEnd);
 
-      this._handleSelection(direction);
+      this.setState({
+        touches: []
+      }, () =>
+        this._handleSelection(direction)
+      );
     });
   }
 
   /*-<< Mutators >>-*/
 
   _increment = () => {
-    const selected = this.state.selected + 1 % this.props.media.length;
+    const selected = (this.state.selected + 1) % this.props.media.length;
 
     this.setState({ selected });
   }
 
   _decrement = () => {
-    const selected = (this.state.selected - 1 > 0) ? this.state.selected - 1 : 0;
+    const selected = (this.state.selected - 1 > 0) ? (this.state.selected - 1) : 0;
 
     this.setState({ selected });
   }
 
   /*-<< Helpers >>-*/
+
   _calcSwipeDirection = (touchStart, touchEnd) => {
     return ((touchEnd.pageX - touchStart.pageX) > 0)
       ? UI.directions.backward
@@ -91,7 +97,6 @@ class Carousel extends React.Component {
         onClick={this._handleSelection}
         onTouchStart={this._handleTouchStart}
         onTouchEnd={this._handleTouchEnd}
-        style={styles.controls(this.props.dimensions.columns)}
       />,
       <Reel
         key="Carousel-Reel"
@@ -103,9 +108,3 @@ class Carousel extends React.Component {
 }
 
 export default Dimensioned(Carousel);
-
-const styles = {
-  controls: (columns) => ({
-    stroke: `${columns === 1 ? Colors.white : Colors.black}`,
-  })
-}

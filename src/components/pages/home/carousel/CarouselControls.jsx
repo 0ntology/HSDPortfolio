@@ -11,11 +11,10 @@ import Button from './CarouselButton.jsx';
  *  buttons.
  *
  */
-const Controls = ({onTouchStart, onTouchEnd, onClick, style}) => (
+const Controls = ({onTouchStart, onTouchEnd, onClick}) => (
   <div
     onTouchStart={onTouchStart}
     onTouchEnd={onTouchEnd}
-    style={styles.imageControls}
   >
     <Buttons onClick={onClick} style={style} />
   </div>
@@ -26,7 +25,6 @@ const Buttons = ({onClick, style}) => map(UI.directions, (direction) => (
     key={direction}
     direction={direction}
     handleClick={onClick}
-    style={style}
   />
 ))
 
