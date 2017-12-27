@@ -15,12 +15,13 @@ const Controls = ({onTouchStart, onTouchEnd, onClick}) => (
   <div
     onTouchStart={onTouchStart}
     onTouchEnd={onTouchEnd}
+    style={styles.imageControls}
   >
-    <Buttons onClick={onClick} style={style} />
+    <Buttons onClick={onClick} />
   </div>
 )
 
-const Buttons = ({onClick, style}) => map(UI.directions, (direction) => (
+const Buttons = ({onClick}) => map(UI.directions, (direction) => (
   <Button
     key={direction}
     direction={direction}
@@ -41,7 +42,7 @@ const styles = {
 
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     zIndex: 500,
   }

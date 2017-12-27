@@ -1,6 +1,7 @@
 import React from 'react';
 
 import UI from 'constants/UI.js';
+import Colors from 'constants/Colors.js';
 
 import RightArrowIcon from 'components/common/svg/RightArrowIcon.jsx';
 import LeftArrowIcon from 'components/common/svg/LeftArrowIcon.jsx';
@@ -10,18 +11,22 @@ const iconMap = {
   [UI.directions.backward]: LeftArrowIcon,
 }
 
-const ArrowButton = ({direction, handleClick, style}) => {
+const ArrowButton = ({direction, handleClick}) => {
   return (
     <div onClick={() => handleClick(direction)} style={styles.base(direction)}>
-      <ArrowIcon direction={direction} style={style} />
+      <ArrowIcon
+        direction={direction}
+        stroke={Colors.white}
+      />
     </div>
   )
 }
 
-const ArrowIcon = ({ direction, style }) => {
+const ArrowIcon = ({ direction, stroke }) => {
   const Icon = iconMap[direction];
+
   return (
-    <Icon {...style} />
+    <Icon stroke={stroke} />
   )
 }
 
