@@ -12,6 +12,7 @@ const UI = {
     start: "touchstart",
     move: "touchmove",
     end: "touchend",
+    swipeThreshold: 25
   },
   spacing: 8,
   screens: {

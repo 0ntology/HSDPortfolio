@@ -2,7 +2,6 @@ import React from 'react';
 import { map, find, forEach } from 'lodash';
 
 import UI from 'constants/UI.js';
-import Colors from 'constants/Colors.js';
 
 import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import Reel from './CarouselReel.jsx';
@@ -56,12 +55,12 @@ class Carousel extends React.Component {
   _handleTouchEnd = ({changedTouches}) => {
     forEach(changedTouches, (touchEnd) => {
       const touchStart = find(this.state.touches, ['identifier', touchEnd.identifier]);
-      const direction = this._calcSwipeDirection(touchStart, touchEnd);
 
-      this.setState({
-        touches: []
-      }, () =>
-        this._handleSelection(direction)
+      this.setState({ touches: [] }, () => {
+        if (this._isSwipe(touchStart, touchEnd)) {
+          const swipeDirection = this._calcSwipeDirection(touchStart, touchEnd);
+          this._handleSelection(swipeDirection);
+        }}
       );
     });
   }
@@ -81,6 +80,10 @@ class Carousel extends React.Component {
   }
 
   /*-<< Helpers >>-*/
+
+  _isSwipe = (touchStart, touchEnd) => {
+    return (Math.abs(touchStart.pageX - touchEnd.pageX) > UI.touch.swipeThreshold);
+  }
 
   _calcSwipeDirection = (touchStart, touchEnd) => {
     return ((touchEnd.pageX - touchStart.pageX) > 0)
