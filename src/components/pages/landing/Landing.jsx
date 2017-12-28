@@ -1,6 +1,5 @@
 import React from 'react';
 import Radium from 'radium';
-import { Link } from 'react-router-dom';
 
 import Colors from 'constants/Colors.js';
 import Fonts from 'constants/Fonts.js';
@@ -11,6 +10,7 @@ import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
 import QuadBorder from 'components/common/svg/QuadBorder.jsx';
+import SwipeLink from './SwipeLink.jsx';
 
 const BackgroundPane = ({src, hover}) => <div style={styles.background(src, hover)} />;
 const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />;
@@ -21,13 +21,13 @@ const Landing = ({config, hover, hoverRef}) => {
   const { media: src } = config;
 
   return (
-    <Link to="/home" style={styles.container}>
+    <SwipeLink to="/home" style={styles.container}>
       <BackgroundPane hover={hover}  src={src} />
       <BlurredPane hover={hover}  src={src} />
       <Emblem content="HS" hoverRef={hoverRef} />
       <QuadBorder customStyle={styles.border} />
       <WhiteLineBorder />
-    </Link>
+    </SwipeLink>
   )
 }
 
