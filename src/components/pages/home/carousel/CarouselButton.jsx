@@ -1,36 +1,20 @@
 import React from 'react';
 
+import Iconography from 'constants/Iconography.js';
 import UI from 'constants/UI.js';
 import Colors from 'constants/Colors.js';
 
-import RightArrowIcon from 'components/common/svg/RightArrowIcon.jsx';
-import LeftArrowIcon from 'components/common/svg/LeftArrowIcon.jsx';
+const CarouselButton = ({columns, direction, handleClick}) => {
+  const Icon = Iconography[direction];
 
-const iconMap = {
-  [UI.directions.forward]: RightArrowIcon,
-  [UI.directions.backward]: LeftArrowIcon,
-}
-
-const ArrowButton = ({direction, handleClick}) => {
   return (
     <div onClick={() => handleClick(direction)} style={styles.base(direction)}>
-      <ArrowIcon
-        direction={direction}
-        stroke={Colors.white}
-      />
+      <Icon {...styles.icon(columns)} />
     </div>
   )
 }
 
-const ArrowIcon = ({ direction, stroke }) => {
-  const Icon = iconMap[direction];
-
-  return (
-    <Icon stroke={stroke} />
-  )
-}
-
-export default ArrowButton;
+export default CarouselButton;
 
 const styles = {
   base: (direction) => ({
@@ -38,5 +22,10 @@ const styles = {
     alignItems: 'center',
     cursor: 'pointer',
     justifyContent: `flex-${direction === UI.directions.backward ? 'start' : 'end'}`,
+  }),
+  icon: (columns) => ({
+    stroke: columns === 3 ? Colors.black : Colors.offWhite,
+    height: '75px',
+    width: '75px',
   })
 };

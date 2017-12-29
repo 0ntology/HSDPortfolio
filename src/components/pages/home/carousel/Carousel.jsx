@@ -56,12 +56,15 @@ class Carousel extends React.Component {
   /*-<< Rendering >>-*/
 
   render () {
+    const { columns } = this.props.dimensions;
+    
     return ([
       <SwipeLayer key="Carousel-Controls" onSwipe={this._handleSelection}>
         { map(UI.directions, (direction) => (
             <Button
               key={direction}
               direction={direction}
+              columns={columns}
               handleClick={this._handleSelection}
             />
         ))}

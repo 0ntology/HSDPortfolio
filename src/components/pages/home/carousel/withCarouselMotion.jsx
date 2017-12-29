@@ -1,7 +1,6 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
 
-/** -<< withCarouselMotion >>- **/
 /**
  * Gives position to a carousel component.
  *
