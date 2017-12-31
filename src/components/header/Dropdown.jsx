@@ -40,7 +40,8 @@ const styles = {
 
     zIndex: '500',
     padding: '8px',
-    width: 'calc(100% - 16px)',
+    boxSizing: 'border-box',
+    width: '100vw',
 
     display: 'flex',
     flexDirection: 'column',
