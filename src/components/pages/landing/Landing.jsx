@@ -14,16 +14,19 @@ import SwipeLink from './SwipeLink.jsx';
 import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
 
 // ->> Sub Components
-const BlurredBox = ({src, hover, viewport}) =>
-  <div style={styles.blurredBox(src, hover, viewport)} />;
+const BlurredBox = Radium(({src, hover, viewport}) =>
+  <div style={styles.blurredBox(src, hover, viewport)} />
+);
 
-const EmblemBox = ({content, hoverRef, viewport}) =>
+const EmblemBox = Radium(({content, hoverRef, viewport}) =>
   <div ref={hoverRef} style={styles.emblemBox(viewport)}>
     { content }
-  </div>;
+  </div>
+);
 
-const BackgroundPane = ({src, hover}) =>
-  <div style={styles.background(src, hover)} />;
+const BackgroundPane = Radium(({src, hover}) =>
+  <div style={styles.background(src, hover)} />
+);
 
 const BackgroundBorder = () =>
   <div style={styles.backgroundBorder} />
