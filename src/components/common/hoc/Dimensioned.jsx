@@ -6,7 +6,13 @@ const Dimensioned = (DimensionedChild) => {
     state = {
       height: '0',
       width: '0',
-      columns: 1
+      columns: 1,
+      viewport: {
+        vw: 0,
+        vh: 0,
+        vmin: 0,
+        vmax: 0,
+      }
     };
 
     componentDidMount() {
@@ -22,7 +28,13 @@ const Dimensioned = (DimensionedChild) => {
       this.setState({
         width: window.innerWidth,
         height: window.innerHeight,
-        columns: utils.calcCols(window.innerWidth)
+        columns: utils.calcCols(window.innerWidth),
+        viewport: {
+          vw: window.innerWidth,
+          vh: window.innerHeight,
+          vmin: Math.min(window.innerHeight, window.innerWidth),
+          vmax: Math.max(window.innerHeight, window.innerWidth),
+        },
       });
     }
 

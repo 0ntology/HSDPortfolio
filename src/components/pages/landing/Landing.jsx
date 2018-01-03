@@ -6,51 +6,62 @@ import Fonts from 'constants/Fonts.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
+import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
 import Connect from 'components/common/hoc/Connected.jsx';
 
-import QuadBorder from 'components/common/svg/QuadBorder.jsx';
 import SwipeLink from './SwipeLink.jsx';
+import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
 
-const BackgroundPane = ({src, hover}) => <div style={styles.background(src, hover)} />;
-const BlurredPane = ({src, hover}) => <div style={styles.blurred(src, hover)} />;
-const Emblem = ({content, hoverRef}) => <div ref={hoverRef} style={styles.initial}>{ content }</div>;
-const WhiteLineBorder = () => <div style={styles.whitelineborder} />
+// ->> Sub Components
+const BlurredBox = ({src, hover, viewport}) =>
+  <div style={styles.blurredBox(src, hover, viewport)} />;
 
-const Landing = ({config, hover, hoverRef}) => {
-  const { media: src } = config;
+const EmblemBox = ({content, hoverRef, viewport}) =>
+  <div ref={hoverRef} style={styles.emblemBox(viewport)}>
+    { content }
+  </div>;
+
+const BackgroundPane = ({src, hover}) =>
+  <div style={styles.background(src, hover)} />;
+
+const BackgroundBorder = () =>
+  <div style={styles.backgroundBorder} />
+
+// ->> Root Component
+const Landing = ({config, hover, hoverRef, dimensions}) => {
+  const { media } = config;
+  const { viewport } = dimensions;
 
   return (
     <SwipeLink to="/home" style={styles.container}>
-      <BackgroundPane hover={hover}  src={src} />
-      <BlurredPane hover={hover}  src={src} />
-      <Emblem content="HS" hoverRef={hoverRef} />
-      <QuadBorder customStyle={styles.border} />
-      <WhiteLineBorder />
+      <BackgroundPane hover={hover}  src={media} />
+      <BackgroundBorder />
+      <BlurredBox hover={hover}  src={media} viewport={viewport} />
+      <EmblemBox content="HS" hoverRef={hoverRef} viewport={viewport} />
+      <QuadBorderBox customStyle={styles.quadBorderBox(viewport)} />
     </SwipeLink>
   )
 }
 
-export default Hoverable(Connect(Keys.pages.landing)(Radium(Landing)));
+export default Hoverable(Connect(Keys.pages.landing)(Radium(Dimensioned(Landing))));
 
 /** Styles **/
-const MARGIN = 0;
 const BOXSIZE = `50vmin`;
-const BOXTOP = `(100vh - ${BOXSIZE}) / 2`;
-const BOXLEFT = `(100vw - ${BOXSIZE}) / 2`;
+const BOXTOP = ({vh, vmin}) => `${(vh / 2) - (vmin / 4)}px`;
+const BOXLEFT = ({vw, vmin}) => `${(vw / 2) - (vmin / 4)}px`;
 
 const styles = {
   container: {
     display: 'block',
-    height: '100%',
+    height: '100vh',
     width: '100%',
-    padding: `${MARGIN}px`,
     boxSizing: 'border-box',
   },
   background: (src, hover) => ({
     position: 'absolute',
-    height: `calc(100% - ${2 * MARGIN}px)`,
-    width: `calc(100% - ${2 * MARGIN}px)`,
+    height: '100%',
+    width: '100%',
 
     background: `url("${src}") no-repeat`,
     backgroundPosition: 'center',
@@ -59,13 +70,21 @@ const styles = {
     transition: 'filter 1s ease',
     filter: hover ? 'blur(8px)' : 'none',
   }),
-  blurred: (src, hover) => ({
+  backgroundBorder: {
     position: 'absolute',
-    top: `calc(${BOXTOP})`,
-    left: `calc(${BOXLEFT})`,
+    height: '100%',
+    width: '100%',
+    border: `${UI.spacing/2}px solid white`,
+    boxSizing: 'border-box',
+  },
+  // ->> Boxes
+  blurredBox: (src, hover, viewport) => ({
+    position: 'absolute',
 
-    height: `calc(${BOXSIZE})`,
-    width: `calc(${BOXSIZE})`,
+    top: BOXTOP(viewport),
+    left: BOXLEFT(viewport),
+    height: BOXSIZE,
+    width: BOXSIZE,
 
     background: `url("${src}") no-repeat fixed`,
     backgroundSize: 'cover',
@@ -74,13 +93,13 @@ const styles = {
     transition: 'filter .75s ease-out',
     filter: hover ? `blur(0px) grayscale(100%)` : 'blur(15px) grayscale(0%)',
   }),
-  initial: {
+  emblemBox: (viewport) => ({
     position: 'absolute',
-    top: `calc(${BOXTOP})`,
-    left: `calc(${BOXLEFT})`,
 
-    height: `calc(${BOXSIZE})`,
-    width: `calc(${BOXSIZE})`,
+    top: BOXTOP(viewport),
+    left: BOXLEFT(viewport),
+    height: BOXSIZE,
+    width: BOXSIZE,
 
     display: 'flex',
     justifyContent: 'center',
@@ -91,23 +110,16 @@ const styles = {
     fontFamily: Fonts.title,
 
     zIndex: 500
-  },
-  border: {
+  }),
+  quadBorderBox: (viewport) => ({
     position: 'absolute',
-    top: `calc(${BOXTOP})`,
-    left: `calc(${BOXLEFT})`,
 
-    height: `calc(${BOXSIZE})`,
-    width: `calc(${BOXSIZE})`,
+    top: BOXTOP(viewport),
+    left: BOXLEFT(viewport),
+    height: BOXSIZE,
+    width: BOXSIZE,
 
     stroke: 'white',
     strokeWidth: '4px',
-  },
-  whitelineborder: {
-    position: 'absolute',
-    height: `calc(100% - ${2 * MARGIN}px)`,
-    width: `calc(100% - ${2 * MARGIN}px)`,
-    border: `${UI.spacing/2}px solid white`,
-    boxSizing: 'border-box',
-  }
+  }),
 }
