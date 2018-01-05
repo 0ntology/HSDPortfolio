@@ -13,35 +13,18 @@ import Connect from 'components/common/hoc/Connected.jsx';
 import SwipeLink from './SwipeLink.jsx';
 import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
 
-// ->> Sub Components
-const BlurredBox = Radium(({src, hover, viewport}) =>
-  <div style={styles.blurredBox(src, hover, viewport)} />
-);
-
-const EmblemBox = Radium(({content, hoverRef, viewport}) =>
-  <div ref={hoverRef} style={styles.emblemBox(viewport)}>
-    { content }
-  </div>
-);
-
-const BackgroundPane = Radium(({src, hover}) =>
-  <div style={styles.background(src, hover)} />
-);
-
-const BackgroundBorder = () =>
-  <div style={styles.backgroundBorder} />
-
-// ->> Root Component
 const Landing = ({config, hover, hoverRef, dimensions}) => {
   const { media } = config;
   const { viewport } = dimensions;
 
   return (
     <SwipeLink to="/home" style={styles.container}>
-      <BackgroundPane hover={hover}  src={media} />
-      <BackgroundBorder />
-      <BlurredBox hover={hover}  src={media} viewport={viewport} />
-      <EmblemBox content="HS" hoverRef={hoverRef} viewport={viewport} />
+      <div style={styles.background(media, hover)} />
+      <div style={styles.backgroundBorder} />
+      <div style={styles.blurredBox(media, hover, viewport)} />
+      <div ref={hoverRef} style={styles.emblemBox(viewport)}>
+        HS
+      </div>
       <QuadBorderBox customStyle={styles.quadBorderBox(viewport)} />
     </SwipeLink>
   )

@@ -57,24 +57,26 @@ class Carousel extends React.Component {
 
   render () {
     const { columns } = this.props.dimensions;
-    
-    return ([
-      <SwipeLayer key="Carousel-Controls" onSwipe={this._handleSelection}>
-        { map(UI.directions, (direction) => (
-            <Button
-              key={direction}
-              direction={direction}
-              columns={columns}
-              handleClick={this._handleSelection}
-            />
-        ))}
-      </SwipeLayer>,
-      <Reel
-        key="Carousel-Reel"
-        selected={this.state.selected}
-        {...this.props}
-      />
-    ]);
+
+    return (
+      <React.Fragment>
+        <Reel
+          key="Carousel-Reel"
+          selected={this.state.selected}
+          {...this.props}
+        />
+        <SwipeLayer key="Carousel-Controls" onSwipe={this._handleSelection}>
+          { map(UI.directions, (direction) => (
+              <Button
+                key={direction}
+                direction={direction}
+                columns={columns}
+                handleClick={this._handleSelection}
+              />
+          ))}
+        </SwipeLayer>
+      </React.Fragment>
+    );
   }
 }
 

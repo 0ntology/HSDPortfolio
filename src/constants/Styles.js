@@ -28,7 +28,7 @@ const Styles = {
   flexItem: {
     flex: 1,
     height: '100%',
-    margin: '0px 4px 0px 4px',
+    margin: '0px 4px',
   },
   flexBottom: {
     display: 'flex',

@@ -81,6 +81,6 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    zIndex: 500,
+    // zIndex: 500,
   }
 }

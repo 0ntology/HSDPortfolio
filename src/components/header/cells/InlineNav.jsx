@@ -9,18 +9,18 @@ import Connect from 'components/common/hoc/Connected.jsx';
 
 const RadiantLink = Radium(Link);
 
-const NavigatorItem = ({ label, destination }) =>
-  <RadiantLink to={destination} style={styles.item}>
-    { label }
-  </RadiantLink>;
-
-const Navigator = ({ config: { links }, current }) => {
+const Navigator = ({ config: { links } }) => {
   return (
     <div style={styles.container}>
       { links.map((datum, i) =>
-          <NavigatorItem key={`Nav-Item-${i}`} {...datum} />
-        )
-      }
+          <RadiantLink
+            key={`Nav-Item-${i}`}
+            to={datum.destination}
+            style={styles.item}
+          >
+            { datum.label }
+          </RadiantLink>
+      )}
     </div>
   );
 }

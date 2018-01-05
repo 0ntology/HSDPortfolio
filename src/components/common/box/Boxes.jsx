@@ -94,7 +94,7 @@ const styles = {
     backgroundPosition: 'center',
   }),
   label: {
-    zIndex: 200,
+    //zIndex: 200,
     height: '100%',
     width: '100%',
 
