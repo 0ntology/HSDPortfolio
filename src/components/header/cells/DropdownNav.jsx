@@ -31,8 +31,9 @@ export default Radium(Connected(Keys.navigation)(Dropdown));
 
 const styles = {
   item: (i) => ({
-    position: 'absolute',
+    position: 'fixed',
     top: `${(i * 26) + 70}px`,
+    left: 0,
     height: '27px',
     width: '100vw',
     paddingRight: '24px',
@@ -49,8 +50,9 @@ const styles = {
     zIndex: '2000',
   }),
   background: (length) => ({
-    position: 'absolute',
+    position: 'fixed',
     top: `70px`,
+    left: 0,
     height: `${length * 27}px`,
     width: '100vw',
     zIndex: '1000',
