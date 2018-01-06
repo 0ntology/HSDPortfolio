@@ -2,6 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import { Link } from 'react-router-dom';
 
+import Colors from 'constants/Colors.js';
 import Fonts from 'constants/Fonts.js';
 
 import Hoverable from 'components/common/hoc/Hoverable.jsx';
@@ -94,7 +95,6 @@ const styles = {
     backgroundPosition: 'center',
   }),
   label: {
-    //zIndex: 200,
     height: '100%',
     width: '100%',
 
@@ -105,6 +105,7 @@ const styles = {
     background: 'white',
     fontFamily: Fonts.body,
     textDecoration: 'none',
+    color: Colors.black,
     textTransform: 'uppercase',
     letterSpacing: '5px',
   },
@@ -142,6 +143,7 @@ const styles = {
     justifyContent: 'space-around'
   },
   projectLabel: {
+    color: Colors.black,
     fontSize: '14pt',
     letterSpacing: 1.25,
     textTransform: 'uppercase',

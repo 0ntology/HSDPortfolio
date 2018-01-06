@@ -2,6 +2,8 @@ import React from 'react';
 import { map } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
+
+import Colors from 'constants/Colors.js';
 import Keys from 'constants/Keys.js';
 import Ui from 'constants/UI.js';
 
@@ -147,6 +149,7 @@ const styles = {
     backgroundRepeat: 'no-repeat',
   }),
   label: {
+    color: Colors.black,
     fontSize: '14pt',
     letterSpacing: 1.25,
     textTransform: 'uppercase',
