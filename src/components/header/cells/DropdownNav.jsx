@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 import Keys from 'constants/Keys.js';
 import Fonts from 'constants/Fonts.js';
-import UI from 'constants/UI.js';
 import Colors from 'constants/Colors.js';
 
 import Connected from 'components/common/hoc/Connected.jsx';
@@ -13,49 +12,34 @@ import Connected from 'components/common/hoc/Connected.jsx';
 const RadiantLink = Radium(Link);
 
 const Dropdown = ({config, isOpen, onToggle}) => {
-  return isOpen && (
-    <div onClick={onToggle} style={styles.container}>
-      { config.links.map((datum, i) =>
-          <RadiantLink
-            key={datum.label}
-            to={datum.destination}
-            style={styles.item}
-          >
-            { datum.label }
-          </RadiantLink>
-        )
-      }
-    </div>
-  )
+  return isOpen && config.links.map((datum, i) => {
+    const { label, destination } = datum;
+    return (
+      <RadiantLink key={label} to={destination} onClick={onToggle} style={styles.item(i)}>
+        { label }
+      </RadiantLink>
+    )
+  })
 }
 
 export default Radium(Connected(Keys.navigation)(Dropdown));
 
 const styles = {
-  container: {
+  item: (i) => ({
     position: 'absolute',
-    top: UI.header.height,
-    width: '100vw',
-
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'end',
-
-    backgroundColor: 'white',
-  },
-  item: {
-    margin: '4px 20px',
-    boxSizing: 'border-box',
+    top: `${(i * 27) + 70}px`,
     height: '27px',
-    fontFamily: Fonts.body,
+    width: '100vw',
+    paddingRight: '24px',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
     textAlign: 'right',
-
     textDecoration: 'none',
     textTransform: 'uppercase',
     letterSpacing: 1.25,
-    color: Colors.black,
-    cursor: 'pointer'
-  }
+    fontFamily: Fonts.body,
 
+    color: Colors.black,
+    backgroundColor: Colors.white,
+  }),
 }
