@@ -12,14 +12,19 @@ import Connected from 'components/common/hoc/Connected.jsx';
 const RadiantLink = Radium(Link);
 
 const Dropdown = ({config, isOpen, onToggle}) => {
-  return isOpen && config.links.map((datum, i) => {
-    const { label, destination } = datum;
-    return (
-      <RadiantLink key={label} to={destination} onClick={onToggle} style={styles.item(i)}>
-        { label }
-      </RadiantLink>
-    )
-  })
+  return isOpen && (
+    <React.Fragment>
+      <div style={styles.background(config.links.length)} />
+      { config.links.map((datum, i) => {
+          const { label, destination } = datum;
+          return (
+            <RadiantLink key={label} to={destination} onClick={onToggle} style={styles.item(i)}>
+              { label }
+            </RadiantLink>
+          )
+      })}
+    </React.Fragment>
+  )
 }
 
 export default Radium(Connected(Keys.navigation)(Dropdown));
@@ -27,7 +32,7 @@ export default Radium(Connected(Keys.navigation)(Dropdown));
 const styles = {
   item: (i) => ({
     position: 'absolute',
-    top: `${(i * 27) + 70}px`,
+    top: `${(i * 26) + 70}px`,
     height: '27px',
     width: '100vw',
     paddingRight: '24px',
@@ -41,5 +46,14 @@ const styles = {
 
     color: Colors.black,
     backgroundColor: Colors.white,
+    zIndex: '2000',
   }),
+  background: (length) => ({
+    position: 'absolute',
+    top: `70px`,
+    height: `${length * 27}px`,
+    width: '100vw',
+    zIndex: '1000',
+    background: Colors.white,
+  })
 }
