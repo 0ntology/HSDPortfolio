@@ -4,11 +4,13 @@ import Emblem from './cells/Emblem.jsx';
 import InlineNav from './cells/InlineNav.jsx';
 
 const WideHeader = () => {
-  return ([
-      <Emblem />,
-      <div style={styles.item} />,
-      <InlineNav />
-  ]);
+  return (
+    <React.Fragment>
+      <Emblem key="Wide-Header-Emblem"/>
+      <div style={styles.item} />
+      <InlineNav key="Wide-Header-Nav"/>
+    </React.Fragment>
+  )
 }
 
 export default WideHeader;

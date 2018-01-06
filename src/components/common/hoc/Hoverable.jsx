@@ -20,8 +20,6 @@ const Hoverable = InnerComponent => {
 
     _connect = el => {
       if (el) {
-        console.log('[Hover Connection]');
-
         el.addEventListener('mouseenter', (e) => this._toggleHover(true));
         el.addEventListener('mouseleave', (e) => this._toggleHover(false));
       }
