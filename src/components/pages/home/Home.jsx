@@ -21,7 +21,7 @@ export default Connect(Keys.pages.home)(Home);
 const styles = {
   wrap: {
     height: `calc(100vh - ${UI.header.height})`,
-    width: '100%',
+    width: '100vw',
 
     padding: '0 8px 8px 8px',
     boxSizing: 'border-box',

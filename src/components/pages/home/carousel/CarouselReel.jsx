@@ -10,7 +10,7 @@ const Reel = ({position, dimensions, media}) => {
           <Image
             key={medium}
             src={medium}
-            customStyles={styles.image}
+            dimensions={dimensions}
           />
       )}
     </div>
@@ -26,14 +26,11 @@ const styles = {
       top: 0,
       left: `${(-(dimensions.width - 16) * position.x)}px`,
       height: '100%',
+      width: '100%',
+      
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center'
     }
-  },
-  image: {
-    width: 'calc(100vw - 16px)',
-    marginRight: '8px',
-    height: '100%'
   }
 };

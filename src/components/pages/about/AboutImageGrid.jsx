@@ -28,13 +28,12 @@ const styles = {
     width: '50%'
   },
   quadImage: (src) => ({
+    flex: 1,
     backgroundImage: `url("${src}")`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundOrigin: 'border-box',
-    height: '50%',
-    width: '100%',
     border: `4px solid white`,
     boxSizing: 'border-box',
   }),

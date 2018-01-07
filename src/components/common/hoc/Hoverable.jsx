@@ -10,8 +10,6 @@ const Hoverable = InnerComponent => {
     };
 
     _toggleHover = to => {
-      console.log('[Hover Event]');
-
       this.setState({
         hover: to
       });

@@ -33,16 +33,16 @@ const Phone = () =>
     { `(212) 980-9898` }
   </span>;
 
-const MapDisplay = ({ numCols }) => (
-  <BorderBox customStyle={styles.mapContainer(numCols)}>
+const MapDisplay = ({ dimensions }) => (
+  <BorderBox customStyle={styles.mapContainer(dimensions)}>
     <div style={styles.mapContent}>
       <ContactMap isMarkerShown />
     </div>
   </BorderBox>
 );
 
-const InfoDisplay = ({ numCols }) => (
-  <div style={styles.infoContainer(numCols)}>
+const InfoDisplay = ({ dimensions }) => (
+  <div style={styles.infoContainer(dimensions.columns)}>
     <BorderBox>
       <div style={styles.infoContent}>
         <Title />
@@ -54,14 +54,10 @@ const InfoDisplay = ({ numCols }) => (
   </div>
 );
 
-const Contact = ({
-  config,
-  dimensions: { columns },
-  ...props
-}) => (
+const Contact = ({dimensions}) => (
   <div style={styles.container}>
-    <MapDisplay numCols={columns} />
-    <InfoDisplay numCols={columns} />
+    <MapDisplay dimensions={dimensions} />
+    <InfoDisplay dimensions={dimensions} />
   </div>
 );
 
@@ -78,9 +74,9 @@ const styles = {
 
     ...Styles.flexCol
   },
-  mapContainer: (numCols) => ({
-    height: `calc((100vh - ${UI.header.height}) * 2 / 3)`,
-    width: `${100 / numCols}%`,
+  mapContainer: (dimensions) => ({
+    height: '67%',
+    width: `${100 / dimensions.columns}%`,
   }),
   mapContent: {
     height: '100%'
