@@ -1,6 +1,5 @@
 import React from 'react';
 import Radium from 'radium';
-import { get } from 'lodash';
 
 import { chunkColumns } from 'utils/Utils.js';
 
@@ -48,32 +47,31 @@ const backItem = {
   type: UI.boxTypes.icon,
   link: Keys.portfolio.directory,
   icon: <LeftArrowIcon width="75px" height="75px" />
-}
+};
 
-const Portfolio = ({
-  config,
-  dimensions: {columns},
-  location: {pathname},
-}) => {
+const Portfolio = ({ config, dimensions, location }) => {
+  // determine if directory or location portfolio
+  const { pathname } = location;
+  const isDirectory = (pathname === '/portfolio') || (pathname === '/portfolio/');
 
   // fetch location portfolio data, or default directory data
-  const { items, key } = get(config, pathname, config[Keys.portfolio.directory]);
-
-  const boxData = [...items];
+  const { items } = !isDirectory ? config[pathname] : config[Keys.portfolio.directory];
 
   // if not on directory, add a back button
-  if (key !== Keys.portfolio.directory) {
+  const boxData = [...items];
+  if (!isDirectory) {
     boxData.push(backItem)
   }
 
-  // chunk that data into columns
-  const columnData = chunkColumns(columns)(boxData);
+  // chunk that data into a number of columns
+  const columnCount = isDirectory ? dimensions.columns : 1;
+  const columnData = chunkColumns(columnCount)(boxData);
 
   return (
-    <div id="Portfolio" style={styles.base}>
+    <div id="PortfolioPage" style={styles.base}>
       <Columns
         sources={columnData}
-        count={columns}
+        count={columnCount}
       />
     </div>
   );
