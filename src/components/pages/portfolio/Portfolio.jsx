@@ -5,7 +5,6 @@ import { get } from 'lodash';
 import { chunkColumns } from 'utils/Utils.js';
 
 import Colors from 'constants/Colors.js';
-import Text from 'constants/Text.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
@@ -45,13 +44,7 @@ const Column = ({sources, count}) =>
 /**
  * Portfolio
  */
-const genHead = (label) => ({
-  label,
-  type: UI.boxTypes.link,
-  link: Keys.portfolio.directory,
-});
-
-const tail = {
+const backItem = {
   type: UI.boxTypes.icon,
   link: Keys.portfolio.directory,
   icon: <LeftArrowIcon width="75px" height="75px" />
@@ -63,16 +56,23 @@ const Portfolio = ({
   location: {pathname},
 }) => {
 
+  // fetch location portfolio data, or default directory data
   const { items, key } = get(config, pathname, config[Keys.portfolio.directory]);
 
-  const boxItems = (key !== Keys.portfolio.directory)
-    ? [genHead(Text[pathname]), ...items, tail]
-    : items;
+  const boxData = [...items];
+
+  // if not on directory, add a back button
+  if (key !== Keys.portfolio.directory) {
+    boxData.push(backItem)
+  }
+
+  // chunk that data into columns
+  const columnData = chunkColumns(columns)(boxData);
 
   return (
-    <div style={styles.base}>
+    <div id="Portfolio" style={styles.base}>
       <Columns
-        sources={chunkColumns(columns)(boxItems)}
+        sources={columnData}
         count={columns}
       />
     </div>
