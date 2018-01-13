@@ -41,6 +41,10 @@ const Text = {
   [Keys.images.newYork0]: 'New York, NY',
   [Keys.images.upperEastSide0]: 'Upper East Side',
   [Keys.images.kids0]: `Kid's Bedrooms`,
+  Landing: {
+    title: 'HARRY SCHNAPER',
+    subtitle: 'INCORPORATED'
+  }
 }
 
 export default Text;

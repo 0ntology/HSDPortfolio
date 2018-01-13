@@ -1,8 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
 
-import Colors from 'constants/Colors.js';
-import Fonts from 'constants/Fonts.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
 
@@ -12,8 +10,9 @@ import Connect from 'components/common/hoc/Connected.jsx';
 
 import SwipeLink from './SwipeLink.jsx';
 import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
+import EmblemIcon from 'components/common/svg/EmblemIcon.jsx';
 
-const Landing = ({config, hover, hoverRef, dimensions}) => {
+const LandingPage = ({config, hover, hoverRef, dimensions}) => {
   const { media } = config;
   const { viewport } = dimensions;
 
@@ -23,14 +22,14 @@ const Landing = ({config, hover, hoverRef, dimensions}) => {
       <div style={styles.backgroundBorder} />
       <div style={styles.blurredBox(media, hover, viewport)} />
       <div ref={hoverRef} style={styles.emblemBox(viewport)}>
-        HS
+        <EmblemIcon style={styles.emblem} />
       </div>
       <QuadBorderBox customStyle={styles.quadBorderBox(viewport)} />
     </SwipeLink>
   )
 }
 
-export default Hoverable(Connect(Keys.pages.landing)(Radium(Dimensioned(Landing))));
+export default Hoverable(Connect(Keys.pages.landing)(Radium(Dimensioned(LandingPage))));
 
 /** Styles **/
 const BOXSIZE = `50vmin`;
@@ -81,22 +80,19 @@ const styles = {
   }),
   emblemBox: (viewport) => ({
     position: 'absolute',
-
     top: BOXTOP(viewport),
     left: BOXLEFT(viewport),
     height: BOXSIZE,
     width: BOXSIZE,
-
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    color: Colors.white,
-    fontSize: '10vmin',
-    fontFamily: Fonts.title,
-
-    zIndex: 500
+    padding: '32px',
+    boxSizing: 'border-box',
+    zIndex: 500,
   }),
+  emblem: {
+    stroke: 'white',
+    fill: 'white',
+  },
   quadBorderBox: (viewport) => ({
     position: 'absolute',
 
