@@ -5,7 +5,10 @@ class ScrollController extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       if (this.props.location.pathname.includes('portfolio')) {
-        document.getElementById("PortfolioPage").scrollTo(0,0);
+        const portfolio = document.getElementById("PortfolioPage");
+        if (portfolio) {
+          portfolio.scrollTop = 0;
+        }
       }
     }
   }
