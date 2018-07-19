@@ -2,6 +2,7 @@ import Keys from 'constants/Keys.js';
 
 import leftArrowIcon from 'constants/assets/iconography/left_arrow.svg';
 import rightArrowIcon from 'constants/assets/iconography/right_arrow.svg';
+import skyline from 'constants/assets/skyline.jpg';
 
 /**
  * @const Media:
@@ -12,7 +13,7 @@ const Media = {
   adEmblem: 'https://res.cloudinary.com/enclave/image/upload/v1513614058/ad-emblem.png',
   [Keys.icons.leftArrow]: leftArrowIcon,
   [Keys.icons.rightArrow]: rightArrowIcon,
-  [Keys.pages.landing]: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-home-0.jpg',
+  [Keys.pages.landing]: skyline,
   eightySeventhStreet0: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-0.jpg',
   eightySeventhStreet1: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-1.jpg',
   eightySeventhStreet2: 'https://res.cloudinary.com/enclave/image/upload/v1511833545/hsd-portfolio/hsd-eightySeventhStreet-2.jpg',

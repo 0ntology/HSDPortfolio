@@ -1,37 +1,41 @@
 import React from 'react';
 import Radium from 'radium';
 
-import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
+import skyline from 'constants/assets/skyline.jpg';
 
-import Dimensioned from 'components/common/hoc/Dimensioned.jsx';
-import Hoverable from 'components/common/hoc/Hoverable.jsx';
-import Connect from 'components/common/hoc/Connected.jsx';
-
+import Hover from 'components/common/provider/Hover.jsx';
+import Dimension from 'components/common/provider/Dimension.jsx';
 import SwipeLink from './SwipeLink.jsx';
 import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
 import EmblemIcon from 'components/common/svg/EmblemIcon.jsx';
 
-const LandingPage = ({config, hover, hoverRef, dimensions}) => {
-  const { media } = config;
-  const { viewport } = dimensions;
-
+/**
+ * The HSD Landing Page.
+ * @returns { jsx }
+ */
+export default Radium(function LandingPage() {
   return (
-    <SwipeLink to="/home" style={styles.container}>
-      <div style={styles.background(media, hover)} />
-      <div style={styles.backgroundBorder} />
-      <div style={styles.blurredBox(media, hover, viewport)} />
-      <div ref={hoverRef} style={styles.emblemBox(viewport)}>
-        <EmblemIcon style={styles.emblem} />
-      </div>
-      <QuadBorderBox customStyle={styles.quadBorderBox(viewport)} />
-    </SwipeLink>
+    <Dimension>
+      { ({viewport}) =>
+        <Hover>
+          { (isHovered, hoverRef) =>
+            <SwipeLink to="/home" style={styles.container}>
+              <div style={styles.background(skyline, isHovered)} />
+              <div style={styles.backgroundBorder} />
+              <div style={styles.blurredBox(skyline, isHovered, viewport)} />
+              <div ref={hoverRef} style={styles.emblemBox(viewport)}>
+                <EmblemIcon style={styles.emblem} />
+              </div>
+              <QuadBorderBox customStyle={styles.quadBorderBox(viewport)} />
+            </SwipeLink>
+          }
+        </Hover>
+      }
+    </Dimension>
   )
-}
+})
 
-export default Hoverable(Connect(Keys.pages.landing)(Radium(Dimensioned(LandingPage))));
-
-/** Styles **/
 const BOXSIZE = `50vmin`;
 const BOXTOP = ({vh, vmin}) => `${(vh / 2) - (vmin / 4)}px`;
 const BOXLEFT = ({vw, vmin}) => `${(vw / 2) - (vmin / 4)}px`;
@@ -48,7 +52,8 @@ const styles = {
     height: '100%',
     width: '100%',
 
-    background: `url("${src}") no-repeat`,
+    backgroundImage: `url("${src}")`,
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
 
@@ -71,7 +76,9 @@ const styles = {
     height: BOXSIZE,
     width: BOXSIZE,
 
-    background: `url("${src}") no-repeat fixed`,
+    backgroundImage: `url("${src}")`,
+    backgroundAttachment: 'fixed',
+    backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
@@ -92,6 +99,7 @@ const styles = {
   emblem: {
     stroke: 'white',
     fill: 'white',
+    height: '100%',
   },
   quadBorderBox: (viewport) => ({
     position: 'absolute',

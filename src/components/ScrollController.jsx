@@ -1,7 +1,11 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class ScrollController extends Component {
+/**
+ * Control scroll position upon route updates.
+ *
+ */
+export default withRouter(class ScrollController extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       if (this.props.location.pathname.includes('portfolio')) {
@@ -16,6 +20,4 @@ class ScrollController extends Component {
   render() {
     return this.props.children
   }
-}
-
-export default withRouter(ScrollController)
+});

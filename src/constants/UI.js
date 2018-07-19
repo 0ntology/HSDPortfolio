@@ -8,6 +8,7 @@ const boxTypes = {
 };
 
 const UI = {
+  dropboxToken: 'wdELHrxOK2AAAAAAAAAA8z3t1UZW0etjojNAohcBL76o3Zmj1C9XMGZDA1IAXGPP',
   touch: {
     start: "touchstart",
     move: "touchmove",

@@ -1,34 +1,27 @@
 import React from 'react';
-
-import Keys from 'constants/Keys.js';
+import Dropbox from 'components/common/provider/Dropbox.jsx';
 import UI from 'constants/UI.js';
 
-import Connect from 'components/common/hoc/Connected.jsx';
-import Carousel from './carousel/Carousel.jsx';
-
-const Home = ({ config }) => {
+export default function Home() {
   return (
-    <div style={styles.wrap}>
-      <div style={styles.base}>
-        <Carousel media={config.media} />
-      </div>
-    </div>
+    <Dropbox source={{path: '/projects/hsd-site'}}>
+      { data =>
+        <div style={styles.wrap}>
+          { data.map(src => <div style={styles.photo(src)} />)}
+        </div>
+      }
+    </Dropbox>
   )
 }
-
-export default Connect(Keys.pages.home)(Home);
 
 const styles = {
   wrap: {
     height: `calc(100vh - ${UI.header.height})`,
     width: '100vw',
-
     padding: '0 8px 8px 8px',
     boxSizing: 'border-box',
   },
-  base: {
-    width: '100%',
-    height: '100%',
-    overflow: 'hidden',
-  }
+  photo: (src) => ({
+    backgroundImage: `url("${src}")`,
+  }),
 };
