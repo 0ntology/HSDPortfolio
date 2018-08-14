@@ -17,6 +17,7 @@ export default Radium(EmblemIcon);
 
 const styles = {
   base: {
-    stroke: 'white'
+    stroke: 'black',
+    fill: 'black',
   }
 }

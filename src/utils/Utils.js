@@ -12,20 +12,18 @@ export default class Utils {
     const screenKey = Utils.calcScreen(width);
     return UI.screens[screenKey].columns;
   }
+
+  static chunkColumns(n) {
+    return (items) => {
+      let chunks = Array(n);
+
+      items.forEach((el, i) => {
+        chunks[i % n]
+          ? chunks[i % n].push(el)
+          : chunks[i % n] = [el];
+      });
+    
+      return chunks;
+    }
+  }
 }
-
-export const chunkColumns = (n) => (items) => {
-  let chunks = Array(n);
-
-  items.forEach((el, i) => {
-    chunks[i % n]
-      ? chunks[i % n].push(el)
-      : chunks[i % n] = [el];
-  });
-
-  return chunks;
-}
-
-export const defaultKeyHandler = key => ({
-  get: (target, name) => target[`${name in target ? name : key}`]
-});

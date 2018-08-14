@@ -57,6 +57,6 @@ export default class Dropbox extends React.Component {
   }
 
   render() {
-    return this.props.children(this.state.files);
+    return this.state.files && this.props.children(this.state.files);
   }
 }

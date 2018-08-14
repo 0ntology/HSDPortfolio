@@ -1,18 +1,15 @@
 import React from 'react';
 import { map } from 'lodash';
 
-import { chunkColumns } from 'utils/Utils.js';
-
 import Colors from 'constants/Colors.js';
 import Keys from 'constants/Keys.js';
 import Ui from 'constants/UI.js';
+import Utils from 'utils/Utils.js';
 
 import dimensioned from 'components/common/hoc/Dimensioned.jsx';
 import connected from 'components/common/hoc/Connected.jsx';
 
 import BorderBox from 'components/common/box/BorderBox.jsx';
-
-/**-<< components >>-**/
 
 // an archive box
 const Archive = ({
@@ -79,7 +76,7 @@ const ArchivesPage = ({
   return (
     <div style={styles.container}>
       <ArchiveColumns
-        pools={chunkColumns(columns)(media)}
+        pools={Utils.chunkColumns(columns)(media)}
         columns={columns}
       />
     </div>

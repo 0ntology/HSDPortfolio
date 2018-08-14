@@ -1,27 +1,44 @@
 import React from 'react';
-import Dropbox from 'components/common/provider/Dropbox.jsx';
-import UI from 'constants/UI.js';
 
-export default function Home() {
+import UI from 'constants/UI'
+import Dropbox from 'components/common/provider/Dropbox.jsx'
+
+export default function Home({ data, dimension }) {
   return (
-    <Dropbox source={{path: '/projects/hsd-site'}}>
-      { data =>
-        <div style={styles.wrap}>
-          { data.map(src => <div style={styles.photo(src)} />)}
-        </div>
-      }
-    </Dropbox>
+    <HomeGrid dimension={dimension}>
+      <HomePhotos data={data} />
+    </HomeGrid>
+  )
+}
+
+function HomeGrid({ children, dimension }) {
+  return (
+    <div style={styles.container}>
+      { children }
+    </div>
+  )
+}
+
+function HomePhotos({ data }) {
+  return data.map((file, i) =>
+    <div style={styles.item(file)} key={`dropbox-home-item-${i}`} />
   )
 }
 
 const styles = {
-  wrap: {
-    height: `calc(100vh - ${UI.header.height})`,
-    width: '100vw',
-    padding: '0 8px 8px 8px',
+  container: {
+    // height: '100%',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(45vh, 1fr))',
+    gridAutoRows: 'minmax(45vh, 250px)',
+    gridGap: '16px',
+    padding: '0 16px 16px 16px',
     boxSizing: 'border-box',
   },
-  photo: (src) => ({
+  item: src => ({
     backgroundImage: `url("${src}")`,
-  }),
-};
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100%'
+  })
+}

@@ -29,9 +29,9 @@ export default Radium(Connect(Keys.navigation)(Navigator));
 
 const styles = {
   container: {
-    ...Styles.flexItem,
     ...Styles.flexRow,
     justifyContent: 'space-around',
+    width: '100%'
   },
   item: {
     ...Styles.link,

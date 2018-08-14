@@ -1,14 +1,20 @@
 import React from 'react';
 
-import Emblem from './cells/Emblem.jsx';
 import InlineNav from './cells/InlineNav.jsx';
+import EmblemIcon from 'components/common/svg/EmblemIcon.jsx';
+import EmblemCell from './cells/EmblemCell.jsx'
+import Cell from './cells/Cell.jsx'
 
 const WideHeader = () => {
   return (
     <React.Fragment>
-      <Emblem key="Wide-Header-Emblem"/>
-      <div style={styles.item} />
-      <InlineNav key="Wide-Header-Nav"/>
+      <EmblemCell>
+        <EmblemIcon style={styles.emblem} />
+      </EmblemCell>
+      <Cell />
+      <Cell>
+        <InlineNav key="Wide-Header-Nav" />
+      </Cell>
     </React.Fragment>
   )
 }
@@ -16,9 +22,8 @@ const WideHeader = () => {
 export default WideHeader;
 
 const styles = {
-  item: {
-    flex: 1,
+  emblem: {
     height: '100%',
-    margin: '0px 4px',
-  },
+    maxWidth: '100%'
+  }
 };

@@ -9,6 +9,11 @@ const boxTypes = {
 
 const UI = {
   dropboxToken: 'wdELHrxOK2AAAAAAAAAA8z3t1UZW0etjojNAohcBL76o3Zmj1C9XMGZDA1IAXGPP',
+  dropboxSources: {
+    home: {
+      path: '/projects/hsd-site'
+    }
+  },
   touch: {
     start: "touchstart",
     move: "touchmove",
@@ -35,7 +40,7 @@ const UI = {
     forward: 'forward',
   },
   header: {
-    height: '70px'
+    height: '110px'
   },
   boxTypes: boxTypes,
   getBoxType: (containerKey, index) => {

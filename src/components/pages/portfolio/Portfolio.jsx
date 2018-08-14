@@ -1,8 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 
-import { chunkColumns } from 'utils/Utils.js';
-
+import Utils from 'utils/Utils.js';
 import Colors from 'constants/Colors.js';
 import Keys from 'constants/Keys.js';
 import UI from 'constants/UI.js';
@@ -65,7 +64,7 @@ const Portfolio = ({ config, dimensions, location }) => {
 
   // chunk that data into a number of columns
   const columnCount = isDirectory ? dimensions.columns : 1;
-  const columnData = chunkColumns(columnCount)(boxData);
+  const columnData = Utils.chunkColumns(columnCount)(boxData);
 
   return (
     <div id="PortfolioPage" style={styles.base}>

@@ -12,7 +12,7 @@ import EmblemIcon from 'components/common/svg/EmblemIcon.jsx';
 
 /**
  * The HSD Landing Page.
- * @returns { jsx }
+ * @returns { Component }
  */
 export default Radium(function LandingPage() {
   return (

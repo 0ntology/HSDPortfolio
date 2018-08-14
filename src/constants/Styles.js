@@ -48,6 +48,10 @@ const Styles = {
   text: {
     fontFamily: Fonts.plain
   },
+  svgFill: {
+    height: '100%',
+    maxWidth: '100%'
+  }
 };
 
 export default Styles;
