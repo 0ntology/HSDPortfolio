@@ -1,6 +1,5 @@
 import React from 'react'
 
-import EmblemIcon from 'components/common/svg/EmblemIcon.jsx'
 import InlineNav from 'components/header/cells/InlineNav.jsx'
 
 export default function HeaderMenu({ columns, isOpen }) {

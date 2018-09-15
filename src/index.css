@@ -42,3 +42,54 @@ input:focus {
 button:focus {
   outline:0;
 }
+
+.Home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.Home-Button {
+  height: 10vh;
+  width: 10vh;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.Home-Reel {
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+
+.Home-Reel-Item {
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.Arrow-Line {
+  fill: none;
+  stroke: black;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+}
+
+.Arrow-Circle {
+  fill: none;
+  stroke: black;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+
+

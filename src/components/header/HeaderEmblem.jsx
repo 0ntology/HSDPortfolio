@@ -1,7 +1,5 @@
 import React from 'react'
 
-import EmblemIcon from 'components/common/svg/EmblemIcon.jsx'
-
 export default function HeaderEmblem({ columns }) {
   return (
     <div style={styles.root}>

@@ -7,12 +7,12 @@ import Home from './Home.jsx'
 
 export default function HomeContainer() {
   return (
-    <Dropbox source={UI.dropboxSources.home}>
-      { (data) =>
+    // <Dropbox source={UI.dropboxSources.home}>
+    //   { (data) =>
         <Dimension>
-          { (dimension) => <Home data={data} dimension={dimension} /> }
+          { (dimension) => <Home data={[1,2,3,4,5,6,7,8]} dimension={dimension} /> }
         </Dimension>
-      }
-    </Dropbox>
+    //   }
+    // </Dropbox>
   )
 }

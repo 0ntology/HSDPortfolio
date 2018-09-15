@@ -1,8 +1,6 @@
 import React from 'react'
 
 import UI from 'constants/UI.js'
-import Fonts from 'constants/Fonts.js'
-import Colors from 'constants/Colors.js'
 
 export default function HeaderWrapper({ columns, children }) {
   return (

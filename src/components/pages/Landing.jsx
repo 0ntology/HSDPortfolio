@@ -54,7 +54,7 @@ const styles = {
 
     backgroundImage: `url("${src}")`,
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
+    backgroundPosition: 'center bottom',
     backgroundSize: 'cover',
 
     transition: 'filter 1s ease',
@@ -80,7 +80,7 @@ const styles = {
     backgroundAttachment: 'fixed',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundPosition: 'center bottom',
 
     transition: 'filter .75s ease-out',
     filter: hover ? `blur(0px) grayscale(100%)` : 'blur(15px) grayscale(0%)',
