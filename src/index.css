@@ -39,8 +39,15 @@ body {
 input:focus {
   outline:0;
 }
+
 button:focus {
   outline:0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
 .Home {
@@ -64,6 +71,10 @@ button:focus {
   z-index: 1;
 }
 
+.Home-Button > svg {
+  height: 100%;
+}
+
 .Home-Reel {
   height: 100%;
   position: absolute;
@@ -76,6 +87,11 @@ button:focus {
   width: 100vw;
   background-size: cover;
   background-position: center bottom;
+}
+
+.Home-SwipeLayer {
+  position: absolute;
+  height: 100%;
 }
 
 .Arrow-Line {
@@ -92,4 +108,14 @@ button:focus {
   stroke-width: 2px;
 }
 
-
+.Header-Emblem {
+  grid-area: emblem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'BurlingtonCenter';
+  text-transform: uppercase;
+  font-size: 2.5vw;
+  padding: 12px 0 0 8px;
+  box-sizing: border-box;
+}

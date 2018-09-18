@@ -45,7 +45,7 @@ export default class Dropbox extends React.Component {
 
   loadFiledata = (metadata) => {
     return this._dropbox.filesDownload({ path: metadata.id })
-    .then(this.handleDownloadResult)
+      .then(this.handleDownloadResult)
   }
 
   /* Data Mutation */

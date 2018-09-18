@@ -8,6 +8,7 @@ import UI from 'constants/UI.js';
  *
  */
 class SwipeLayer extends React.Component {
+
   state = {
     touches: []
   }
@@ -56,9 +57,9 @@ class SwipeLayer extends React.Component {
   render() {
     return (
       <div
+        className={this.props.className}
         onTouchStart={this._handleTouchStart}
         onTouchEnd={this._handleTouchEnd}
-        style={styles.controls}
       >
         { this.props.children }
       </div>
@@ -67,20 +68,3 @@ class SwipeLayer extends React.Component {
 }
 
 export default SwipeLayer;
-
-const styles = {
-  controls: {
-    position: 'absolute',
-    left: 0,
-    top: UI.header.height,
-
-    width: '100%',
-    height: '100%',
-
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // zIndex: 500,
-  }
-}
