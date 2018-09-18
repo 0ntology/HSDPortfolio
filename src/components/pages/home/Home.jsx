@@ -2,9 +2,6 @@ import React from 'react';
 import SwipeLayer from './carousel/SwipeLayer.jsx';
 import UI from 'constants/UI.js';
 
-/**
- * `url("${file}")`
- */
 export default class HomeCarousel extends React.PureComponent {
 
   state = {
@@ -41,9 +38,9 @@ export default class HomeCarousel extends React.PureComponent {
                 <div
                   key={`home-photo-${i}`}
                   className="Home-Reel-Item"
-                  style={{background: 'aquamarine', filter: `hue-rotate(${i * 100}deg)`}}
+                  style={{backgroundImage: `url("${file}")`}}
                 />
-                )}
+              )}
           </div>
         </SwipeLayer>
         <div onClick={this._increment} className="Home-Button">

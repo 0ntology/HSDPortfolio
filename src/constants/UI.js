@@ -11,7 +11,7 @@ const UI = {
   dropboxToken: 'wdELHrxOK2AAAAAAAAAA8z3t1UZW0etjojNAohcBL76o3Zmj1C9XMGZDA1IAXGPP',
   dropboxSources: {
     home: {
-      path: '/projects/hsd-site'
+      path: '/projects/hsd-site/feed'
     }
   },
   touch: {
