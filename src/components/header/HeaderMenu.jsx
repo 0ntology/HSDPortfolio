@@ -16,8 +16,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingRight: '16px',
-
+  
     ...columns === 1 && isOpen && {
       gridArea: 'expandedMenu'
     },

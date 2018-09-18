@@ -2,16 +2,16 @@ import React from 'react'
 
 import UI from 'constants/UI.js'
 
-export default function HeaderWrapper({ columns, children }) {
+export default function HeaderWrapper({ isOpen, columns, children }) {
   return (
-    <div style={styles.root(columns)}>
+    <div style={styles.root(columns, isOpen)}>
       { children }
     </div>
   )
 }
 
 const styles = {
-  root: (columns) => ({
+  root: (columns, isOpen) => ({
     position: 'relative',
     height: UI.header.height,
     width: '100vw',
@@ -22,11 +22,13 @@ const styles = {
 
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
-    gridGap: '16px',
     gridTemplateAreas: "'emblem fill menu'",
+    gridGap: '16px',
 
     ...columns === 1 && {
-      gridTemplateAreas: "'fill emblem menu' 'expandedMenu expandedMenu expandedMenu'"
+      gridTemplateAreas: "'fill emblem menu' 'expandedMenu expandedMenu expandedMenu'",
+      gridTemplateRows: "1fr auto",
+      gridGap: isOpen ? '16px' : '0 16px',
     },
 
   })

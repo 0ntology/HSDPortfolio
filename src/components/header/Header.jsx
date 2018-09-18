@@ -19,8 +19,11 @@ export default Radium(function Header() {
           { ({ columns }) =>
             <Toggle>
               { (isOpen, onToggle) => location.pathname !== '/' &&
-                <HeaderWrapper columns={columns}>
-                  <RadiantLink className="Header-Emblem" to="/home">
+                <HeaderWrapper isOpen={isOpen} columns={columns}>
+                  <RadiantLink
+                    className={`Header-Emblem ${columns === 1 ? 'Header-Emblem--Small' : ''}`}
+                    to="/home"
+                  >
                     { columns === 1 ? 'HS' : 'HARRY SCHNAPER'}
                   </RadiantLink>
                   <HeaderMenu
