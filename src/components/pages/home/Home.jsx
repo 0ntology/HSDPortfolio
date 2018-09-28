@@ -34,13 +34,13 @@ export default class HomeCarousel extends React.PureComponent {
         </div>
         <SwipeLayer className="Home-SwipeLayer" onSwipe={this._handleSwipe}>
           <div className="Home-Reel" style={{left: `calc(-${this.state.index} * 100vw)`}}>
-              { this.props.data.map((file, i) =>
-                <div
-                  key={`home-photo-${i}`}
-                  className="Home-Reel-Item"
-                  style={{backgroundImage: `url("${file}")`}}
-                />
-              )}
+            { this.props.data.map((file, i) =>
+              <div
+                key={`home-photo-${i}`}
+                className="Home-Reel-Item"
+                style={{backgroundImage: `url("${file}")`}}
+              />
+            )}
           </div>
         </SwipeLayer>
         <div onClick={this._increment} className="Home-Button">

@@ -89,8 +89,8 @@ a {
   width: 100vw;
   padding: 8px;
   box-sizing: border-box;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: center 75%;
   background-repeat: no-repeat;
   background-origin: content-box;
 }
