@@ -1,11 +1,10 @@
 import React from 'react';
 import { forEach, find, map } from 'lodash';
-
 import UI from 'constants/UI.js';
 
 /**
  * @class SwipeLayer:
- *
+ * A div which tracks user touches and exposes corresponding hooks.
  */
 class SwipeLayer extends React.Component {
 

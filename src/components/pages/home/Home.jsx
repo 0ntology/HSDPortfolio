@@ -1,5 +1,5 @@
 import React from 'react';
-import SwipeLayer from './carousel/SwipeLayer.jsx';
+import SwipeLayer from 'components/common/SwipeLayer.jsx';
 import UI from 'constants/UI.js';
 
 export default class HomeCarousel extends React.PureComponent {
