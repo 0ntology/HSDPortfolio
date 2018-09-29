@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import { StyleRoot } from 'radium';
 
 import App from 'components/App.jsx';
-import ScrollController from 'components/ScrollController.jsx';
+import ScrollController from 'components/common/ScrollController.jsx';
 
 class AppContainer extends Component {
   render() {

@@ -6,7 +6,7 @@ import skyline from 'constants/assets/skyline.jpg';
 
 import Hover from 'components/common/provider/Hover.jsx';
 import Dimension from 'components/common/provider/Dimension.jsx';
-import SwipeLink from './SwipeLink.jsx';
+import SwipeLink from 'components/common/SwipeLink.jsx';
 import QuadBorderBox from 'components/common/svg/QuadBorder.jsx';
 import EmblemIcon from 'components/common/svg/EmblemIcon.jsx';
 

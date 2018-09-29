@@ -3,21 +3,21 @@ import { Route, Switch } from 'react-router-dom';
 
 import Fonts from 'constants/Fonts.js';
 import Colors from 'constants/Colors.js';
+import UI from 'constants/UI.js';
 
 import Header from 'components/header/Header.jsx';
 import About     from 'components/pages/about/About.jsx';
 import Archives  from 'components/pages/archives/Archives.jsx';
 import Contact   from 'components/pages/contact/Contact.jsx';
 import Home      from 'components/pages/home/HomeContainer.jsx';
-import Landing   from 'components/pages/Landing.jsx';
+import Landing   from 'components/pages/landing/Landing.jsx';
 import Portfolio from 'components/pages/portfolio/Portfolio.jsx';
-import Page from 'components/pages/Page.jsx'
 
 export default function App() {
   return (
     <div style={styles.base}>
       <Header/>
-      <Page>
+      <div style={styles.page}>
         <Switch>
           <Route path="/" exact component={Landing} />
           <Route path="/home" component={Home} />
@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/archives" component={Archives} />
         </Switch>
-      </Page>
+      </div>
     </div>
   )
 }
@@ -42,5 +42,9 @@ const styles = {
     height: '100vh',
     width: '100vw',
     boxSizing: 'border-box'
+  },
+  page: {
+    overflow: 'auto',
+    height: `calc(100vh - ${UI.header.height})`
   }
 };
