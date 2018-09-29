@@ -1,4 +1,3 @@
-// external
 import React, { Component } from  'react';
 import { HashRouter } from 'react-router-dom';
 import { StyleRoot } from 'radium';
